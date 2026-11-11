@@ -10,8 +10,14 @@ const NAV = [
     ["s2-offre-demande.html", "Supply, demand & equilibrium", "Offre, demande et équilibre"],
     ["s2-elasticite.html", "Elasticity", "L'élasticité"],
   ]},
+  { en: "Session 3", fr: "Séance 3", num: "3", items: [
+    ["s3-consommateur.html", "Consumer choice", "Le choix du consommateur"],
+  ]},
+  { en: "Session 4", fr: "Séance 4", num: "4", items: [
+    ["s4-couts.html", "Production costs", "Les coûts de production"],
+    ["s4-concurrence-parfaite.html", "The firm in perfect competition", "La firme en concurrence parfaite"],
+  ]},
   { en: "Coming up", fr: "À venir", items: [
-    ["concurrence-parfaite.html", "Perfect competition", "Concurrence parfaite"],
     ["monopole.html", "Monopoly", "Monopole"],
     ["oligopole-jeux.html", "Oligopoly & game theory", "Oligopole et théorie des jeux"],
   ]},

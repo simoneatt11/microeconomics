@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="The firm in perfect competition · Microeconomics" data-fr="La firme en concurrence parfaite · Microéconomie">The firm in perfect competition · Microeconomics</title>
+<script>try{if(localStorage.getItem("lang")==="fr")document.documentElement.lang="fr"}catch(e){}</script>
+<link rel="stylesheet" href="../assets/style.css?v=5">
+</head>
+<body>
+<div class="layout">
+<main>
+<div class="en">
+<p class="kicker">Session 4 · Part B</p><h1>The firm in perfect competition</h1><p class="lead">Profit maximisation (MR = MC = p), the short-run supply curve, and long-run industry equilibrium.</p>
+<h2><span class="badge">1</span>The optimality condition: MR = MC = p</h2>
+<div class="grid">
+<div class="card"><h4>The firm is a price taker</h4><p>Total revenue TR(Q) = p × Q, so marginal revenue MR = dTR/dQ = (dp/dQ)·Q + p = 0·Q + p = <b>p</b>.</p></div>
+<div class="card"><h4>Maximise profit</h4><p>dπ/dQ = MR − MC = 0 ⟹ <b>p = MC</b>. The firm produces up to the quantity q* where the cost of the last unit equals the market price.</p></div>
+</div>
+<div class="grid">
+<div class="card"><span class="tag">Result 1</span><h4>p = MC</h4><p>The optimality condition.</p></div>
+<div class="card"><span class="tag">Result 2</span><h4>Supply curve</h4><p>The rising part of MC above minimum AVC (the shutdown point).</p></div>
+<div class="card"><span class="tag">Result 3</span><h4>Profit &gt; 0 if p &gt; min ATC</h4><p>The long-run viability condition.</p></div>
+</div>
+</div>
+<div class="fr">
+<p class="kicker">Séance 4 · Partie B</p><h1>La firme en concurrence parfaite</h1><p class="lead">Maximisation du profit (Rm = Cm = p), courbe d'offre de court terme et équilibre d'industrie à long terme.</p>
+<h2><span class="badge">1</span>La condition d'optimalité : Rm = Cm = p</h2>
+<div class="grid">
+<div class="card"><h4>La firme est preneuse de prix</h4><p>Recette totale RT(Q) = p × Q, donc recette marginale Rm = dRT/dQ = (dp/dQ)·Q + p = 0·Q + p = <b>p</b>.</p></div>
+<div class="card"><h4>Maximiser le profit</h4><p>dπ/dQ = Rm − Cm = 0 ⟹ <b>p = Cm</b>. La firme produit jusqu'à la quantité q* où le coût de la dernière unité égale le prix de marché.</p></div>
+</div>
+<div class="grid">
+<div class="card"><span class="tag">Résultat 1</span><h4>p = Cm</h4><p>La condition d'optimalité.</p></div>
+<div class="card"><span class="tag">Résultat 2</span><h4>Courbe d'offre</h4><p>La partie croissante du Cm au-dessus du minimum du CVM (le seuil de fermeture).</p></div>
+<div class="card"><span class="tag">Résultat 3</span><h4>Profit &gt; 0 si p &gt; min CTM</h4><p>La condition de viabilité de long terme.</p></div>
+</div>
+</div>
+<div class="tot" id="pf">
+<b><span class="en">Try it: the firm's decision at each price</span><span class="fr">À vous : la décision de la firme à chaque prix</span></b>
+<p style="margin:6px 0 10px;font-size:.92rem"><span class="en">Cost table of the course (fixed cost = 50). The firm picks the quantity that maximises profit.</span><span class="fr">Tableau de coûts du cours (coût fixe = 50). La firme choisit la quantité qui maximise le profit.</span></p>
+<div style="font-size:1.25rem;font-weight:700">p = <span id="pfp"></span> € · Q* = <span id="pfq"></span> · <span class="en">profit</span><span class="fr">profit</span> = <span id="pfr"></span></div>
+<input type="range" id="pfs" min="10" max="90" step="1" aria-label="price">
+<svg viewBox="0 0 460 280" id="pfsvg" aria-hidden="true"></svg>
+<div class="verdict" id="pfv"></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><button type="button" data-p="20">p = 20</button><button type="button" data-p="28">p = 28</button><button type="button" data-p="32">p = 32</button><button type="button" data-p="50">p = 50</button></div>
+</div><div class="en">
+<p style="font-size:.85rem;color:var(--muted)">The slider uses the cost table from <a href="s4-couts.html">4.1</a> (whole units). The shaded rectangle is profit (green) or loss (orange) = (p − ATC) × Q*. At p = 50 the table gives Q* = 9 and a profit of 158; with smooth curves the course finds Q* ≈ 9.4.</p>
+<h2><span class="badge">2</span>The short-run decision with fixed costs</h2>
+<div class="table-wrap"><table><thead><tr><th>Price</th><th>Situation</th><th>Why</th><th>Decision</th></tr></thead><tbody>
+<tr><td><b>p &gt; min ATC</b> (31.75)</td><td>Profit &gt; 0</td><td>TR = p × Q* &gt; TC = ATC × Q*; profit = (p − ATC) × Q*</td><td class="ok">Produce ✓</td></tr>
+<tr><td><b>min AVC &lt; p &lt; min ATC</b> (25 – 31.75)</td><td>Loss, but smaller than shutting down</td><td>Producing: loss = FC − (p − AVC) × Q*. Not producing: loss = FC. The surplus (p − AVC) × Q* &gt; 0 covers part of the fixed cost.</td><td class="ok">Produce anyway ✓</td></tr>
+<tr><td><b>p &lt; min AVC</b> (25)</td><td>Loss &gt; FC</td><td>The price does not even cover variable costs: producing makes the loss worse.</td><td class="no">Shut down ✗ (loss = FC)</td></tr></tbody></table></div>
+<div class="callout"><strong>Intuition</strong>In the short run fixed costs (rent, machines) exist and cannot be recovered: shutting down still costs FC. So the firm keeps producing as long as revenue covers at least its variable costs.</div>
+<div class="grid">
+<div class="card"><h4>Producer surplus</h4><p>PS = Σ (p − MC) over the units produced = TR − VC: unit margins net of <i>variable</i> costs only.</p></div>
+<div class="card"><h4>Profit</h4><p>π = TR − TC = (p − ATC) × Q*: ATC includes the average fixed cost.</p></div>
+</div>
+<p><b>Profit = surplus − FC:</b> the surplus must first pay the fixed costs; what remains is profit. The two coincide in the long run, when no cost is fixed.</p>
+</div>
+<div class="fr">
+<p style="font-size:.85rem;color:var(--muted)">Le curseur utilise le tableau de coûts de <a href="s4-couts.html">4.1</a> (unités entières). Le rectangle grisé est le profit (vert) ou la perte (orange) = (p − CTM) × Q*. À p = 50, le tableau donne Q* = 9 et un profit de 158 ; avec des courbes continues, le cours trouve Q* ≈ 9,4.</p>
+<h2><span class="badge">2</span>La décision de court terme avec des coûts fixes</h2>
+<div class="table-wrap"><table><thead><tr><th>Prix</th><th>Situation</th><th>Pourquoi</th><th>Décision</th></tr></thead><tbody>
+<tr><td><b>p &gt; min CTM</b> (31,75)</td><td>Profit &gt; 0</td><td>RT = p × Q* &gt; CT = CTM × Q* ; profit = (p − CTM) × Q*</td><td class="ok">Produire ✓</td></tr>
+<tr><td><b>min CVM &lt; p &lt; min CTM</b> (25 – 31,75)</td><td>Perte, mais inférieure à la fermeture</td><td>En produisant : perte = CF − (p − CVM) × Q*. Sans produire : perte = CF. Le surplus (p − CVM) × Q* &gt; 0 couvre une partie des CF.</td><td class="ok">Produire quand même ✓</td></tr>
+<tr><td><b>p &lt; min CVM</b> (25)</td><td>Perte &gt; CF</td><td>Le prix ne couvre même pas les coûts variables : produire aggrave la perte.</td><td class="no">Fermer ✗ (perte = CF)</td></tr></tbody></table></div>
+<div class="callout"><strong>Intuition</strong>À court terme, les coûts fixes (loyer, machines) existent et sont irrécupérables : fermer coûte quand même CF. La firme continue donc à produire tant que ses recettes couvrent au moins ses coûts variables.</div>
+<div class="grid">
+<div class="card"><h4>Surplus du producteur</h4><p>SP = Σ (p − Cm) sur les unités produites = RT − CV : marges unitaires nettes des seuls coûts <i>variables</i>.</p></div>
+<div class="card"><h4>Profit</h4><p>π = RT − CT = (p − CTM) × Q* : le CTM inclut le coût fixe moyen.</p></div>
+</div>
+<p><b>Profit = surplus − CF :</b> le surplus doit d'abord payer les coûts fixes ; ce qui reste est le profit. Les deux coïncident à long terme, quand plus aucun coût n'est fixe.</p>
+</div>
+<div class="en">
+<h2><span class="badge">3</span>Industry equilibrium</h2>
+<div class="callout"><strong>Key result</strong>In the long run, under perfect competition, the market price converges to <b>minimum average total cost</b>: p = min ATC → economic profit = 0, maximum allocative efficiency, free entry and exit.</div>
+<p><b>Industry supply:</b> with free access to technology, all firms in a sector share the same production function, so industry supply = the sum of individual supplies = <b>n × individual supply</b> (same curves, horizontal axis × n). Every firm is a price taker; the price is set where aggregate supply meets demand.</p>
+<h3>Example: the fodder-beet market</h3>
+<figure><svg viewBox="0 0 500 280" role="img" aria-label="industry adjustment"><line class="gridline" x1="42" y1="246.0" x2="486" y2="246.0"/><text x="36" y="250.0" text-anchor="end" class="muted small">0</text><line class="gridline" x1="42" y1="168.7" x2="486" y2="168.7"/><text x="36" y="172.7" text-anchor="end" class="muted small">25</text><line class="gridline" x1="42" y1="91.3" x2="486" y2="91.3"/><text x="36" y="95.3" text-anchor="end" class="muted small">50</text><line class="gridline" x1="42" y1="14.0" x2="486" y2="14.0"/><text x="36" y="18.0" text-anchor="end" class="muted small">75</text><text x="42.0" y="261" text-anchor="middle" class="muted small">0</text><text x="153.0" y="261" text-anchor="middle" class="muted small">25</text><text x="264.0" y="261" text-anchor="middle" class="muted small">50</text><text x="375.0" y="261" text-anchor="middle" class="muted small">75</text><text x="486.0" y="261" text-anchor="middle" class="muted small">100</text><line class="axis" x1="42" y1="246" x2="486" y2="246"/><line class="axis" x1="42" y1="246" x2="42" y2="10"/><text x="486" y="276" text-anchor="end" class="muted small">Market quantity</text><text x="47" y="20" class="muted small">p (€)</text><polyline points="86.4,60.4 308.4,215.1" class="line1"/><text x="312.4" y="219.1" text-anchor="start" class="bold small">D₁</text><polyline points="204.1,29.5 426.1,184.1" class="line1" stroke-dasharray="6 4"/><text x="430.1" y="188.1" text-anchor="start" class="bold small">D₂</text><polyline points="115.3,215.1 381.7,29.5" class="line2"/><text x="385.7" y="33.5" text-anchor="start" class="bold small">S₁</text><polyline points="277.3,215.1 486.0,69.7" class="line2" stroke-dasharray="6 4"/><text x="482.0" y="63.7" text-anchor="end" class="bold small">S₃</text><polyline points="42.0,147.8 486.0,147.8" class="lineT"/><text x="46.0" y="139.8" text-anchor="start" class="bold small">p = min ATC (long run)</text><circle cx="211.8" cy="147.8" r="5" class="c1 ring"/><text x="209.8" y="165.8" text-anchor="middle" class="small bold">A</text><circle cx="292.9" cy="91.3" r="5" class="c2 ring"/><text x="282.9" y="87.3" text-anchor="end" class="small bold">B · p₂ = 50</text><circle cx="373.9" cy="147.8" r="5" class="c1 ring"/><text x="373.9" y="165.8" text-anchor="middle" class="small bold">C</text></svg><figcaption><b>A:</b> initial equilibrium, p₁ = min ATC = 31.75, zero economic profit. <b>Demand shock</b> D₁ → D₂: in the short run the price jumps to p₂ = 50 (<b>B</b>); existing firms produce more and earn a profit = (p₂ − ATC) × q₂. <b>Long run:</b> profits attract new entrants (other farmers switch crops), supply shifts right (S₁ → S₃) and the price falls back to min ATC (<b>C</b>): p* = p₁ but Q₃ &gt; Q₁, with more firms.</figcaption></figure>
+<div class="flow"><span class="step">1 · Short run: demand shock → p ↑, profits ↑</span><span class="arr">→</span><span class="step">2 · Entry of new firms → supply ↑</span><span class="arr">→</span><span class="step key">3 · Long run: p = min ATC, economic profit = 0</span></div>
+<p><b>Long-run supply is perfectly elastic</b> at p* = min ATC because of free entry and exit: p &gt; min ATC → entry → supply ↑ → p ↓; p &lt; min ATC → exit → supply ↓ → p ↑.</p>
+<div class="grid">
+<div class="card"><h4>Economic ≠ accounting profit</h4><p>Economic profit = accounting profit − opportunity costs (e.g. the return the owner's capital and time could earn elsewhere). Zero economic profit is not poor performance: the firm earns a normal return, as good as the best alternative investment.</p></div>
+<div class="card"><h4>A theoretical target</h4><p>Economic life is a series of shocks (costs, demand, technology). Each one creates temporary profits or losses, which trigger entry and exit. The market heads towards equilibrium without ever settling there.</p></div>
+<div class="card"><h4>Identical firms?</h4><p>Zero profit for all assumes identical costs. If firms differ (cheaper inputs, better location), only the <b>marginal firm</b> earns zero; infra-marginal firms keep a <b>Ricardian rent</b>.</p></div>
+</div>
+<div class="callout"><strong>Welfare</strong>W = consumer surplus + producer surplus (value to buyers − cost of production). With identical firms, PS = 0 in the long run; with heterogeneous costs PS &gt; 0. Both outcomes are efficient (p = MC, no deadweight loss), and at the same p* welfare is higher with heterogeneous firms: the same units are produced with fewer resources. Monopoly, taxes or quotas create a deadweight loss.</div>
+</div>
+<div class="fr">
+<h2><span class="badge">3</span>L'équilibre d'industrie</h2>
+<div class="callout"><strong>Résultat clé</strong>À long terme, en concurrence parfaite, le prix de marché converge vers le <b>minimum du coût moyen total</b> : p = min CTM → profit économique = 0, efficacité allocative maximale, libre entrée et sortie.</div>
+<p><b>Offre d'industrie :</b> avec libre accès aux technologies, toutes les firmes d'un secteur ont la même fonction de production ; l'offre agrégée = somme des offres individuelles = <b>n × offre individuelle</b> (mêmes courbes, axe horizontal × n). Toutes les firmes sont preneuses de prix ; le prix se fixe à l'intersection de l'offre agrégée et de la demande.</p>
+<h3>Exemple : le marché de la betterave fourragère</h3>
+<figure><svg viewBox="0 0 500 280" role="img" aria-label="industry adjustment"><line class="gridline" x1="42" y1="246.0" x2="486" y2="246.0"/><text x="36" y="250.0" text-anchor="end" class="muted small">0</text><line class="gridline" x1="42" y1="168.7" x2="486" y2="168.7"/><text x="36" y="172.7" text-anchor="end" class="muted small">25</text><line class="gridline" x1="42" y1="91.3" x2="486" y2="91.3"/><text x="36" y="95.3" text-anchor="end" class="muted small">50</text><line class="gridline" x1="42" y1="14.0" x2="486" y2="14.0"/><text x="36" y="18.0" text-anchor="end" class="muted small">75</text><text x="42.0" y="261" text-anchor="middle" class="muted small">0</text><text x="153.0" y="261" text-anchor="middle" class="muted small">25</text><text x="264.0" y="261" text-anchor="middle" class="muted small">50</text><text x="375.0" y="261" text-anchor="middle" class="muted small">75</text><text x="486.0" y="261" text-anchor="middle" class="muted small">100</text><line class="axis" x1="42" y1="246" x2="486" y2="246"/><line class="axis" x1="42" y1="246" x2="42" y2="10"/><text x="486" y="276" text-anchor="end" class="muted small">Quantité de marché</text><text x="47" y="20" class="muted small">p (€)</text><polyline points="86.4,60.4 308.4,215.1" class="line1"/><text x="312.4" y="219.1" text-anchor="start" class="bold small">D₁</text><polyline points="204.1,29.5 426.1,184.1" class="line1" stroke-dasharray="6 4"/><text x="430.1" y="188.1" text-anchor="start" class="bold small">D₂</text><polyline points="115.3,215.1 381.7,29.5" class="line2"/><text x="385.7" y="33.5" text-anchor="start" class="bold small">O₁</text><polyline points="277.3,215.1 486.0,69.7" class="line2" stroke-dasharray="6 4"/><text x="482.0" y="63.7" text-anchor="end" class="bold small">O₃</text><polyline points="42.0,147.8 486.0,147.8" class="lineT"/><text x="46.0" y="139.8" text-anchor="start" class="bold small">p = min CTM (LT)</text><circle cx="211.8" cy="147.8" r="5" class="c1 ring"/><text x="209.8" y="165.8" text-anchor="middle" class="small bold">A</text><circle cx="292.9" cy="91.3" r="5" class="c2 ring"/><text x="282.9" y="87.3" text-anchor="end" class="small bold">B · p₂ = 50</text><circle cx="373.9" cy="147.8" r="5" class="c1 ring"/><text x="373.9" y="165.8" text-anchor="middle" class="small bold">C</text></svg><figcaption><b>A :</b> équilibre initial, p₁ = min CTM = 31,75, profit économique nul. <b>Choc de demande</b> D₁ → D₂ : à court terme le prix monte à p₂ = 50 (<b>B</b>) ; les firmes existantes produisent plus et réalisent un profit = (p₂ − CTM) × q₂. <b>Long terme :</b> les profits attirent de nouveaux entrants (d'autres agriculteurs reconvertissent leur culture), l'offre se déplace vers la droite (O₁ → O₃) et le prix revient à min CTM (<b>C</b>) : p* = p₁ mais Q₃ &gt; Q₁, avec plus de firmes.</figcaption></figure>
+<div class="flow"><span class="step">1 · CT : choc de demande → p ↑, profits ↑</span><span class="arr">→</span><span class="step">2 · Entrée de nouvelles firmes → offre ↑</span><span class="arr">→</span><span class="step key">3 · LT : p = min CTM, profit éco = 0</span></div>
+<p><b>L'offre de long terme est parfaitement élastique</b> au prix p* = min CTM grâce à la libre entrée et sortie : p &gt; min CTM → entrée → offre ↑ → p ↓ ; p &lt; min CTM → sortie → offre ↓ → p ↑.</p>
+<div class="grid">
+<div class="card"><h4>Profit économique ≠ profit comptable</h4><p>Profit économique = profit comptable − coûts d'opportunité (ex. ce que le capital et le temps du propriétaire rapporteraient ailleurs). Un profit économique nul n'est pas une mauvaise performance : la firme obtient un rendement normal, aussi bon que le meilleur placement alternatif.</p></div>
+<div class="card"><h4>Une cible théorique</h4><p>La vie économique est une succession de chocs (coûts, demande, technologie). Chacun recrée des profits ou des pertes temporaires, qui déclenchent entrées et sorties. Le marché converge vers l'équilibre sans jamais s'y fixer.</p></div>
+<div class="card"><h4>Des firmes identiques ?</h4><p>Un profit nul pour toutes suppose des coûts identiques. Si les firmes diffèrent (facteurs moins chers, meilleur site), seule la <b>firme marginale</b> a un profit nul ; les firmes infra-marginales conservent une <b>rente ricardienne</b>.</p></div>
+</div>
+<div class="callout"><strong>Bien-être</strong>W = surplus du consommateur + surplus du producteur (valeur pour les acheteurs − coût de production). Avec des firmes identiques, SP = 0 à LT ; avec des coûts hétérogènes, SP &gt; 0. Les deux situations sont efficaces (p = Cm, pas de perte sèche), et à p* égal le bien-être est plus élevé avec des firmes hétérogènes : les mêmes unités sont produites avec moins de ressources. Monopole, taxe ou quota créent une perte sèche.</div>
+</div>
+<div class="en">
+<h2><span class="badge">4</span>Real-world application: the electricity spot market</h2>
+<p>On wholesale electricity markets, power plants are called in order of increasing marginal cost — the <b>merit order</b>. The spot price is set by the marginal cost of the last unit called (the marginal producer).</p>
+<figure><svg viewBox="0 0 560 280" role="img" aria-label="merit order"><line class="gridline" x1="46" y1="240.0" x2="546" y2="240.0"/><text x="40" y="244.0" text-anchor="end" class="muted small">0</text><line class="gridline" x1="46" y1="184.0" x2="546" y2="184.0"/><text x="40" y="188.0" text-anchor="end" class="muted small">50</text><line class="gridline" x1="46" y1="128.0" x2="546" y2="128.0"/><text x="40" y="132.0" text-anchor="end" class="muted small">100</text><line class="gridline" x1="46" y1="72.0" x2="546" y2="72.0"/><text x="40" y="76.0" text-anchor="end" class="muted small">150</text><line class="gridline" x1="46" y1="16.0" x2="546" y2="16.0"/><text x="40" y="20.0" text-anchor="end" class="muted small">200</text><line class="axis" x1="46" y1="240" x2="546" y2="240"/><line class="axis" x1="46" y1="240" x2="46" y2="16"/><text x="50" y="20" class="muted small">€/MWh</text><text x="546" y="274" text-anchor="end" class="muted small">Capacity called (illustrative)</text><g><title>Renewables: ~0 €/MWh</title><path class="fill1" d="M47.0,240 V238.9 Q47.0,237.8 48.120000000000005,237.8 H165.0921212121212 Q166.21212121212122,237.8 166.21212121212122,238.9 V240 Z"/></g><text x="106.6" y="231.8" text-anchor="middle" class="small bold">0</text><text x="106.6" y="254" text-anchor="middle" class="small">Renewables</text><g><title>Nuclear: ~12 €/MWh</title><path class="fill1" d="M168.21212121212122,240 V230.6 Q168.21212121212122,226.6 172.21212121212122,226.6 H283.42424242424244 Q287.42424242424244,226.6 287.42424242424244,230.6 V240 Z"/></g><text x="227.8" y="220.6" text-anchor="middle" class="small bold">12</text><text x="227.8" y="254" text-anchor="middle" class="small">Nuclear</text><g><title>Biomass: ~60 €/MWh</title><path class="fill1" d="M289.42424242424244,240 V176.8 Q289.42424242424244,172.8 293.42424242424244,172.8 H328.8787878787879 Q332.8787878787879,172.8 332.8787878787879,176.8 V240 Z"/></g><text x="311.2" y="166.8" text-anchor="middle" class="small bold">60</text><text x="311.2" y="254" text-anchor="middle" class="small">Biomass</text><g><title>CCGT gas: ~103 €/MWh</title><path class="fill2" d="M334.8787878787879,240 V128.6 Q334.8787878787879,124.6 338.8787878787879,124.6 H450.0909090909091 Q454.0909090909091,124.6 454.0909090909091,128.6 V240 Z"/></g><text x="394.5" y="118.6" text-anchor="middle" class="small bold">103</text><text x="394.5" y="254" text-anchor="middle" class="small">CCGT gas</text><g><title>Peakers (OCGT): ~180 €/MWh</title><path class="fill1" d="M456.0909090909091,240 V42.4 Q456.0909090909091,38.4 460.0909090909091,38.4 H510.69696969696975 Q514.6969696969697,38.4 514.6969696969697,42.4 V240 Z"/></g><text x="485.4" y="32.4" text-anchor="middle" class="small bold">180</text><text x="485.4" y="254" text-anchor="middle" class="small">Peakers (OCGT)</text><line x1="409.6" y1="16" x2="409.6" y2="240" style="stroke:var(--text)" stroke-width="2" stroke-dasharray="6 4"/><text x="415.6" y="28" class="small bold">Demand</text><line x1="46" y1="124.6" x2="409.6" y2="124.6" style="stroke:var(--c2)" stroke-dasharray="3 3"/><text x="52" y="118.6" class="small bold">Spot price ≈ €103/MWh</text></svg><figcaption>Marginal costs: renewables ~€0/MWh (no fuel) · nuclear (Doel 4, Tihange 3) ~€12 (uranium + O&amp;M) · biomass &amp; waste ~€60 · CCGT gas ~€103 (gas + CO₂) · peakers (OCGT) ~€180 (gas + CO₂, low efficiency). Capacity widths are illustrative.</figcaption></figure>
+<div class="grid">
+<div class="card"><h4>The merit-order effect</h4><p>Renewables have MC ≈ 0. Adding them shifts supply to the right, pushing the most expensive plants out and lowering the spot price.</p></div>
+<div class="card"><h4>Belpex — July 2026</h4><p>Belpex / EPEX SPOT Belgium, coupled with neighbouring markets (day-ahead prices). Monthly average July 2026: <b>€105.64/MWh</b>. CCGT MC ≈ 40/0.55 + 0.37 × 81 ≈ €103/MWh (TTF gas ≈ €40/MWh, CO₂ ≈ €81/t) → <b>gas CCGT is still the marginal producer in Belgium</b>.</p></div>
+</div>
+<h2>Exercise — your turn</h2>
+<p>A firm produces up to 100 units a day. The first 80 units are made in normal working time; units 81–100 need overtime. Raw materials: €8/unit. Wages: €30/unit (normal time), €50/unit (overtime).</p>
+<ol><li>Find AVC and MC at Q = 80 and Q = 100.</li><li>For p = €35, €50 and €80: what is the optimal quantity Q*, and the variable profit?</li></ol>
+<details class="q"><summary>Show the solution</summary>
+<p><b>Costs.</b> Units 1–80: MC = 8 + 30 = €38. Units 81–100: MC = 8 + 50 = €58.<br>At Q = 80: AVC = €38, MC = €38. At Q = 100: VC = 80 × 38 + 20 × 58 = 4,200 → AVC = €42, MC = €58.</p>
+<p><b>Decisions</b> (min AVC = 38):</p>
+<ul><li><b>p = 35</b> &lt; min AVC → Q* = 0 (shut down); variable profit 0, the loss is the fixed cost.</li><li><b>p = 50</b>: 38 &lt; 50 &lt; 58 → Q* = 80; variable profit = (50 − 38) × 80 = <b>€960</b>.</li><li><b>p = 80</b> &gt; 58 → Q* = 100; variable profit = 8,000 − 4,200 = <b>€3,800</b>.</li></ul></details>
+<h2>Check yourself</h2>
+<details class="q"><summary>Why is marginal revenue equal to the price for a competitive firm?</summary>The firm is a price taker: selling one more unit does not change the price, so each extra unit brings in exactly p.</details>
+<details class="q"><summary>With the course cost table, p = 28. Produce or shut down?</summary>Produce (Q* = 7): 28 is above min AVC (25) but below min ATC (31.75). The loss is 29, less than the 50 lost by shutting down.</details>
+<details class="q"><summary>Why does economic profit fall to zero in the long run?</summary>Positive profits attract entrants; supply rises and the price falls until p = min ATC. Losses cause exit and the reverse.</details>
+<details class="q"><summary>What sets the electricity spot price?</summary>The marginal cost of the last (most expensive) plant needed to meet demand — in Belgium, usually a gas CCGT.</details>
+</div>
+<div class="fr">
+<h2><span class="badge">4</span>Application réelle : le marché spot de l'électricité</h2>
+<p>Sur les marchés de gros de l'électricité, les centrales sont appelées par ordre de coût marginal croissant — le <b>merit order</b>. Le prix spot est fixé par le coût marginal de la dernière unité appelée (le producteur marginal).</p>
+<figure><svg viewBox="0 0 560 280" role="img" aria-label="merit order"><line class="gridline" x1="46" y1="240.0" x2="546" y2="240.0"/><text x="40" y="244.0" text-anchor="end" class="muted small">0</text><line class="gridline" x1="46" y1="184.0" x2="546" y2="184.0"/><text x="40" y="188.0" text-anchor="end" class="muted small">50</text><line class="gridline" x1="46" y1="128.0" x2="546" y2="128.0"/><text x="40" y="132.0" text-anchor="end" class="muted small">100</text><line class="gridline" x1="46" y1="72.0" x2="546" y2="72.0"/><text x="40" y="76.0" text-anchor="end" class="muted small">150</text><line class="gridline" x1="46" y1="16.0" x2="546" y2="16.0"/><text x="40" y="20.0" text-anchor="end" class="muted small">200</text><line class="axis" x1="46" y1="240" x2="546" y2="240"/><line class="axis" x1="46" y1="240" x2="46" y2="16"/><text x="50" y="20" class="muted small">€/MWh</text><text x="546" y="274" text-anchor="end" class="muted small">Capacité appelée (illustratif)</text><g><title>Renouvelables: ~0 €/MWh</title><path class="fill1" d="M47.0,240 V238.9 Q47.0,237.8 48.120000000000005,237.8 H165.0921212121212 Q166.21212121212122,237.8 166.21212121212122,238.9 V240 Z"/></g><text x="106.6" y="231.8" text-anchor="middle" class="small bold">0</text><text x="106.6" y="254" text-anchor="middle" class="small">Renouvelables</text><g><title>Nucléaire: ~12 €/MWh</title><path class="fill1" d="M168.21212121212122,240 V230.6 Q168.21212121212122,226.6 172.21212121212122,226.6 H283.42424242424244 Q287.42424242424244,226.6 287.42424242424244,230.6 V240 Z"/></g><text x="227.8" y="220.6" text-anchor="middle" class="small bold">12</text><text x="227.8" y="254" text-anchor="middle" class="small">Nucléaire</text><g><title>Biomasse: ~60 €/MWh</title><path class="fill1" d="M289.42424242424244,240 V176.8 Q289.42424242424244,172.8 293.42424242424244,172.8 H328.8787878787879 Q332.8787878787879,172.8 332.8787878787879,176.8 V240 Z"/></g><text x="311.2" y="166.8" text-anchor="middle" class="small bold">60</text><text x="311.2" y="254" text-anchor="middle" class="small">Biomasse</text><g><title>CCGT gaz: ~103 €/MWh</title><path class="fill2" d="M334.8787878787879,240 V128.6 Q334.8787878787879,124.6 338.8787878787879,124.6 H450.0909090909091 Q454.0909090909091,124.6 454.0909090909091,128.6 V240 Z"/></g><text x="394.5" y="118.6" text-anchor="middle" class="small bold">103</text><text x="394.5" y="254" text-anchor="middle" class="small">CCGT gaz</text><g><title>Pointe (OCGT): ~180 €/MWh</title><path class="fill1" d="M456.0909090909091,240 V42.4 Q456.0909090909091,38.4 460.0909090909091,38.4 H510.69696969696975 Q514.6969696969697,38.4 514.6969696969697,42.4 V240 Z"/></g><text x="485.4" y="32.4" text-anchor="middle" class="small bold">180</text><text x="485.4" y="254" text-anchor="middle" class="small">Pointe (OCGT)</text><line x1="409.6" y1="16" x2="409.6" y2="240" style="stroke:var(--text)" stroke-width="2" stroke-dasharray="6 4"/><text x="415.6" y="28" class="small bold">Demande</text><line x1="46" y1="124.6" x2="409.6" y2="124.6" style="stroke:var(--c2)" stroke-dasharray="3 3"/><text x="52" y="118.6" class="small bold">Prix spot ≈ 103 €/MWh</text></svg><figcaption>Coûts marginaux : renouvelables ~0 €/MWh (pas de combustible) · nucléaire (Doel 4, Tihange 3) ~12 € (uranium + O&amp;M) · biomasse et déchets ~60 € · CCGT gaz ~103 € (gaz + CO₂) · pointe (OCGT) ~180 € (gaz + CO₂, faible rendement). Les capacités sont illustratives.</figcaption></figure>
+<div class="grid">
+<div class="card"><h4>L'effet merit order</h4><p>Les ENR ont un Cm ≈ 0. Leur arrivée déplace l'offre vers la droite, évince les producteurs les plus chers et fait baisser le prix spot.</p></div>
+<div class="card"><h4>Belpex — juillet 2026</h4><p>Belpex / EPEX SPOT Belgium, couplée aux marchés voisins (prix day-ahead). Moyenne mensuelle juillet 2026 : <b>105,64 €/MWh</b>. Cm du CCGT ≈ 40/0,55 + 0,37 × 81 ≈ 103 €/MWh (gaz TTF ≈ 40 €/MWh, CO₂ ≈ 81 €/t) → <b>le CCGT reste le producteur marginal en Belgique</b>.</p></div>
+</div>
+<h2>Exercice — à vous de jouer</h2>
+<p>Une entreprise produit jusqu'à 100 unités par jour. Les 80 premières sont produites en temps normal ; les unités 81 à 100 exigent des heures supplémentaires. Matières premières : 8 €/unité. Salaires : 30 €/unité (temps normal), 50 €/unité (heures sup.).</p>
+<ol><li>Identifiez le CVM et le Cm à Q = 80 et Q = 100.</li><li>Pour p = 35, 50 et 80 € : quelle est la quantité optimale Q* et le profit variable ?</li></ol>
+<details class="q"><summary>Voir la solution</summary>
+<p><b>Coûts.</b> Unités 1–80 : Cm = 8 + 30 = 38 €. Unités 81–100 : Cm = 8 + 50 = 58 €.<br>À Q = 80 : CVM = 38 €, Cm = 38 €. À Q = 100 : CV = 80 × 38 + 20 × 58 = 4 200 → CVM = 42 €, Cm = 58 €.</p>
+<p><b>Décisions</b> (min CVM = 38) :</p>
+<ul><li><b>p = 35</b> &lt; min CVM → Q* = 0 (fermer) ; profit variable 0, la perte est le coût fixe.</li><li><b>p = 50</b> : 38 &lt; 50 &lt; 58 → Q* = 80 ; profit variable = (50 − 38) × 80 = <b>960 €</b>.</li><li><b>p = 80</b> &gt; 58 → Q* = 100 ; profit variable = 8 000 − 4 200 = <b>3 800 €</b>.</li></ul></details>
+<h2>Testez-vous</h2>
+<details class="q"><summary>Pourquoi la recette marginale est-elle égale au prix pour une firme concurrentielle ?</summary>La firme est preneuse de prix : vendre une unité de plus ne change pas le prix, chaque unité supplémentaire rapporte donc exactement p.</details>
+<details class="q"><summary>Avec le tableau de coûts du cours, p = 28. Produire ou fermer ?</summary>Produire (Q* = 7) : 28 est au-dessus du min CVM (25) mais sous le min CTM (31,75). La perte est de 29, moins que les 50 perdus en fermant.</details>
+<details class="q"><summary>Pourquoi le profit économique tend-il vers zéro à long terme ?</summary>Les profits positifs attirent des entrants ; l'offre augmente et le prix baisse jusqu'à p = min CTM. Les pertes provoquent des sorties et l'inverse.</details>
+<details class="q"><summary>Qu'est-ce qui fixe le prix spot de l'électricité ?</summary>Le coût marginal de la dernière centrale (la plus chère) nécessaire pour satisfaire la demande — en Belgique, généralement un CCGT au gaz.</details>
+</div>
+
+</main>
+</div>
+<script src="../assets/nav.js?v=5"></script>
+<script>
+(function(){
+  var CV=[0,50,78,98,112,130,150,175,204,242,300,385],CF=50;
+  var s=document.getElementById("pfs"),svg=document.getElementById("pfsvg");
+  var L=42,R=446,T=14,B=244,QM=12,PM=100;
+  var X=function(q){return L+q/QM*(R-L)},Y=function(p){return B-Math.min(p,PM)/PM*(B-T)};
+  var fr=function(){return document.documentElement.lang==="fr"};
+  var f=function(x,d){var t=x.toFixed(d);return fr()?t.replace(".",","):t};
+  var T_=function(en,frs){return '<span class="en">'+en+'</span><span class="fr">'+frs+'</span>'};
+  function poly(pts,cls,dash){return '<polyline class="'+cls+'"'+(dash?' stroke-dasharray="6 4"':'')+' points="'+pts.map(function(p){return X(p[0]).toFixed(1)+","+Y(p[1]).toFixed(1)}).join(" ")+'"/>'}
+  function render(){
+    var p=+s.value,best=0,bp=-CF;
+    for(var q=1;q<=11;q++){var pr=p*q-CF-CV[q];if(pr>bp+1e-9){bp=pr;best=q}}
+    document.getElementById("pfp").textContent=p;document.getElementById("pfq").textContent=best;document.getElementById("pfr").textContent=(bp>0?"+":"")+bp;
+    var g="",n=fr()?["CTM","CVM","Cm"]:["ATC","AVC","MC"];
+    [0,20,40,60,80,100].forEach(function(v){g+='<line class="gridline" x1="'+L+'" y1="'+Y(v)+'" x2="'+R+'" y2="'+Y(v)+'"/><text x="'+(L-6)+'" y="'+(Y(v)+4)+'" text-anchor="end" class="muted small">'+v+'</text>'});
+    [0,2,4,6,8,10,12].forEach(function(v){g+='<text x="'+X(v)+'" y="'+(B+15)+'" text-anchor="middle" class="muted small">'+v+'</text>'});
+    if(best>0){var atc=(CF+CV[best])/best;g+='<rect x="'+L+'" y="'+Math.min(Y(p),Y(atc))+'" width="'+(X(best)-L)+'" height="'+Math.abs(Y(p)-Y(atc))+'" class="'+(bp>=0?"fill1":"fill2")+'" opacity=".3"/>';}
+    g+='<line class="axis" x1="'+L+'" y1="'+B+'" x2="'+R+'" y2="'+B+'"/><line class="axis" x1="'+L+'" y1="'+B+'" x2="'+L+'" y2="'+(T-4)+'"/>';
+    var ctm=[],cvm=[],cm=[];for(q=1;q<=11;q++){if(q>1)ctm.push([q,(CF+CV[q])/q]);cvm.push([q,CV[q]/q]);cm.push([q-0.5,CV[q]-CV[q-1]])}
+    g+=poly(ctm,"lineT")+poly(cvm,"line1")+poly(cm,"line2");
+    g+='<text x="'+(X(11)+5)+'" y="'+(Y(39.5)+4)+'" class="small bold">'+n[0]+'</text><text x="'+(X(11)+5)+'" y="'+(Y(35)+14)+'" class="small bold">'+n[1]+'</text><text x="'+(X(10.5)+6)+'" y="'+(Y(85)+4)+'" class="small bold">'+n[2]+'</text>';
+    g+='<line x1="'+L+'" y1="'+Y(p)+'" x2="'+R+'" y2="'+Y(p)+'" style="stroke:var(--text)" stroke-dasharray="5 4"/><text x="'+(R-4)+'" y="'+(Y(p)-6)+'" text-anchor="end" class="small bold">p = Rm</text>';
+    if(best>0)g+='<circle cx="'+X(best)+'" cy="'+Y(p)+'" r="6" class="c2 ring"/>';
+    svg.innerHTML=g;
+    var v=document.getElementById("pfv");
+    if(p<25) v.innerHTML='<span class="no">'+T_("p &lt; min AVC (25): SHUT DOWN. Producing would lose more than the fixed cost; loss = CF = 50.","p &lt; min CVM (25) : FERMER. Produire ferait perdre plus que le coût fixe ; perte = CF = 50.")+'</span>';
+    else if(p<31.75) v.innerHTML='<span class="no">'+T_("min AVC &lt; p &lt; min ATC: loss ("+bp+"), but smaller than shutting down (−50). Keep producing in the short run.","min CVM &lt; p &lt; min CTM : perte ("+bp+"), mais inférieure à celle de la fermeture (−50). Continuer à produire à court terme.")+'</span>';
+    else v.innerHTML='<span class="ok">'+T_("p &gt; min ATC (31.75): positive profit — PRODUCE. In the long run, profits attract entrants and p falls towards 31.75.","p &gt; min CTM (31,75) : profit positif — PRODUIRE. À long terme, les profits attirent des entrants et p baisse vers 31,75.")+'</span>';
+  }
+  s.addEventListener("input",render);
+  document.querySelectorAll("#pf button").forEach(function(b){b.addEventListener("click",function(){s.value=b.dataset.p;render()})});
+  document.querySelectorAll(".lang-switch button").forEach(function(b){b.addEventListener("click",function(){setTimeout(render,0)})});
+  s.value=50; render();
+})();
+</script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 import os, sys, math
 
 SITE = sys.argv[1]
-V = "4"  # bump to bust browser cache when CSS/JS change
+V = "5"  # bump to bust browser cache when CSS/JS change
 
 
 def head(title_en, title_fr, root):
@@ -854,7 +854,7 @@ def page_syllabus():
 <h2>Sessions</h2>
 <div class="table-wrap"><table><thead><tr><th>Session</th><th>Topics</th></tr></thead><tbody>
 <tr><td><b>1</b></td><td><a href="lessons/s1-pensee-economique.html">History of economic thought</a> · <a href="lessons/s1-principes.html">The 7 principles</a> · <a href="lessons/s1-echange.html">Trade &amp; comparative advantage</a></td></tr>
-<tr><td><b>2</b></td><td><a href="lessons/s2-offre-demande.html">Supply, demand &amp; equilibrium</a> · <a href="lessons/s2-elasticite.html">Elasticity</a></td></tr><tr><td>3 →</td><td style="color:var(--muted)">To be added as the course progresses</td></tr></tbody></table></div>
+<tr><td><b>2</b></td><td><a href="lessons/s2-offre-demande.html">Supply, demand &amp; equilibrium</a> · <a href="lessons/s2-elasticite.html">Elasticity</a></td></tr><tr><td><b>3</b></td><td><a href="lessons/s3-consommateur.html">Consumer choice</a></td></tr><tr><td><b>4</b></td><td><a href="lessons/s4-couts.html">Production costs</a> · <a href="lessons/s4-concurrence-parfaite.html">The firm in perfect competition</a></td></tr><tr><td>5 →</td><td style="color:var(--muted)">To be added as the course progresses</td></tr></tbody></table></div>
 <h2>Reference books</h2>
 <ul><li>Mankiw, N. G. — <i>Principes de l'économie</i>, Economica</li><li>Jurion, B. — <i>Économie politique</i>, De Boeck</li><li>Pindyck, R. &amp; Rubinfeld, D. — <i>Microéconomie</i>, Pearson</li><li>Krugman, P. &amp; Wells, R. — <i>Microéconomie</i>, De Boeck</li></ul>''',
         '''<p class="kicker">MSG · 1ʳᵉ année · Solvay Brussels School (ULB)</p><h1>Programme du cours</h1><p class="lead">Microéconomie — Thierry Lallemand, docteur en économie (ULB, 2006), maître de conférences à la SBS depuis 2008.</p>
@@ -878,7 +878,7 @@ def page_syllabus():
 <h2>Séances</h2>
 <div class="table-wrap"><table><thead><tr><th>Séance</th><th>Thèmes</th></tr></thead><tbody>
 <tr><td><b>1</b></td><td><a href="lessons/s1-pensee-economique.html">Histoire de la pensée économique</a> · <a href="lessons/s1-principes.html">Les 7 principes</a> · <a href="lessons/s1-echange.html">Échange et avantage comparatif</a></td></tr>
-<tr><td><b>2</b></td><td><a href="lessons/s2-offre-demande.html">Offre, demande et équilibre</a> · <a href="lessons/s2-elasticite.html">L'élasticité</a></td></tr><tr><td>3 →</td><td style="color:var(--muted)">À compléter au fil du cours</td></tr></tbody></table></div>
+<tr><td><b>2</b></td><td><a href="lessons/s2-offre-demande.html">Offre, demande et équilibre</a> · <a href="lessons/s2-elasticite.html">L'élasticité</a></td></tr><tr><td><b>3</b></td><td><a href="lessons/s3-consommateur.html">Le choix du consommateur</a></td></tr><tr><td><b>4</b></td><td><a href="lessons/s4-couts.html">Les coûts de production</a> · <a href="lessons/s4-concurrence-parfaite.html">La firme en concurrence parfaite</a></td></tr><tr><td>5 →</td><td style="color:var(--muted)">À compléter au fil du cours</td></tr></tbody></table></div>
 <h2>Ouvrages de référence</h2>
 <ul><li>Mankiw, N. G. — <i>Principes de l'économie</i>, Economica</li><li>Jurion, B. — <i>Économie politique</i>, De Boeck</li><li>Pindyck, R. et Rubinfeld, D. — <i>Microéconomie</i>, Pearson</li><li>Krugman, P. et Wells, R. — <i>Microéconomie</i>, De Boeck</li></ul>''')]
     write("syllabus.html", ("Syllabus", "Programme du cours"), b, root="")
@@ -898,6 +898,15 @@ def page_home():
 <a class="card" href="lessons/s2-offre-demande.html" style="text-decoration:none;color:inherit"><span class="tag">2.1</span><h4>Supply, demand &amp; equilibrium</h4><p>Determinants, market demand, shifts vs movements, equilibrium and comparative statics — with a price slider.</p></a>
 <a class="card" href="lessons/s2-elasticite.html" style="text-decoration:none;color:inherit"><span class="tag">2.2</span><h4>Elasticity</h4><p>Price, cross, income and supply elasticities; measurement; pricing and revenue — with an interactive.</p></a>
 </div>
+<h2>Session 3 — The consumer</h2>
+<div class="grid">
+<a class="card" href="lessons/s3-consommateur.html" style="text-decoration:none;color:inherit"><span class="tag">3.1</span><h4>Consumer choice</h4><p>Preferences, indifference curves, MRS, budget line, optimum and behavioural critiques — with an interactive.</p></a>
+</div>
+<h2>Session 4 — The firm</h2>
+<div class="grid">
+<a class="card" href="lessons/s4-couts.html" style="text-decoration:none;color:inherit"><span class="tag">4.1</span><h4>Production costs</h4><p>Factor combinations, cost curves, isoquants, returns and economies of scale.</p></a>
+<a class="card" href="lessons/s4-concurrence-parfaite.html" style="text-decoration:none;color:inherit"><span class="tag">4.2</span><h4>The firm in perfect competition</h4><p>p = MC, shutdown rule, long-run equilibrium, electricity merit order — with an interactive.</p></a>
+</div>
 <p>See the <a href="syllabus.html">Syllabus</a> for the course organisation and reading list. Use the <b>EN / FR</b> switch at the top right to change language.</p>''',
         '''<p class="kicker">MSG · 1ʳᵉ année · SBS / ULB</p><h1>Microéconomie</h1><p class="lead">Un compagnon d'étude pour le cours : notes, schémas et questions d'auto-évaluation pour chaque séance.</p>
 <h2>Séance 1 — Introduction</h2>
@@ -910,6 +919,15 @@ def page_home():
 <div class="grid">
 <a class="card" href="lessons/s2-offre-demande.html" style="text-decoration:none;color:inherit"><span class="tag">2.1</span><h4>Offre, demande et équilibre</h4><p>Déterminants, demande de marché, mouvements vs déplacements, équilibre et statique comparative — avec un curseur de prix.</p></a>
 <a class="card" href="lessons/s2-elasticite.html" style="text-decoration:none;color:inherit"><span class="tag">2.2</span><h4>L'élasticité</h4><p>Élasticités prix, croisée, revenu et de l'offre ; mesure ; prix et chiffre d'affaires — avec un module interactif.</p></a>
+</div>
+<h2>Séance 3 — Le consommateur</h2>
+<div class="grid">
+<a class="card" href="lessons/s3-consommateur.html" style="text-decoration:none;color:inherit"><span class="tag">3.1</span><h4>Le choix du consommateur</h4><p>Préférences, courbes d'indifférence, TMS, droite de budget, optimum et critiques comportementales — avec un module interactif.</p></a>
+</div>
+<h2>Séance 4 — La firme</h2>
+<div class="grid">
+<a class="card" href="lessons/s4-couts.html" style="text-decoration:none;color:inherit"><span class="tag">4.1</span><h4>Les coûts de production</h4><p>Combinaison des facteurs, courbes de coûts, isoquantes, rendements et économies d'échelle.</p></a>
+<a class="card" href="lessons/s4-concurrence-parfaite.html" style="text-decoration:none;color:inherit"><span class="tag">4.2</span><h4>La firme en concurrence parfaite</h4><p>p = Cm, seuil de fermeture, équilibre de long terme, merit order de l'électricité — avec un module interactif.</p></a>
 </div>
 <p>Consultez le <a href="syllabus.html">Programme du cours</a> pour l'organisation et la bibliographie. Utilisez le bouton <b>EN / FR</b> en haut à droite pour changer de langue.</p>''')]
     write("index.html", ("Home", "Accueil"), b, root="")
@@ -1671,6 +1689,720 @@ def page_s2_elasticite():
 
 
 
+# ================================================================== SESSIONS 3 & 4
+
+def curve(f, x0, x1, n=60, ymax=None):
+    pts = []
+    for i in range(n + 1):
+        x = x0 + (x1 - x0) * i / n
+        y = f(x)
+        if ymax is None or y <= ymax:
+            pts.append((x, y))
+    return pts
+
+
+def lab_NH(lang):
+    return (("Food (N)", "Clothing (H)") if lang == "en" else ("Alimentation (N)", "Vêtements (H)"))
+
+
+def svg_baskets(lang):
+    xl, yl = lab_NH(lang)
+    ser = [dict(pts=curve(lambda n: 10 + 400 / n, 8, 58), cls="line1", label="U₁", lpos=(58, 10 + 400 / 58), dx=4, dy=4)]
+    mk = [dict(q=20, p=30, label="A (20, 30)", dx=8, dy=-6),
+          dict(q=10, p=50, label="B", dx=8, dy=-4),
+          dict(q=40, p=20, label="D", dx=6, dy=-8),
+          dict(q=30, p=40, label="E ≻ A", dx=8, dy=-4, cls="c2"),
+          dict(q=10, p=20, label="G ≺ A", dx=8, dy=4, kind="open"),
+          dict(q=10, p=40, label="H ≺ A", dx=8, dy=4, kind="open")]
+    return chart(lang, 60, 60, [0, 10, 20, 30, 40, 50, 60], [0, 10, 20, 30, 40, 50, 60], ser, mk, xl=xl, yl=yl, W=420, H=280, aria="baskets")
+
+
+def svg_cross(lang):
+    xl, yl = lab_NH(lang)
+    ser = [dict(pts=[(5, 60), (25, 0)], cls="line1", label="U₁", lpos=(5, 60), dx=6, dy=4),
+           dict(pts=[(2, 56), (28, 4)], cls="line2", label="U₂", lpos=(2, 56), dx=-6, dy=0, anchor="end")]
+    # U1 through A(15,30), B(10,45): slope -3 ; U2 through A(15,30), D(10,40): slope -2
+    ser = [dict(pts=[(5, 60), (25, 0)], cls="line1", label="U₁", lpos=(5, 60), dx=6, dy=6),
+           dict(pts=[(0, 60), (30, 0)], cls="line2", label="U₂", lpos=(30, 0), dx=-4, dy=-8, anchor="end")]
+    mk = [dict(q=15, p=30, label="A (15, 30)", dx=8, dy=-4),
+          dict(q=10, p=45, label="B (10, 45)", dx=8, dy=-2),
+          dict(q=10, p=40, label="D (10, 40)", dx=-8, dy=4, anchor="end", cls="c2")]
+    return chart(lang, 32, 62, [0, 10, 20, 30], [0, 10, 20, 30, 40, 50, 60], ser, mk, xl=xl, yl=yl, W=360, H=260, aria="crossing")
+
+
+def svg_mrs(lang):
+    xl, yl = lab_NH(lang)
+    tm = "MRS" if lang == "en" else "TMS"
+
+    def tangents(X, Y):
+        s = ""
+        for n, h in [(10, 60), (20, 30), (30, 20)]:
+            m = -h / n
+            d = 1.8 if n == 10 else 9
+            s += f'<line x1="{X(n - d):.1f}" y1="{Y(h - m * d):.1f}" x2="{X(n + d):.1f}" y2="{Y(h + m * d):.1f}" style="stroke:var(--muted)" stroke-width="1.5" stroke-dasharray="4 3"/>'
+        return s
+    ser = [dict(pts=curve(lambda n: 300 / n, 4.3, 50), cls="line1", label="U₁ = 300", lpos=(50, 6), dx=4, dy=4),
+           dict(pts=curve(lambda n: 600 / n, 8.6, 50), cls="line1", label="U₂ = 600", lpos=(50, 12), dx=4, dy=4),
+           dict(pts=curve(lambda n: 900 / n, 12.9, 50), cls="line1", label="U₃ = 900", lpos=(50, 18), dx=4, dy=4)]
+    mk = [dict(q=10, p=60, label=f"A · {tm} = 6", dx=8, dy=-4, cls="c2"),
+          dict(q=20, p=30, label=f"B · {tm} = {num(1.5, lang)}", dx=8, dy=-6, cls="c2"),
+          dict(q=30, p=20, label=f"C · {tm} = {num(0.67, lang)}", dx=6, dy=-10, cls="c2")]
+    return chart(lang, 60, 72, [0, 10, 20, 30, 40, 50, 60], [0, 20, 40, 60], ser, mk, xl=xl, yl=yl, W=460, H=290, extra=tangents, aria="MRS")
+
+
+def svg_special(lang):
+    t = {"en": ("Normal substitutes", "Perfect substitutes", "Perfect complements", "Diminishing MRS", "Constant MRS", "MRS = 0 or ∞",
+                "USB keys 1 GB (X)", "USB keys 2 GB (Y)", "Right shoes", "Left shoes"),
+         "fr": ("Normalement substituables", "Substituts parfaits", "Complémentaires parfaits", "TMS décroissant", "TMS constant", "TMS = 0 ou ∞",
+                "Clés 1 Go (X)", "Clés 2 Go (Y)", "Chaussures droites", "Chaussures gauches")}[lang]
+    xl, yl = lab_NH(lang)
+    a = chart(lang, 50, 60, [0, 25, 50], [0, 30, 60],
+              [dict(pts=curve(lambda n: k / n, k / 60, 50), cls="line1", label=u, lpos=(50, k / 50), dx=4, dy=4) for k, u in [(300, "U₁"), (600, "U₂"), (900, "U₃")]],
+              xl=xl.split(" (")[0], yl=yl.split(" (")[0], title=t[0], W=240, H=200, aria=t[0])
+    b = chart(lang, 17, 9, [0, 4, 8, 12, 16], [0, 4, 8],
+              [dict(pts=[(0, u / 2), (u, 0)], cls="line1", label=f"{u} Go" if lang == "fr" else f"{u} GB", lpos=(0, u / 2), dx=6, dy=4) for u in (8, 12, 16)],
+              xl=t[6], yl=t[7], title=t[1], W=240, H=200, aria=t[1])
+    c = chart(lang, 20, 20, [0, 5, 10, 15, 20], [0, 5, 10, 15, 20],
+              [dict(pts=[(k, 19), (k, k), (19, k)], cls="line1", label=f"U = {k}", lpos=(19, k), dx=-2, dy=-6, anchor="end") for k in (5, 10, 15)],
+              [dict(q=k, p=k, cls="c1") for k in (5, 10, 15)],
+              xl=t[8], yl=t[9], title=t[2], W=240, H=200, aria=t[2])
+    caps = [f"<b>{t[3]}</b> · U = N<sup>α</sup>·H<sup>β</sup> (Cobb-Douglas)", f"<b>{t[4]}</b> · U = X + 2Y",
+            f"<b>{t[5]}</b> · U = min(N, H) (Leontief)"]
+    return '<div class="grid" style="margin:0">' + "".join(f'<div>{s}<p style="font-size:.85rem;margin:4px 0 0">{c_}</p></div>' for s, c_ in zip((a, b, c), caps)) + "</div>"
+
+
+def svg_budget(lang, mode):
+    xl, yl = lab_NH(lang)
+    if mode == "base":
+        ser = [dict(pts=[(0, 40), (80, 0)], cls="line1", label="L₁ : 2H + N = 80" if lang == "fr" else "L₁: 2H + N = 80", lpos=(50, 15), dx=6, dy=-8)]
+        mk = [dict(q=n, p=h, label=k, dx=6, dy=-8) for k, n, h in [("A", 0, 40), ("B", 20, 30), ("C", 40, 20), ("D", 60, 10), ("E", 80, 0)]]
+        return chart(lang, 170, 85, [0, 40, 80, 120, 160], [0, 20, 40, 60, 80], ser, mk, xl=xl, yl=yl, W=420, H=260,
+                     title=("Budget line (R = €80, P_H = €2, P_N = €1)" if lang == "en" else "Droite de budget (R = 80 €, P_H = 2 €, P_N = 1 €)"), aria="budget")
+    if mode == "income":
+        ser = [dict(pts=[(0, 40), (80, 0)], cls="line1", label="L₁ (R = 80)", lpos=(40, 20), dx=6, dy=-8),
+               dict(pts=[(0, 80), (160, 0)], cls="line2", label="L₂ (R = 160)", lpos=(90, 35), dx=6, dy=-8)]
+        t = "Income doubles → parallel shift" if lang == "en" else "Le revenu double → déplacement parallèle"
+    else:
+        ser = [dict(pts=[(0, 40), (80, 0)], cls="line1", label="L₁ (P_N = 1)", lpos=(40, 20), dx=-6, dy=14, anchor="end"),
+               dict(pts=[(0, 40), (160, 0)], cls="line2", label=("L₂ (P_N = 0,5)" if lang == "fr" else "L₂ (P_N = 0.5)"), lpos=(110, 12.5), dx=6, dy=-8)]
+        t = "P_N falls → rotation" if lang == "en" else "P_N baisse → rotation"
+    return chart(lang, 170, 85, [0, 40, 80, 120, 160], [0, 20, 40, 60, 80], ser, [], xl=xl, yl=yl, W=320, H=240, title=t, aria=t)
+
+
+def svg_cost_curves(lang):
+    CV = [0, 50, 78, 98, 112, 130, 150, 175, 204, 242, 300, 385]
+    ctm = [(q, (50 + CV[q]) / q) for q in range(2, 12)]
+    cvm = [(q, CV[q] / q) for q in range(1, 12)]
+    cfm = [(q, 50 / q) for q in range(1, 12)]
+    cm = [(q - 0.5, CV[q] - CV[q - 1]) for q in range(1, 12)]
+    names = {"en": ("ATC", "AVC", "AFC", "MC"), "fr": ("CTM", "CVM", "CFM", "Cm")}[lang]
+    ser = [dict(pts=ctm, cls="lineT", label=names[0], lpos=ctm[-1], dx=6, dy=4),
+           dict(pts=cvm, cls="line1", label=names[1], lpos=cvm[-1], dx=6, dy=4),
+           dict(pts=cfm, cls="line1", dash=True, label=names[2], lpos=cfm[-1], dx=6, dy=4),
+           dict(pts=cm, cls="line2", label=names[3], lpos=(10.5, 85), dx=6, dy=4)]
+    mk = [dict(q=8, p=31.75, label="★", dx=-4, dy=-10, anchor="middle"),
+          dict(q=7, p=25, label=("min AVC 25" if lang == "en" else "min CVM 25"), dx=-8, dy=16, anchor="end", cls="c1"),
+          dict(q=3.5, p=14, label=("min MC 14" if lang == "en" else "min Cm 14"), dx=0, dy=16, anchor="middle", cls="c2")]
+    return chart(lang, 12, 100, range(0, 13, 2), [0, 20, 40, 60, 80, 100], ser, mk, xl=("Quantity Q" if lang == "en" else "Quantité Q"), yl="€",
+                 W=520, H=300, aria="cost curves")
+
+
+def svg_isoquant(lang):
+    xl = "Machines (K)" if lang == "en" else "Machines (K)"
+    yl = "Workers (L)" if lang == "en" else "Ouvriers (L)"
+    iso = [(1, 6), (2, 3), (3, 2), (6, 1)]
+    ser = [dict(pts=iso, cls="lineT", label=("isoquant: 100 t-shirts" if lang == "en" else "isoquante : 100 t-shirts"), lpos=(1.5, 4.5), dx=8, dy=0),
+           dict(pts=[(0, 380 / 60), (3.8, 0)], cls="line1", label=("isocost €380" if lang == "en" else "isocoût 380 €"), lpos=(0, 380 / 60), dx=6, dy=-6),
+           dict(pts=[(0, 660 / 60), (6.6, 0)], cls="line1", dash=True, label=("isocost €660" if lang == "en" else "isocoût 660 €"), lpos=(2.2, 11 - 2.2 * 100 / 60), dx=8, dy=-4),
+           dict(pts=[(0, 4.5), (5.4, 0)], cls="line2", dash=True, label=("€270 if K = €50" if lang == "en" else "270 € si K = 50 €"), lpos=(0, 4.5), dx=6, dy=14)]
+    mk = [dict(q=1, p=6, label="A", dx=8, dy=-4, kind="open"), dict(q=2, p=3, label="B ★", dx=8, dy=-6),
+          dict(q=3, p=2, label="C", dx=8, dy=-6, cls="c2"), dict(q=6, p=1, label="D", dx=-2, dy=-10, kind="open")]
+    return chart(lang, 7, 11.5, range(0, 8), [0, 2, 4, 6, 8, 10], ser, mk, xl=xl, yl=yl, W=460, H=280, aria="isoquant")
+
+
+def svg_merit(lang):
+    techs = {"en": ["Renewables", "Nuclear", "Biomass", "CCGT gas", "Peakers (OCGT)"], "fr": ["Renouvelables", "Nucléaire", "Biomasse", "CCGT gaz", "Pointe (OCGT)"]}[lang]
+    cm = [0, 12, 60, 103, 180]
+    cap = [4, 4, 1.5, 4, 2]  # illustrative widths
+    W, H = 560, 280
+    L_, R_, T_, B_ = 46, W - 14, 16, H - 40
+    tot = sum(cap)
+    X = lambda q: L_ + q / (tot + 1) * (R_ - L_)
+    Y = lambda p: B_ - p / 200 * (B_ - T_)
+    s = [f'<svg viewBox="0 0 {W} {H}" role="img" aria-label="merit order">']
+    for v in (0, 50, 100, 150, 200):
+        s.append(f'<line class="gridline" x1="{L_}" y1="{Y(v):.1f}" x2="{R_}" y2="{Y(v):.1f}"/><text x="{L_ - 6}" y="{Y(v) + 4:.1f}" text-anchor="end" class="muted small">{v}</text>')
+    s.append(f'<line class="axis" x1="{L_}" y1="{B_}" x2="{R_}" y2="{B_}"/><line class="axis" x1="{L_}" y1="{B_}" x2="{L_}" y2="{T_}"/>')
+    s.append(f'<text x="{L_ + 4}" y="{T_ + 4}" class="muted small">€/MWh</text><text x="{R_}" y="{H - 6}" text-anchor="end" class="muted small">{"Capacity called (illustrative)" if lang == "en" else "Capacité appelée (illustratif)"}</text>')
+    q = 0
+    for name, c, w in zip(techs, cm, cap):
+        x0, x1 = X(q) + 1, X(q + w) - 1
+        top = Y(max(c, 2))
+        cls = "fill2" if name.startswith("CCGT") else "fill1"
+        s.append(f'<g><title>{name}: ~{c} €/MWh</title>{vbar(x0, top, x1 - x0, B_, cls)}</g>')
+        s.append(f'<text x="{(x0 + x1) / 2:.1f}" y="{top - 6:.1f}" text-anchor="middle" class="small bold">{c}</text>')
+        s.append(f'<text x="{(x0 + x1) / 2:.1f}" y="{B_ + 14}" text-anchor="middle" class="small">{name}</text>')
+        q += w
+    dx = X(12)
+    s.append(f'<line x1="{dx:.1f}" y1="{T_}" x2="{dx:.1f}" y2="{B_}" style="stroke:var(--text)" stroke-width="2" stroke-dasharray="6 4"/>')
+    s.append(f'<text x="{dx + 6:.1f}" y="{T_ + 12}" class="small bold">{"Demand" if lang == "en" else "Demande"}</text>')
+    s.append(f'<line x1="{L_}" y1="{Y(103):.1f}" x2="{dx:.1f}" y2="{Y(103):.1f}" style="stroke:var(--c2)" stroke-dasharray="3 3"/>')
+    s.append(f'<text x="{L_ + 6}" y="{Y(103) - 6:.1f}" class="small bold">{"Spot price ≈ €103/MWh" if lang == "en" else "Prix spot ≈ 103 €/MWh"}</text>')
+    s.append("</svg>")
+    return "".join(s)
+
+
+def svg_industry(lang):
+    S = "S" if lang == "en" else "O"
+    # D1: p = 70 - q ; S1: p = q - 6.5  -> A (38.25, 31.75)
+    # D2: p = 106.5 - q -> B with S1 at p = 50 (q = 56.5) ; C with LR line at q = 74.75 ; S3: p = q - 43
+    ser = [dict(pts=[(10, 60), (60, 10)], cls="line1", label="D₁", lpos=(60, 10), dx=4, dy=4),
+           dict(pts=[(36.5, 70), (86.5, 20)], cls="line1", dash=True, label="D₂", lpos=(86.5, 20), dx=4, dy=4),
+           dict(pts=[(16.5, 10), (76.5, 70)], cls="line2", label=f"{S}₁", lpos=(76.5, 70), dx=4, dy=4),
+           dict(pts=[(53, 10), (100, 57)], cls="line2", dash=True, label=f"{S}₃", lpos=(100, 57), dx=-4, dy=-6, anchor="end"),
+           dict(pts=[(0, 31.75), (100, 31.75)], cls="lineT", label=("p = min ATC (long run)" if lang == "en" else "p = min CTM (LT)"), lpos=(0, 31.75), dx=4, dy=-8)]
+    mk = [dict(q=38.25, p=31.75, label="A", dx=-2, dy=18, anchor="middle"),
+          dict(q=56.5, p=50, label=("B · p₂ = 50" if lang == "en" else "B · p₂ = 50"), dx=-10, dy=-4, anchor="end", cls="c2"),
+          dict(q=74.75, p=31.75, label="C", dx=0, dy=18, anchor="middle")]
+    return chart(lang, 100, 75, [0, 25, 50, 75, 100], [0, 25, 50, 75], ser, mk, xl=("Market quantity" if lang == "en" else "Quantité de marché"), yl="p (€)",
+                 W=500, H=280, aria="industry adjustment")
+
+
+CS_WIDGET = '''<div class="tot" id="cs">
+<b><span class="en">Try it: find the optimal basket</span><span class="fr">À vous : trouvez le panier optimal</span></b>
+<p style="margin:6px 0 10px;font-size:.92rem"><span class="en">Budget 2H + N = 80, utility U = N·H. Slide along the budget line.</span><span class="fr">Budget 2H + N = 80, utilité U = N·H. Glissez le long de la droite de budget.</span></p>
+<div style="font-size:1.25rem;font-weight:700">N = <span id="csn"></span> · H = <span id="csh"></span> · U = <span id="csu"></span></div>
+<input type="range" id="css" min="40" max="760" step="5" aria-label="food">
+<svg viewBox="0 0 420 270" id="cssvg" aria-hidden="true"></svg>
+<div class="row"><span id="cst"></span><span><span class="en">Price ratio P<sub>N</sub>/P<sub>H</sub> = 0.5</span><span class="fr">Rapport des prix P<sub>N</sub>/P<sub>H</sub> = 0,5</span></span></div>
+<div class="verdict" id="csv"></div>
+</div>'''
+
+CS_JS = '''<script>
+(function(){
+  var s=document.getElementById("css"),svg=document.getElementById("cssvg");
+  var L=42,R=406,T=14,B=236,NM=85,HM=60;
+  var X=function(n){return L+n/NM*(R-L)},Y=function(h){return B-h/HM*(B-T)};
+  var fr=function(){return document.documentElement.lang==="fr"};
+  var f=function(x,d){var t=x.toFixed(d);return fr()?t.replace(".",","):t};
+  var T_=function(en,frs){return '<span class="en">'+en+'</span><span class="fr">'+frs+'</span>'};
+  function ic(u,cls,dash){var p=[];for(var n=u/HM;n<=NM;n+=0.5){p.push(X(n).toFixed(1)+","+Y(u/n).toFixed(1))}return '<polyline points="'+p.join(" ")+'" class="'+cls+'"'+(dash?' stroke-dasharray="5 4"':'')+'/>'}
+  function render(){
+    var n=s.value/10,h=40-n/2,u=n*h,mrs=h/n;
+    document.getElementById("csn").textContent=f(n,1);document.getElementById("csh").textContent=f(h,1);document.getElementById("csu").textContent=f(u,0);
+    var g="";
+    [0,20,40,60].forEach(function(v){g+='<line class="gridline" x1="'+L+'" y1="'+Y(v)+'" x2="'+R+'" y2="'+Y(v)+'"/><text x="'+(L-6)+'" y="'+(Y(v)+4)+'" text-anchor="end" class="muted small">'+v+'</text>'});
+    [0,20,40,60,80].forEach(function(v){g+='<text x="'+X(v)+'" y="'+(B+15)+'" text-anchor="middle" class="muted small">'+v+'</text>'});
+    g+='<line class="axis" x1="'+L+'" y1="'+B+'" x2="'+R+'" y2="'+B+'"/><line class="axis" x1="'+L+'" y1="'+B+'" x2="'+L+'" y2="'+(T-4)+'"/>';
+    g+='<text x="'+R+'" y="'+(B+30)+'" text-anchor="end" class="muted small">N</text><text x="'+(L+5)+'" y="'+(T+6)+'" class="muted small">H</text>';
+    g+=ic(800,"line1",true)+'<text x="'+(X(80)-4)+'" y="'+(Y(10)-6)+'" text-anchor="end" class="muted small">U = 800</text>';
+    g+='<polyline class="lineT" points="'+X(0)+','+Y(40)+' '+X(80)+','+Y(0)+'"/>';
+    g+=ic(u,"line2",false);
+    var d=8;g+='<line x1="'+X(n-d)+'" y1="'+Y(h+mrs*d)+'" x2="'+X(n+d)+'" y2="'+Y(h-mrs*d)+'" style="stroke:var(--c2)" stroke-width="1.5"/>';
+    g+='<circle cx="'+X(n)+'" cy="'+Y(h)+'" r="6" class="c2 ring"/>';
+    svg.innerHTML=g;
+    document.getElementById("cst").innerHTML=T_("MRS = H/N = ","TMS = H/N = ")+"<b>"+f(mrs,2)+"</b>";
+    var v=document.getElementById("csv");
+    if(Math.abs(mrs-0.5)<0.03) v.innerHTML='<span class="ok">'+T_("Optimum: MRS = price ratio. The indifference curve is tangent to the budget line (N = 40, H = 20, U = 800).","Optimum : TMS = rapport des prix. La courbe d’indifférence est tangente à la droite de budget (N = 40, H = 20, U = 800).")+'</span>';
+    else if(mrs>0.5) v.innerHTML='<span class="no">'+T_("MRS &gt; 0.5: you value food more than the market does → buy more N, less H.","TMS &gt; 0,5 : vous valorisez l’alimentation plus que le marché → achetez plus de N, moins de H.")+'</span>';
+    else v.innerHTML='<span class="no">'+T_("MRS &lt; 0.5: you value food less than the market does → buy less N, more H.","TMS &lt; 0,5 : vous valorisez l’alimentation moins que le marché → achetez moins de N, plus de H.")+'</span>';
+  }
+  s.addEventListener("input",render);
+  document.querySelectorAll(".lang-switch button").forEach(function(b){b.addEventListener("click",function(){setTimeout(render,0)})});
+  s.value=150; render();
+})();
+</script>'''
+
+PF_WIDGET = '''<div class="tot" id="pf">
+<b><span class="en">Try it: the firm's decision at each price</span><span class="fr">À vous : la décision de la firme à chaque prix</span></b>
+<p style="margin:6px 0 10px;font-size:.92rem"><span class="en">Cost table of the course (fixed cost = 50). The firm picks the quantity that maximises profit.</span><span class="fr">Tableau de coûts du cours (coût fixe = 50). La firme choisit la quantité qui maximise le profit.</span></p>
+<div style="font-size:1.25rem;font-weight:700">p = <span id="pfp"></span> € · Q* = <span id="pfq"></span> · <span class="en">profit</span><span class="fr">profit</span> = <span id="pfr"></span></div>
+<input type="range" id="pfs" min="10" max="90" step="1" aria-label="price">
+<svg viewBox="0 0 460 280" id="pfsvg" aria-hidden="true"></svg>
+<div class="verdict" id="pfv"></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><button type="button" data-p="20">p = 20</button><button type="button" data-p="28">p = 28</button><button type="button" data-p="32">p = 32</button><button type="button" data-p="50">p = 50</button></div>
+</div>'''
+
+PF_JS = '''<script>
+(function(){
+  var CV=[0,50,78,98,112,130,150,175,204,242,300,385],CF=50;
+  var s=document.getElementById("pfs"),svg=document.getElementById("pfsvg");
+  var L=42,R=446,T=14,B=244,QM=12,PM=100;
+  var X=function(q){return L+q/QM*(R-L)},Y=function(p){return B-Math.min(p,PM)/PM*(B-T)};
+  var fr=function(){return document.documentElement.lang==="fr"};
+  var f=function(x,d){var t=x.toFixed(d);return fr()?t.replace(".",","):t};
+  var T_=function(en,frs){return '<span class="en">'+en+'</span><span class="fr">'+frs+'</span>'};
+  function poly(pts,cls,dash){return '<polyline class="'+cls+'"'+(dash?' stroke-dasharray="6 4"':'')+' points="'+pts.map(function(p){return X(p[0]).toFixed(1)+","+Y(p[1]).toFixed(1)}).join(" ")+'"/>'}
+  function render(){
+    var p=+s.value,best=0,bp=-CF;
+    for(var q=1;q<=11;q++){var pr=p*q-CF-CV[q];if(pr>bp+1e-9){bp=pr;best=q}}
+    document.getElementById("pfp").textContent=p;document.getElementById("pfq").textContent=best;document.getElementById("pfr").textContent=(bp>0?"+":"")+bp;
+    var g="",n=fr()?["CTM","CVM","Cm"]:["ATC","AVC","MC"];
+    [0,20,40,60,80,100].forEach(function(v){g+='<line class="gridline" x1="'+L+'" y1="'+Y(v)+'" x2="'+R+'" y2="'+Y(v)+'"/><text x="'+(L-6)+'" y="'+(Y(v)+4)+'" text-anchor="end" class="muted small">'+v+'</text>'});
+    [0,2,4,6,8,10,12].forEach(function(v){g+='<text x="'+X(v)+'" y="'+(B+15)+'" text-anchor="middle" class="muted small">'+v+'</text>'});
+    if(best>0){var atc=(CF+CV[best])/best;g+='<rect x="'+L+'" y="'+Math.min(Y(p),Y(atc))+'" width="'+(X(best)-L)+'" height="'+Math.abs(Y(p)-Y(atc))+'" class="'+(bp>=0?"fill1":"fill2")+'" opacity=".3"/>';}
+    g+='<line class="axis" x1="'+L+'" y1="'+B+'" x2="'+R+'" y2="'+B+'"/><line class="axis" x1="'+L+'" y1="'+B+'" x2="'+L+'" y2="'+(T-4)+'"/>';
+    var ctm=[],cvm=[],cm=[];for(q=1;q<=11;q++){if(q>1)ctm.push([q,(CF+CV[q])/q]);cvm.push([q,CV[q]/q]);cm.push([q-0.5,CV[q]-CV[q-1]])}
+    g+=poly(ctm,"lineT")+poly(cvm,"line1")+poly(cm,"line2");
+    g+='<text x="'+(X(11)+5)+'" y="'+(Y(39.5)+4)+'" class="small bold">'+n[0]+'</text><text x="'+(X(11)+5)+'" y="'+(Y(35)+14)+'" class="small bold">'+n[1]+'</text><text x="'+(X(10.5)+6)+'" y="'+(Y(85)+4)+'" class="small bold">'+n[2]+'</text>';
+    g+='<line x1="'+L+'" y1="'+Y(p)+'" x2="'+R+'" y2="'+Y(p)+'" style="stroke:var(--text)" stroke-dasharray="5 4"/><text x="'+(R-4)+'" y="'+(Y(p)-6)+'" text-anchor="end" class="small bold">p = Rm</text>';
+    if(best>0)g+='<circle cx="'+X(best)+'" cy="'+Y(p)+'" r="6" class="c2 ring"/>';
+    svg.innerHTML=g;
+    var v=document.getElementById("pfv");
+    if(p<25) v.innerHTML='<span class="no">'+T_("p &lt; min AVC (25): SHUT DOWN. Producing would lose more than the fixed cost; loss = CF = 50.","p &lt; min CVM (25) : FERMER. Produire ferait perdre plus que le coût fixe ; perte = CF = 50.")+'</span>';
+    else if(p<31.75) v.innerHTML='<span class="no">'+T_("min AVC &lt; p &lt; min ATC: loss ("+bp+"), but smaller than shutting down (−50). Keep producing in the short run.","min CVM &lt; p &lt; min CTM : perte ("+bp+"), mais inférieure à celle de la fermeture (−50). Continuer à produire à court terme.")+'</span>';
+    else v.innerHTML='<span class="ok">'+T_("p &gt; min ATC (31.75): positive profit — PRODUCE. In the long run, profits attract entrants and p falls towards 31.75.","p &gt; min CTM (31,75) : profit positif — PRODUIRE. À long terme, les profits attirent des entrants et p baisse vers 31,75.")+'</span>';
+  }
+  s.addEventListener("input",render);
+  document.querySelectorAll("#pf button").forEach(function(b){b.addEventListener("click",function(){s.value=b.dataset.p;render()})});
+  document.querySelectorAll(".lang-switch button").forEach(function(b){b.addEventListener("click",function(){setTimeout(render,0)})});
+  s.value=50; render();
+})();
+</script>'''
+
+
+# ---------------- page 3.1
+
+def page_s3():
+    b = []
+    b.append(L(
+        '''<p class="kicker">Session 3</p><h1>Consumer choice</h1><p class="lead">How does a consumer with a limited income decide what to buy? Preferences · budget · optimum · behaviour.</p>
+<div class="toc"><b>In this lesson</b><ol><li>Preferences — baskets, indifference curves, MRS, special cases</li><li>The budget constraint — budget line, income and price effects</li><li>The optimal choice — tangency between indifference curve and budget</li><li>Behavioural critiques — Kahneman, Tversky, Thaler, framing</li></ol></div>''',
+        '''<p class="kicker">Séance 3</p><h1>Le choix du consommateur</h1><p class="lead">Comment un consommateur, contraint par un revenu limité, décide-t-il de ses achats ? Préférences · budget · optimum · comportement.</p>
+<div class="toc"><b>Au programme</b><ol><li>Les préférences — paniers, courbes d'indifférence, TMS, cas particuliers</li><li>La contrainte budgétaire — droite de budget, effets revenu et prix</li><li>Le choix optimal — tangence entre courbe d'indifférence et budget</li><li>Critiques comportementales — Kahneman, Tversky, Thaler, effet de framing</li></ol></div>'''))
+    b.append(L(
+        f'''<h2><span class="badge">1</span>Preferences</h2>
+<p>Preferences can be inferred from observed behaviour. Neoclassical theory assumes a rational framework built on three axioms.</p>
+<div class="grid">
+<div class="card"><span class="tag">① Completeness</span><h4>Every basket can be ranked</h4><p>For any A and B: A ≻ B, B ≻ A or A ~ B.</p><p style="font-size:.85rem;color:var(--muted)">Hidden assumption: preferences are exogenous — given before the choice, stable, independent of context and peers.</p></div>
+<div class="card"><span class="tag">② Transitivity</span><h4>Consistency</h4><p>If A ≻ B and B ≻ C ⟹ A ≻ C. Guarantees a stable ordinal ranking of baskets.</p></div>
+<div class="card"><span class="tag">③ Non-satiation</span><h4>More is better</h4><p>More of a good always increases satisfaction. Graphically: indifference curves slope downwards.</p></div>
+</div>
+<h3>Baskets of goods</h3>
+<p>Two goods only: <b>food (N)</b> and <b>clothing (H)</b>. A basket is a pair (N, H). (Source: Pindyck &amp; Rubinfeld, 2012.)</p>
+<figure>{svg_baskets("en")}<figcaption>A, B and D lie on the same indifference curve U₁: the consumer is indifferent between them. E ≻ A (more of both — non-satiation); G and H lie below U₁, so A is preferred to them.</figcaption></figure>
+<h3>Indifference curves</h3>
+<div class="callout"><strong>Definition</strong>The set of baskets (N, H) that give the <b>same level of satisfaction</b>. Curves further from the origin are better: U₃ ≻ U₂ ≻ U₁.</div>
+<div class="grid">
+<div class="card"><h4>Negative slope</h4><p>To get more of one good you must give up some of the other (non-satiation).</p></div>
+<div class="card"><h4>Convexity</h4><p>Diminishing MRS: a taste for variety.</p></div>
+<div class="card"><h4>They never cross</h4><p>Follows from transitivity + non-satiation (proof below).</p></div>
+</div>
+<p><b>Three common utility functions:</b> Cobb-Douglas U = X<sup>α</sup>·Y<sup>β</sup> · perfect substitutes U = aX + bY (straight-line curves) · perfect complements U = min(aX, bY) (L-shaped curves).</p>
+<h3>Why indifference curves can never cross</h3>
+<div class="grid" style="align-items:start">
+<figure style="margin:0">{svg_cross("en")}</figure>
+<div><p>Proof by contradiction — suppose U₁ and U₂ cross at A:</p><ol><li>A and B are on U₁ ⟹ A ~ B</li><li>A and D are on U₂ ⟹ A ~ D</li><li>Transitivity ⟹ B ~ D</li><li>But B = (10, 45) and D = (10, 40): same food, more clothing in B. Non-satiation ⟹ B ≻ D. <b>Contradiction.</b></li></ol><p>So two indifference curves can never cross. ∎</p></div>
+</div>
+<h3>Ordinal utility</h3>
+<p>Only the <b>ranking</b> matters, not the number. With U = N·H, (5, 5) = 25 and (5, 10) = 50; with U = 4·N·H, 100 and 200 — same conclusion: (5, 10) is preferred.</p>
+<div class="grid">
+<div class="card"><span class="tag">Walras</span><h4>Cardinal utility</h4><p>Give each basket an objective, measurable value.</p></div>
+<div class="card"><span class="tag">Pareto, Samuelson, Hicks</span><h4>Ordinal utility</h4><p>Only the ranking counts: individuals cannot assign a precise, objective value.</p></div>
+</div>
+<h3>The marginal rate of substitution (MRS)</h3>
+<div class="callout"><strong>Definition</strong>The amount of one good a consumer is willing to give up to get one more unit of another, keeping satisfaction unchanged. <span class="formula">MRS(N,H) = −ΔH/ΔN = (∂U/∂N) ÷ (∂U/∂H) &gt; 0</span> — the absolute value of the slope of the indifference curve.</div>
+<figure>{svg_mrs("en")}<figcaption>On U₂ = N·H = 600 the MRS = H/N falls as you move right: 6 at A (very willing to give up clothing), 1.5 at B, 0.67 at C (hardly willing). <b>Convexity = taste for variety:</b> mixing A (10, 60) and C (30, 20) half-and-half gives (20, 40), with U = 800 &gt; 600 — strictly preferred.</figcaption></figure>
+<details class="q"><summary>Derivation: why is MRS = U′ₓ / U′ᵧ?</summary>Take U = f(x, y). Total differential: dU = (∂U/∂x)dx + (∂U/∂y)dy. On an indifference curve dU = 0, so (∂U/∂x)dx = −(∂U/∂y)dy and therefore −dy/dx = (∂U/∂x)/(∂U/∂y). With U = N·H: U′<sub>N</sub> = H, U′<sub>H</sub> = N, so MRS = H/N. The MRS is the consumer's “subjective price” of N in units of H.</details>
+<h3>Special cases</h3>
+<figure>{svg_special("en")}<figcaption>The relationship between the goods shapes the curves. Perfect substitutes: the consumer swaps at a fixed rate (one 2 GB key = two 1 GB keys). Perfect complements: satisfaction rises only if both goods rise together (a left shoe is useless without a right one).</figcaption></figure>''',
+        f'''<h2><span class="badge">1</span>Les préférences</h2>
+<p>Les préférences peuvent être déduites de l'observation du comportement. La théorie néoclassique suppose un cadre rationnel fondé sur trois axiomes.</p>
+<div class="grid">
+<div class="card"><span class="tag">① Complétude</span><h4>Tous les paniers sont comparables</h4><p>Pour tout A et B : A ≻ B, B ≻ A ou A ~ B.</p><p style="font-size:.85rem;color:var(--muted)">Hypothèse cachée : les préférences sont exogènes — données avant le choix, stables, indépendantes du contexte et des pairs.</p></div>
+<div class="card"><span class="tag">② Transitivité</span><h4>Cohérence</h4><p>Si A ≻ B et B ≻ C ⟹ A ≻ C. Garantit un classement ordinal stable des paniers.</p></div>
+<div class="card"><span class="tag">③ Non-satiété</span><h4>Plus est préféré à moins</h4><p>Davantage d'un bien augmente toujours la satisfaction. Graphiquement : les courbes d'indifférence ont une pente négative.</p></div>
+</div>
+<h3>Les paniers de biens</h3>
+<p>Deux biens seulement : <b>produits alimentaires (N)</b> et <b>vêtements (H)</b>. Un panier est un couple (N, H). (Source : Pindyck et Rubinfeld, 2012.)</p>
+<figure>{svg_baskets("fr")}<figcaption>A, B et D sont sur la même courbe d'indifférence U₁ : le consommateur est indifférent entre eux. E ≻ A (plus des deux biens — non-satiété) ; G et H sont sous U₁, A leur est donc préféré.</figcaption></figure>
+<h3>Les courbes d'indifférence</h3>
+<div class="callout"><strong>Définition</strong>Ensemble des paniers (N, H) qui procurent le <b>même niveau de satisfaction</b>. Plus loin de l'origine = mieux : U₃ ≻ U₂ ≻ U₁.</div>
+<div class="grid">
+<div class="card"><h4>Pente négative</h4><p>Pour obtenir plus d'un bien, il faut renoncer à l'autre (non-satiété).</p></div>
+<div class="card"><h4>Convexité</h4><p>TMS décroissant : préférence pour la diversité.</p></div>
+<div class="card"><h4>Non-croisement</h4><p>Découle de la transitivité + non-satiété (démonstration ci-dessous).</p></div>
+</div>
+<p><b>Trois fonctions d'utilité courantes :</b> Cobb-Douglas U = X<sup>α</sup>·Y<sup>β</sup> · substituts parfaits U = aX + bY (CI linéaires) · complémentaires parfaits U = min(aX, bY) (CI en L).</p>
+<h3>Pourquoi les CI ne peuvent jamais se croiser</h3>
+<div class="grid" style="align-items:start">
+<figure style="margin:0">{svg_cross("fr")}</figure>
+<div><p>Raisonnement par l'absurde — supposons que U₁ et U₂ se croisent en A :</p><ol><li>A et B sont sur U₁ ⟹ A ~ B</li><li>A et D sont sur U₂ ⟹ A ~ D</li><li>Transitivité ⟹ B ~ D</li><li>Or B = (10, 45) et D = (10, 40) : même N, plus de H en B. Non-satiété ⟹ B ≻ D. <b>Contradiction.</b></li></ol><p>Deux courbes d'indifférence ne peuvent donc jamais se croiser. CQFD</p></div>
+</div>
+<h3>Utilité ordinale</h3>
+<p>Seul le <b>classement</b> compte, pas la valeur. Avec U = N·H, (5, 5) = 25 et (5, 10) = 50 ; avec U = 4·N·H, 100 et 200 — même conclusion : (5, 10) est préféré.</p>
+<div class="grid">
+<div class="card"><span class="tag">Walras</span><h4>Utilité cardinale</h4><p>Attribuer une valeur mesurable et objective à chaque panier.</p></div>
+<div class="card"><span class="tag">Pareto, Samuelson, Hicks</span><h4>Utilité ordinale</h4><p>Seul le classement importe : les individus ne peuvent pas attribuer une valeur précise et objective.</p></div>
+</div>
+<h3>Le taux marginal de substitution (TMS)</h3>
+<div class="callout"><strong>Définition</strong>Quantité d'un bien à laquelle le consommateur est prêt à renoncer pour obtenir une unité supplémentaire d'un autre, à satisfaction inchangée. <span class="formula">TMS(N,H) = −ΔH/ΔN = (∂U/∂N) ÷ (∂U/∂H) &gt; 0</span> — la valeur absolue de la pente de la courbe d'indifférence.</div>
+<figure>{svg_mrs("fr")}<figcaption>Sur U₂ = N·H = 600, le TMS = H/N diminue vers la droite : 6 en A (très prêt à sacrifier des vêtements), 1,5 en B, 0,67 en C (très peu disposé). <b>Convexité = goût pour la diversité :</b> le mélange à parts égales de A (10, 60) et C (30, 20) donne (20, 40), avec U = 800 &gt; 600 — strictement préféré.</figcaption></figure>
+<details class="q"><summary>Dérivation : pourquoi TMS = U′ₓ / U′ᵧ ?</summary>Soit U = f(x, y). Différentielle totale : dU = (∂U/∂x)dx + (∂U/∂y)dy. Sur une courbe d'indifférence dU = 0, donc (∂U/∂x)dx = −(∂U/∂y)dy et −dy/dx = (∂U/∂x)/(∂U/∂y). Avec U = N·H : U′<sub>N</sub> = H, U′<sub>H</sub> = N, donc TMS = H/N. Le TMS est le « prix subjectif » de N exprimé en H.</details>
+<h3>Cas particuliers</h3>
+<figure>{svg_special("fr")}<figcaption>La relation entre les biens détermine la forme des courbes. Substituts parfaits : le consommateur échange à taux fixe (une clé de 2 Go = deux clés de 1 Go). Complémentaires parfaits : la satisfaction n'augmente que si les deux biens augmentent ensemble (une chaussure gauche ne sert à rien sans la droite).</figcaption></figure>'''))
+    rows = lambda lang: "".join(f'<tr><td>{k}</td><td class="num">{n}</td><td class="num">{h}</td><td class="num">{n} + {2 * h} = 80 €</td></tr>'.replace(" €", " €" if lang == "fr" else "") for k, n, h in [("A", 0, 40), ("B", 20, 30), ("C", 40, 20), ("D", 60, 10), ("E", 80, 0)])
+    b.append(L(
+        f'''<h2><span class="badge">2</span>The budget constraint</h2>
+<p>The <b>budget line</b> is the set of baskets whose cost exactly equals disposable income R.</p>
+<p class="formula">P<sub>H</sub>·H + P<sub>N</sub>·N = R &nbsp;⟹&nbsp; H = R/P<sub>H</sub> − (P<sub>N</sub>/P<sub>H</sub>)·N</p>
+<p>Example: R = €80 per week, P<sub>H</sub> = €2, P<sub>N</sub> = €1 ⟹ 2H + N = 80 ⟹ <b>H = 40 − N/2</b>.</p>
+<div class="grid" style="align-items:start">
+<div class="table-wrap"><table><thead><tr><th>Basket</th><th class="num">Food N</th><th class="num">Clothing H</th><th class="num">Spending (€)</th></tr></thead><tbody>{rows("en")}</tbody></table></div>
+<figure style="margin:14px 0">{svg_budget("en", "base")}</figure>
+</div>
+<div class="grid">
+<div class="card"><span class="tag">Intercepts</span><h4>Maximum of each good</h4><p>H-intercept (N = 0): R/P<sub>H</sub> = 40. N-intercept (H = 0): R/P<sub>N</sub> = 80.</p></div>
+<div class="card"><span class="tag">Slope = −P<sub>N</sub>/P<sub>H</sub> = −1/2</span><h4>The market trade-off</h4><p>Give up 1 unit of clothing to get 2 units of food. Constant along the line (from B to C: ΔH/ΔN = −10/20). It does not depend on income.</p></div>
+</div>
+<figure><div class="grid" style="margin:0">{svg_budget("en", "income")}{svg_budget("en", "price")}</div><figcaption><b>Left:</b> a change in income R moves the line <b>parallel</b> to itself; the slope stays −1/2, only the intercepts change. <b>Right:</b> a change in one price <b>rotates</b> the line: P<sub>N</sub> 1 → 0.5 makes the slope −1/4; the H-intercept stays at 40, the N-intercept goes from 80 to 160. A heavy food buyer gains a lot of purchasing power; someone who only buys clothing is unaffected.</figcaption></figure>
+<div class="callout"><strong>Summary</strong>R changes → parallel shift · P<sub>N</sub> changes → rotation around the H-intercept · P<sub>H</sub> changes → rotation around the N-intercept · R, P<sub>N</sub> and P<sub>H</sub> all ×2 (proportional inflation) → the line does not move: real purchasing power is unchanged.</div>''',
+        f'''<h2><span class="badge">2</span>La contrainte budgétaire</h2>
+<p>La <b>droite de budget</b> est l'ensemble des paniers dont la dépense est exactement égale au revenu disponible R.</p>
+<p class="formula">P<sub>H</sub>·H + P<sub>N</sub>·N = R &nbsp;⟹&nbsp; H = R/P<sub>H</sub> − (P<sub>N</sub>/P<sub>H</sub>)·N</p>
+<p>Exemple : R = 80 € par semaine, P<sub>H</sub> = 2 €, P<sub>N</sub> = 1 € ⟹ 2H + N = 80 ⟹ <b>H = 40 − N/2</b>.</p>
+<div class="grid" style="align-items:start">
+<div class="table-wrap"><table><thead><tr><th>Panier</th><th class="num">Alim. N</th><th class="num">Vêt. H</th><th class="num">Dépense</th></tr></thead><tbody>{rows("fr")}</tbody></table></div>
+<figure style="margin:14px 0">{svg_budget("fr", "base")}</figure>
+</div>
+<div class="grid">
+<div class="card"><span class="tag">Intercepts</span><h4>Maximum de chaque bien</h4><p>Intercept H (N = 0) : R/P<sub>H</sub> = 40. Intercept N (H = 0) : R/P<sub>N</sub> = 80.</p></div>
+<div class="card"><span class="tag">Pente = −P<sub>N</sub>/P<sub>H</sub> = −1/2</span><h4>L'arbitrage du marché</h4><p>Abandonner 1 unité de vêtements pour obtenir 2 unités d'alimentation. Constante sur toute la droite (de B à C : ΔH/ΔN = −10/20). Indépendante du revenu.</p></div>
+</div>
+<figure><div class="grid" style="margin:0">{svg_budget("fr", "income")}{svg_budget("fr", "price")}</div><figcaption><b>À gauche :</b> une variation du revenu R déplace la droite <b>parallèlement</b> ; la pente reste −1/2, seuls les intercepts changent. <b>À droite :</b> la variation d'un prix fait <b>pivoter</b> la droite : P<sub>N</sub> 1 → 0,5 donne une pente de −1/4 ; l'intercept H reste à 40, l'intercept N passe de 80 à 160. Un gros acheteur d'alimentation gagne beaucoup de pouvoir d'achat ; celui qui n'achète que des vêtements n'est pas affecté.</figcaption></figure>
+<div class="callout"><strong>Récapitulatif</strong>R varie → déplacement parallèle · P<sub>N</sub> varie → rotation autour de l'intercept H · P<sub>H</sub> varie → rotation autour de l'intercept N · R, P<sub>N</sub> et P<sub>H</sub> tous ×2 (inflation proportionnelle) → la droite ne bouge pas : le pouvoir d'achat réel est inchangé.</div>'''))
+    b.append(L(
+        '''<h2><span class="badge">3</span>The optimal choice</h2>
+<p>Combining preferences (indifference curves) and the budget (line) tells us how the consumer allocates income. The optimal basket must:</p>
+<div class="grid">
+<div class="card"><span class="tag">①</span><h4>Lie on the budget line</h4><p>Use exactly all income. Below the line: money left unused (sub-optimal, unless saving). Above: unaffordable.</p></div>
+<div class="card"><span class="tag">②</span><h4>Reach the highest indifference curve</h4><p>The highest curve that still touches the budget line. Higher curves are out of budget; lower ones are affordable but sub-optimal.</p></div>
+</div>''',
+        '''<h2><span class="badge">3</span>Le choix optimal</h2>
+<p>En combinant les préférences (courbes d'indifférence) et le budget (droite), on détermine comment le consommateur alloue son revenu. Le panier optimal doit :</p>
+<div class="grid">
+<div class="card"><span class="tag">①</span><h4>Appartenir à la droite de budget</h4><p>Utiliser exactement tout le revenu. Sous la droite : budget non utilisé (sous-optimal, sauf épargne). Au-dessus : inaccessible.</p></div>
+<div class="card"><span class="tag">②</span><h4>Atteindre la CI la plus haute</h4><p>La plus haute qui touche encore la droite de budget. Les CI plus hautes sont hors budget ; les plus basses accessibles mais sous-optimales.</p></div>
+</div>'''))
+    b.append(CS_WIDGET)
+    b.append(L(
+        '''<div class="callout"><strong>Optimality condition</strong>At the optimum A, the indifference curve is <b>tangent</b> to the budget line: <span class="formula">MRS(N, H) = P<sub>N</sub>/P<sub>H</sub></span> The MRS is the subjective value of the good (preferences); the price ratio is its market value. At the optimum, subjective value = market value: no more mutually beneficial swap is possible.</div>
+<div class="table-wrap"><table><thead><tr><th>Basket</th><th class="num">MRS = H/N</th><th class="num">Slope of budget</th><th class="num">U = N·H</th><th>Verdict</th></tr></thead><tbody>
+<tr class="hl"><td>A (N = 40, H = 20)</td><td class="num">0.5</td><td class="num">0.5</td><td class="num">800</td><td>Optimum ✓</td></tr>
+<tr><td>B (N ≈ 26.7, H ≈ 26.7)</td><td class="num">1</td><td class="num">0.5</td><td class="num">≈ 711</td><td>Sub-optimal: the consumer would give up 1 H for 1 N, but the market only asks ½ H → buy more food</td></tr></tbody></table></div>''',
+        '''<div class="callout"><strong>Condition d'optimalité</strong>À l'optimum A, la courbe d'indifférence est <b>tangente</b> à la droite de budget : <span class="formula">TMS(N, H) = P<sub>N</sub>/P<sub>H</sub></span> Le TMS mesure la valeur subjective du bien (préférences) ; le rapport des prix, sa valeur de marché. À l'optimum, valeur subjective = valeur de marché : plus aucun échange mutuellement avantageux n'est possible.</div>
+<div class="table-wrap"><table><thead><tr><th>Panier</th><th class="num">TMS = H/N</th><th class="num">Pente du budget</th><th class="num">U = N·H</th><th>Verdict</th></tr></thead><tbody>
+<tr class="hl"><td>A (N = 40, H = 20)</td><td class="num">0,5</td><td class="num">0,5</td><td class="num">800</td><td>Optimum ✓</td></tr>
+<tr><td>B (N ≈ 26,7, H ≈ 26,7)</td><td class="num">1</td><td class="num">0,5</td><td class="num">≈ 711</td><td>Sous-optimal : le consommateur céderait 1 H pour 1 N, mais le marché ne demande que ½ H → acheter plus d'alimentation</td></tr></tbody></table></div>'''))
+    b.append(L(
+        '''<h2><span class="badge">4</span>Critiques of the rationality assumption</h2>
+<p>A large body of lab and field evidence shows that people often behave contrary to rational-choice theory (Kahneman 2002, Thaler 2017).</p>
+<div class="grid">
+<div class="card"><span class="tag">① Unstable preferences</span><h4>Time inconsistency</h4><p>Decide today, give up soon after: “gym from Monday”, “I'll quit after this pack”.</p></div>
+<div class="card"><span class="tag">② Errors of judgement</span><h4>Behavioural biases</h4><p>Optimism bias (skipping flood insurance), misjudged probabilities (playing the lottery despite tiny odds).</p></div>
+<div class="card"><span class="tag">③ Preferences shaped by others</span><h4>Not exogenous</h4><p>Preferences depend on context and peers: Uᵢ depends on j's choices. Completeness and transitivity still hold, but the indifference map moves with the social group. E.g. a teenager buying an iPhone without real need on a modest income; buying what neighbours buy.</p></div>
+</div>
+<div class="callout"><strong>Framing effect</strong>How a choice is presented changes the decision. Station A: petrol €1.55 with a 5-cent discount for cash. Station B: €1.50 with a 5-cent surcharge for card. The cash price is identical, yet the “discount” offer wins (reference point + loss aversion). See <i>Misbehaving</i> by Richard Thaler (Nobel Prize 2017).</div>
+<h2>Check yourself</h2>
+<details class="q"><summary>Why must indifference curves slope downwards?</summary>Non-satiation: if you get more of one good, you must have less of the other to stay equally satisfied.</details>
+<details class="q"><summary>With U = N·H, what is the MRS at (N = 25, H = 50)?</summary>MRS = H/N = 50/25 = 2: the consumer would give up 2 units of H for one more N.</details>
+<details class="q"><summary>R = 120, P<sub>N</sub> = 2, P<sub>H</sub> = 3. Write the budget line and its intercepts.</summary>3H + 2N = 120 ⟹ H = 40 − (2/3)N. Intercepts: H = 40 (N = 0), N = 60 (H = 0). Slope −2/3.</details>
+<details class="q"><summary>With U = N·H and the budget of the previous question, find the optimum.</summary>Tangency: H/N = 2/3 ⟹ H = (2/3)N. Budget: 3·(2/3)N + 2N = 120 ⟹ 4N = 120 ⟹ N = 30, H = 20, U = 600. (With Cobb-Douglas U = N·H, half of income goes to each good.)</details>
+<details class="q"><summary>Income and all prices double. What happens to the budget line?</summary>Nothing: R/P<sub>H</sub>, R/P<sub>N</sub> and the slope are unchanged. Proportional inflation is neutral.</details>
+<details class="q"><summary>What are the indifference curves for left and right shoes, and why?</summary>L-shaped (perfect complements, U = min(L, R)): an extra left shoe without a right one adds nothing.</details>''',
+        '''<h2><span class="badge">4</span>Critiques de l'hypothèse de rationalité</h2>
+<p>Une solide base empirique, en laboratoire et sur le terrain, montre que les comportements sont souvent contraires à la théorie du choix rationnel (Kahneman 2002, Thaler 2017).</p>
+<div class="grid">
+<div class="card"><span class="tag">① Préférences instables</span><h4>Incohérence temporelle</h4><p>Décider aujourd'hui, abandonner peu après : « la gym à partir de lundi », « j'arrête après ce paquet ».</p></div>
+<div class="card"><span class="tag">② Erreurs de jugement</span><h4>Biais comportementaux</h4><p>Biais d'optimisme (ne pas s'assurer contre les inondations), mauvaise estimation des probabilités (jouer à la loterie malgré une chance infime).</p></div>
+<div class="card"><span class="tag">③ Préférences influencées par autrui</span><h4>Non exogènes</h4><p>Les préférences dépendent du contexte et du groupe : Uᵢ dépend des choix de j. Complétude et transitivité restent vérifiées, mais la carte d'indifférence se déplace avec le groupe social. Ex. : un adolescent qui achète un iPhone sans réel besoin et avec un revenu modeste ; acheter les mêmes biens que ses voisins.</p></div>
+</div>
+<div class="callout"><strong>Effet de framing</strong>La façon de présenter un choix modifie la décision. Station A : essence à 1,55 € avec remise de 5 cts en espèces. Station B : 1,50 € avec majoration de 5 cts par carte. Le prix en espèces est identique, mais l'offre « avec remise » l'emporte (point de référence + aversion aux pertes). Voir <i>Misbehaving</i> de Richard Thaler (prix Nobel 2017).</div>
+<h2>Testez-vous</h2>
+<details class="q"><summary>Pourquoi les courbes d'indifférence ont-elles une pente négative ?</summary>Non-satiété : si l'on a plus d'un bien, il faut moins de l'autre pour rester aussi satisfait.</details>
+<details class="q"><summary>Avec U = N·H, quel est le TMS en (N = 25, H = 50) ?</summary>TMS = H/N = 50/25 = 2 : le consommateur céderait 2 unités de H pour une unité de N en plus.</details>
+<details class="q"><summary>R = 120, P<sub>N</sub> = 2, P<sub>H</sub> = 3. Écrivez la droite de budget et ses intercepts.</summary>3H + 2N = 120 ⟹ H = 40 − (2/3)N. Intercepts : H = 40 (N = 0), N = 60 (H = 0). Pente −2/3.</details>
+<details class="q"><summary>Avec U = N·H et le budget précédent, trouvez l'optimum.</summary>Tangence : H/N = 2/3 ⟹ H = (2/3)N. Budget : 3·(2/3)N + 2N = 120 ⟹ 4N = 120 ⟹ N = 30, H = 20, U = 600. (Avec U = N·H, la moitié du revenu va à chaque bien.)</details>
+<details class="q"><summary>Le revenu et tous les prix doublent. Que devient la droite de budget ?</summary>Rien : R/P<sub>H</sub>, R/P<sub>N</sub> et la pente sont inchangés. L'inflation proportionnelle est neutre.</details>
+<details class="q"><summary>Quelles sont les courbes d'indifférence pour chaussures gauches et droites, et pourquoi ?</summary>En L (complémentaires parfaits, U = min(G, D)) : une chaussure gauche de plus sans la droite n'apporte rien.</details>'''))
+    write("lessons/s3-consommateur.html", ("Consumer choice", "Le choix du consommateur"), b, extra=CS_JS)
+
+
+# ---------------- page 4.1 costs
+
+def page_s4_couts():
+    b = []
+    CF = 50
+    CV = [0, 50, 78, 98, 112, 130, 150, 175, 204, 242, 300, 385]
+
+    def cost_rows(lang):
+        r = ""
+        for q in range(0, 12):
+            ct = CF + CV[q]
+            cm = "—" if q == 0 else CV[q] - CV[q - 1]
+            avg = ("—", "—", "—") if q == 0 else (num(CF / q, lang, 2), num(CV[q] / q, lang, 2), num(ct / q, lang, 2))
+            hl = ' class="hl"' if q in (4, 7, 8) else ""
+            r += f'<tr{hl}><td class="num">{q}</td><td class="num">{CF}</td><td class="num">{CV[q]}</td><td class="num">{ct}</td><td class="num">{cm}</td><td class="num">{avg[0]}</td><td class="num">{avg[1]}</td><td class="num">{avg[2]}</td></tr>'
+        return r
+    b.append(L(
+        '''<p class="kicker">Session 4 · Part A</p><h1>Production costs</h1><p class="lead">Technology, factor combinations and cost curves — the building blocks of the theory of the firm.</p>
+<h2>Market structures at a glance</h2>
+<div class="grid">
+<div class="card"><span class="tag">Perfect competition</span><h4>Price taker</h4><ul><li>Many buyers and sellers (atomicity)</li><li>Homogeneous good</li><li>Free entry and exit</li></ul><p>E.g. agricultural markets</p></div>
+<div class="card"><span class="tag">Monopolistic competition</span><h4>Limited market power</h4><ul><li>Many sellers</li><li>Differentiated goods (close substitutes)</li><li>Few entry barriers</li></ul><p>E.g. hygiene/beauty, sporting goods</p></div>
+<div class="card"><span class="tag">Oligopoly</span><h4>Strategic interdependence</h4><ul><li>Few sellers</li><li>Homogeneous or differentiated good</li><li>High entry barriers</li></ul><p>E.g. cars, aerospace, steel</p></div>
+<div class="card"><span class="tag">Monopoly</span><h4>Price maker</h4><ul><li>A single seller</li><li>Insurmountable barriers</li></ul><p>E.g. water distribution, electricity distribution</p></div>
+</div>
+<h2><span class="badge">1</span>Technology and cost minimisation</h2>
+<div class="callout"><strong>The question</strong>A cereal farmer wants to produce 800 t of milling wheat (≥ 11 % protein) on 100 ha. How many tractors, workers and how much fertiliser? Powerful machinery, or shared equipment and more labour? → the <b>optimal combination of factors of production</b>.</div>
+<div class="flow"><span class="step">1 · Best combination of factors?</span><span class="arr">→</span><span class="step">2 · How do costs change with output?</span><span class="arr">→</span><span class="step key">3 · Which output maximises profit?</span></div>
+<p>For a target output Q, the firm looks for the cheapest combination of <b>K</b> (capital), <b>L</b> (labour) and <b>MP</b> (raw materials). Total cost is a function of output: at each Q, the minimum spending needed.</p>
+<div class="grid">
+<div class="card"><span class="tag">K — physical capital</span><h4>Fixed in the short run</h4><p>Installations, equipment, capacity (tractors, combines, silos, sheds). Fixed in the short run, variable in the long run: in the short run K is a constraint.</p></div>
+<div class="card"><span class="tag">L &amp; MP — variable factors</span><h4>Adjustable right away</h4><p>Labour and raw materials can change in the short run → variable costs. In the long run K, L and MP all vary → every cost is variable.</p></div>
+</div>
+<div class="grid">
+<div class="card"><span class="tag">1</span><h4>Capital-intensive</h4><p>New, powerful machinery; little labour. Key cost: capital (interest rates, fuel).</p></div>
+<div class="card"><span class="tag">2</span><h4>Labour-intensive</h4><p>Old or shared machinery; more working hours. Key cost: wages.</p></div>
+<div class="card"><span class="tag">3</span><h4>Input-intensive</h4><p>More nitrogen fertiliser and treatments to secure yield and quality. Key cost: nitrogen price.</p></div>
+</div>
+<p><b>Key point:</b> the <i>relative</i> price of factors (fuel, nitrogen, wages, interest rates) decides which combination is cheapest.</p>''',
+        '''<p class="kicker">Séance 4 · Partie A</p><h1>Les coûts de production</h1><p class="lead">Technologie, combinaison des facteurs et courbes de coûts — les briques de la théorie de la firme.</p>
+<h2>Panorama des structures de marché</h2>
+<div class="grid">
+<div class="card"><span class="tag">Concurrence parfaite</span><h4>Preneur de prix</h4><ul><li>Grand nombre d'acheteurs et de vendeurs (atomicité)</li><li>Bien homogène</li><li>Libre entrée et sortie</li></ul><p>Ex. : marchés agricoles</p></div>
+<div class="card"><span class="tag">Concurrence monopolistique</span><h4>Pouvoir de marché limité</h4><ul><li>Grand nombre de vendeurs</li><li>Biens différenciés (substituts proches)</li><li>Peu de barrières à l'entrée</li></ul><p>Ex. : hygiène/beauté, articles de sport</p></div>
+<div class="card"><span class="tag">Oligopole</span><h4>Interdépendance stratégique</h4><ul><li>Petit nombre de vendeurs</li><li>Bien homogène ou différencié</li><li>Barrières importantes à l'entrée</li></ul><p>Ex. : automobile, aéronautique, acier</p></div>
+<div class="card"><span class="tag">Monopole</span><h4>Faiseur de prix</h4><ul><li>Un seul vendeur</li><li>Barrières insurmontables</li></ul><p>Ex. : distribution d'eau, distribution d'électricité</p></div>
+</div>
+<h2><span class="badge">1</span>Technologie et minimisation des coûts</h2>
+<div class="callout"><strong>La question</strong>Un céréalier veut produire 800 t de blé meunier (≥ 11 % de protéines) sur 100 ha. Combien de tracteurs, de salariés, d'engrais ? Du matériel puissant, ou du matériel partagé et plus de main-d'œuvre ? → la <b>combinaison optimale des facteurs de production</b>.</div>
+<div class="flow"><span class="step">1 · Meilleure combinaison de facteurs ?</span><span class="arr">→</span><span class="step">2 · Comment les coûts évoluent-ils avec la production ?</span><span class="arr">→</span><span class="step key">3 · Quelle production maximise le profit ?</span></div>
+<p>Pour un niveau Q voulu, la firme cherche la combinaison la moins chère de <b>K</b> (capital), <b>L</b> (travail) et <b>MP</b> (matières premières). Le coût total est fonction de la production : à chaque Q, la dépense minimale nécessaire.</p>
+<div class="grid">
+<div class="card"><span class="tag">K — capital physique</span><h4>Fixe à court terme</h4><p>Installations, équipements, capacités (tracteurs, moissonneuses, silos, hangars). Fixe à CT, variable à LT : à CT, K est une contrainte.</p></div>
+<div class="card"><span class="tag">L et MP — facteurs variables</span><h4>Ajustables dès le CT</h4><p>Main-d'œuvre et matières premières varient à CT → coûts variables. À LT, K, L et MP varient → tous les coûts sont variables.</p></div>
+</div>
+<div class="grid">
+<div class="card"><span class="tag">1</span><h4>Capital intensif</h4><p>Matériel neuf et puissant ; peu de main-d'œuvre. Coût clé : capital (taux d'intérêt, carburant).</p></div>
+<div class="card"><span class="tag">2</span><h4>Travail intensif</h4><p>Matériel ancien ou partagé ; plus d'heures de travail. Coût clé : salaires.</p></div>
+<div class="card"><span class="tag">3</span><h4>Intrants intensifs</h4><p>Plus d'engrais azoté et de traitements pour sécuriser rendement et qualité. Coût clé : prix de l'azote.</p></div>
+</div>
+<p><b>À retenir :</b> c'est le prix <i>relatif</i> des facteurs (carburant, azote, salaires, taux d'intérêt) qui détermine la combinaison la moins coûteuse.</p>'''))
+    b.append(L(
+        f'''<h2><span class="badge">2</span>Short-run cost functions</h2>
+<p class="formula">TC = FC + VC · MC = ΔTC/ΔQ = ΔVC/ΔQ · ATC = TC/Q · AFC = FC/Q · AVC = VC/Q</p>
+<div class="table-wrap"><table><thead><tr><th class="num">Q</th><th class="num">FC</th><th class="num">VC</th><th class="num">TC</th><th class="num">MC</th><th class="num">AFC</th><th class="num">AVC</th><th class="num">ATC</th></tr></thead><tbody>{cost_rows("en")}</tbody></table></div>
+<p style="font-size:.85rem;color:var(--muted)">Highlighted: Q = 4 (minimum MC = 14) · Q = 7 (minimum AVC = 25, the shutdown point) · Q = 8 (minimum ATC = 31.75, the short-run optimal size).</p>
+<figure>{svg_cost_curves("en")}<figcaption>★ = minimum ATC (31.75 at Q = 8), the short-run optimal size. AFC always falls (the fixed cost is spread over more units). AVC and ATC are U-shaped. <b>MC cuts AVC and ATC at their minimum</b> — an algebraic property: while the marginal unit costs less than the average, it pulls the average down; once it costs more, it pulls it up. MC is plotted between quantities (e.g. 14 between Q = 3 and 4).</figcaption></figure>
+<h3>Why is total cost S-shaped? Marginal product of labour</h3>
+<p><b>MPL = ΔQ/ΔL</b>: the extra output from one more worker. With K fixed, each extra worker has less equipment to use. <b>Law of diminishing marginal returns:</b> beyond a threshold, each extra worker adds less (same logic for fertiliser on fixed land). If labour is the only variable factor at wage w: <b>MC = w / MPL</b> — MPL ↑ ⇒ MC ↓; MC minimum ⇔ MPL maximum.</p>
+<div class="grid">
+<div class="card"><span class="tag">Phase 1 · MPL ↑ → MC ↓</span><h4>Specialisation</h4><p>Better organisation: each new worker adds more than the previous one. MC 50 (Q = 1) → 14 (Q = 4); TC concave.</p></div>
+<div class="card"><span class="tag">Pivot · MPL max → MC min</span><h4>Q = 4</h4><p>MC = 14, the table's minimum: the inflection point of TC.</p></div>
+<div class="card"><span class="tag">Phase 2 · MPL ↓ → MC ↑</span><h4>Saturation</h4><p>Fixed K saturated: congestion, overtime. MC 18 (Q = 5) → 85 (Q = 11); TC convex.</p></div>
+</div>
+<p>Economies of scale already in the short run: ATC falls (fixed costs spread + MPL ↑) up to Q = 8, then diseconomies (ATC ↑). Hence VC and TC in an S, and MC in a U.</p>
+<div class="callout"><strong>Watch out</strong>Diminishing marginal returns (short run, K fixed) ≠ returns to scale (long run, all factors variable).</div>''',
+        f'''<h2><span class="badge">2</span>Fonctions de coût à court terme</h2>
+<p class="formula">CT = CF + CV · Cm = ΔCT/ΔQ = ΔCV/ΔQ · CTM = CT/Q · CFM = CF/Q · CVM = CV/Q</p>
+<div class="table-wrap"><table><thead><tr><th class="num">Q</th><th class="num">CF</th><th class="num">CV</th><th class="num">CT</th><th class="num">Cm</th><th class="num">CFM</th><th class="num">CVM</th><th class="num">CTM</th></tr></thead><tbody>{cost_rows("fr")}</tbody></table></div>
+<p style="font-size:.85rem;color:var(--muted)">Surlignés : Q = 4 (Cm minimum = 14) · Q = 7 (CVM minimum = 25, seuil de fermeture) · Q = 8 (CTM minimum = 31,75, taille optimale de CT).</p>
+<figure>{svg_cost_curves("fr")}<figcaption>★ = minimum du CTM (31,75 en Q = 8), la taille optimale de CT. Le CFM décroît toujours (le coût fixe est étalé sur plus d'unités). CVM et CTM sont en U. <b>Le Cm coupe CVM et CTM à leur minimum</b> — propriété algébrique : tant que l'unité marginale coûte moins que la moyenne, elle la tire vers le bas ; dès qu'elle coûte plus, elle la tire vers le haut. Le Cm est tracé entre deux quantités (ex. 14 entre Q = 3 et 4).</figcaption></figure>
+<h3>Pourquoi le coût total est-il en S ? La productivité marginale du travail</h3>
+<p><b>PmL = ΔQ/ΔL</b> : la production supplémentaire d'un travailleur en plus. À K fixe, chaque travailleur supplémentaire dispose de moins d'équipement. <b>Loi des rendements marginaux décroissants :</b> passé un seuil, chaque travailleur de plus rapporte moins (même logique pour l'engrais sur une surface fixe). Si L est le seul facteur variable et w constant : <b>Cm = w / PmL</b> — PmL ↑ ⇒ Cm ↓ ; Cm minimum ⇔ PmL maximale.</p>
+<div class="grid">
+<div class="card"><span class="tag">Phase 1 · PmL ↑ → Cm ↓</span><h4>Spécialisation</h4><p>Meilleure organisation : chaque nouveau travailleur rapporte plus que le précédent. Cm 50 (Q = 1) → 14 (Q = 4) ; CT concave.</p></div>
+<div class="card"><span class="tag">Pivot · PmL max → Cm min</span><h4>Q = 4</h4><p>Cm = 14, minimum du tableau : point d'inflexion de la courbe de CT.</p></div>
+<div class="card"><span class="tag">Phase 2 · PmL ↓ → Cm ↑</span><h4>Saturation</h4><p>K fixe saturé : congestion, heures supplémentaires. Cm 18 (Q = 5) → 85 (Q = 11) ; CT convexe.</p></div>
+</div>
+<p>Économies d'échelle dès le CT : le CTM baisse (CF étalés + PmL ↑) jusqu'à Q = 8, puis déséconomies (CTM ↑). D'où le CV et le CT en S, et le Cm en U.</p>
+<div class="callout"><strong>Point d'attention</strong>Rendements marginaux décroissants (court terme, K fixe) ≠ rendements d'échelle (long terme, tous facteurs variables).</div>'''))
+    b.append(L(
+        f'''<h2><span class="badge">3</span>Application: a t-shirt workshop</h2>
+<p>100 printed t-shirts a day, four possible techniques. Prices: machine (K) €100/day (daily leasing → variable cost), worker (L) €60/day, premises €200/day (the only fixed cost).</p>
+<div class="table-wrap"><table><thead><tr><th>Technique</th><th class="num">K</th><th class="num">L</th><th class="num">Cost K + L</th><th class="num">Per t-shirt</th><th class="num">If K = €50</th></tr></thead><tbody>
+<tr><td>A — manual handling</td><td class="num">1</td><td class="num">6</td><td class="num">€460</td><td class="num">€4.60</td><td class="num">€410</td></tr>
+<tr class="hl"><td>B — balanced ★</td><td class="num">2</td><td class="num">3</td><td class="num">€380</td><td class="num">€3.80</td><td class="num">€280</td></tr>
+<tr><td>C — mostly automated</td><td class="num">3</td><td class="num">2</td><td class="num">€420</td><td class="num">€4.20</td><td class="num">€270 ★</td></tr>
+<tr><td>D — highly automated</td><td class="num">6</td><td class="num">1</td><td class="num">€660</td><td class="num">€6.60</td><td class="num">€360</td></tr></tbody></table></div>
+<figure>{svg_isoquant("en")}<figcaption><b>Isoquant:</b> all (K, L) combinations producing the same output (100 t-shirts). <b>Isocost:</b> all combinations costing the same amount, 100K + 60L = C. Lower the budget until the last point of contact: <b>B</b> (€380 + €200 rent = €580), €280 cheaper than D. If machine leasing falls to €50/day, the optimum moves to <b>C</b>: capital replaces labour — no new technology, only relative prices changed.</figcaption></figure>
+<div class="callout"><strong>Key point</strong>All four techniques are technically efficient: technology alone cannot choose, prices are needed. No combination is “good” in itself — the optimum comes from a technology meeting a price system. And since the workshop is in perfect competition (hundreds of identical workshops, a standardised t-shirt, rented machines and premises so free entry and exit), it is a <b>price taker</b>: its only lever is minimising cost.</div>
+<h2><span class="badge">4</span>Short run vs long run</h2>
+<div class="grid">
+<div class="card"><span class="tag">Short run</span><h4>Some factors fixed</h4><p>K is fixed; only L and MP vary; the firm cannot change size. Fixed costs exist and cannot be recovered. TC is S-shaped.</p></div>
+<div class="card"><span class="tag">Long run</span><h4>All factors vary</h4><p>The firm can change its size; no cost is fixed. The long-run average cost curve is the <b>envelope</b> of the short-run ones. Only horizon where we speak of returns to scale.</p></div>
+</div>
+<div class="grid">
+<div class="card"><span class="tag">Technical notion · long run</span><h4>Returns to scale</h4><p>How <b>output</b> responds when all factors increase in the same proportion. Measures the efficiency of the technology.</p></div>
+<div class="card"><span class="tag">Cost notion · short and long run</span><h4>Economies of scale</h4><p>How <b>unit cost</b> (ATC) responds to output; also depends on factor prices. ATC falls with Q ⇒ economies of scale; ATC rises ⇒ diseconomies.</p></div>
+</div>
+<div class="table-wrap"><table><thead><tr><th>Returns to scale</th><th>Definition</th><th>Why</th><th>Usual effect on ATC</th></tr></thead><tbody>
+<tr><td><b>Increasing</b></td><td>F(bK, bL) &gt; b·F(K, L)</td><td>Specialisation, indivisible factors. (1 tractor, 3 workers) → (2 tractors, 6 workers) more than doubles output: specialised teams (harvest, shuttle, silo), shared trailer and mechanic.</td><td>ATC ↓ (economies of scale)</td></tr>
+<tr><td><b>Constant</b></td><td>F(bK, bL) = b·F(K, L)</td><td>Rare; very standardised processes.</td><td>ATC stable</td></tr>
+<tr><td><b>Decreasing</b></td><td>F(bK, bL) &lt; b·F(K, L)</td><td>Congestion, managerial complexity, resource scarcity, HR problems.</td><td>ATC ↑ (diseconomies)</td></tr></tbody></table></div>
+<div class="callout"><strong>Two exceptions</strong>① Increasing returns but ATC ↑: factor prices or organisation costs (management, bureaucracy) grow faster than productivity — rare but possible. ② Constant returns but ATC ↓: economies of scale without technical gains, from spreading volume-independent costs (R&amp;D, marketing, head office), purchasing discounts, better access to finance.</div>
+<h2>Check yourself</h2>
+<details class="q"><summary>FC = 100 and VC = 300 at Q = 20. Compute TC, AFC, AVC and ATC.</summary>TC = 400; AFC = 5; AVC = 15; ATC = 20.</details>
+<details class="q"><summary>Why does MC cut ATC at its minimum?</summary>If the marginal unit costs less than the average, it lowers the average; if it costs more, it raises it. So the average stops falling exactly where MC = ATC.</details>
+<details class="q"><summary>Wage = €120/day, MPL = 40 units. What is MC?</summary>MC = w / MPL = 120 / 40 = €3 per unit.</details>
+<details class="q"><summary>In the t-shirt workshop, wages rise to €100/day (K still €100). Which technique is cheapest?</summary>A: 100 + 600 = 700; B: 200 + 300 = 500; C: 300 + 200 = 500; D: 600 + 100 = 700. B and C tie at €500 — the optimum moves towards more capital.</details>
+<details class="q"><summary>Diminishing marginal returns vs decreasing returns to scale?</summary>Diminishing marginal returns: short run, one factor varies with K fixed. Decreasing returns to scale: long run, all factors increase in the same proportion and output rises less than proportionally.</details>''',
+        f'''<h2><span class="badge">3</span>Application : un atelier de t-shirts</h2>
+<p>100 t-shirts imprimés par jour, quatre techniques possibles. Prix : machine (K) 100 €/jour (leasing journalier → coût variable), ouvrier (L) 60 €/jour, local 200 €/jour (seul coût fixe).</p>
+<div class="table-wrap"><table><thead><tr><th>Technique</th><th class="num">K</th><th class="num">L</th><th class="num">Coût K + L</th><th class="num">Par t-shirt</th><th class="num">Si K = 50 €</th></tr></thead><tbody>
+<tr><td>A — manutention manuelle</td><td class="num">1</td><td class="num">6</td><td class="num">460 €</td><td class="num">4,60 €</td><td class="num">410 €</td></tr>
+<tr class="hl"><td>B — organisation équilibrée ★</td><td class="num">2</td><td class="num">3</td><td class="num">380 €</td><td class="num">3,80 €</td><td class="num">280 €</td></tr>
+<tr><td>C — plutôt automatisée</td><td class="num">3</td><td class="num">2</td><td class="num">420 €</td><td class="num">4,20 €</td><td class="num">270 € ★</td></tr>
+<tr><td>D — très automatisée</td><td class="num">6</td><td class="num">1</td><td class="num">660 €</td><td class="num">6,60 €</td><td class="num">360 €</td></tr></tbody></table></div>
+<figure>{svg_isoquant("fr")}<figcaption><b>Isoquante :</b> toutes les combinaisons (K, L) produisant la même quantité (100 t-shirts). <b>Isocoût :</b> toutes les combinaisons de même coût, 100K + 60L = C. On baisse le budget jusqu'au dernier contact : <b>B</b> (380 € + 200 € de loyer = 580 €), 280 € de moins que D. Si le leasing tombe à 50 €/jour, l'optimum passe en <b>C</b> : on substitue du capital au travail — aucune technologie nouvelle, seul le prix relatif a changé.</figcaption></figure>
+<div class="callout"><strong>À retenir</strong>Les quatre techniques sont techniquement efficaces : la technologie seule ne permet pas de choisir, il faut les prix. Aucune combinaison n'est « bonne » en soi — l'optimum naît de la rencontre entre une technologie et un système de prix. Et comme l'atelier est en concurrence parfaite (des centaines d'ateliers identiques, t-shirt standardisé, machines et local loués donc libre entrée et sortie), il est <b>preneur de prix</b> : son seul levier est la minimisation du coût.</div>
+<h2><span class="badge">4</span>Court terme vs long terme</h2>
+<div class="grid">
+<div class="card"><span class="tag">Court terme</span><h4>Certains facteurs fixes</h4><p>K est fixe ; seuls L et MP varient ; la firme ne peut pas changer de taille. Les CF existent et sont non récupérables. CT en S.</p></div>
+<div class="card"><span class="tag">Long terme</span><h4>Tous les facteurs varient</h4><p>La firme peut changer de taille ; aucun coût n'est fixe. La courbe de coût moyen de LT est l'<b>enveloppe</b> des courbes de CT. Seul horizon où l'on parle de rendements d'échelle.</p></div>
+</div>
+<div class="grid">
+<div class="card"><span class="tag">Notion technique · long terme</span><h4>Rendements d'échelle</h4><p>Sensibilité de la <b>production</b> à une variation équiproportionnelle de tous les facteurs. Mesure l'efficacité de la technologie.</p></div>
+<div class="card"><span class="tag">Notion de coût · CT et LT</span><h4>Économies d'échelle</h4><p>Sensibilité du <b>coût unitaire</b> (CTM) au niveau de production ; dépend aussi du prix des facteurs. CTM ↓ avec Q ⇒ économies d'échelle ; CTM ↑ ⇒ déséconomies.</p></div>
+</div>
+<div class="table-wrap"><table><thead><tr><th>Rendements d'échelle</th><th>Définition</th><th>Pourquoi</th><th>Effet habituel sur le CTM</th></tr></thead><tbody>
+<tr><td><b>Croissants</b></td><td>F(bK, bL) &gt; b·F(K, L)</td><td>Spécialisation, facteurs indivisibles. (1 tracteur, 3 ouvriers) → (2 tracteurs, 6 ouvriers) : production plus que doublée — équipes spécialisées (récolte, navette, silo), benne et mécanicien partagés.</td><td>CTM ↓ (économies d'échelle)</td></tr>
+<tr><td><b>Constants</b></td><td>F(bK, bL) = b·F(K, L)</td><td>Rare ; processus très standardisés.</td><td>CTM stable</td></tr>
+<tr><td><b>Décroissants</b></td><td>F(bK, bL) &lt; b·F(K, L)</td><td>Congestion, complexité managériale, pénurie de ressources, problèmes RH.</td><td>CTM ↑ (déséconomies)</td></tr></tbody></table></div>
+<div class="callout"><strong>Deux exceptions</strong>① RE croissants mais CTM ↑ : prix des facteurs ou coûts d'organisation (management, bureaucratie) qui croissent plus vite que la productivité — rare mais possible. ② RE constants mais CTM ↓ : économies d'échelle sans gain technique, grâce à l'étalement de coûts indépendants du volume (R&amp;D, marketing, siège), aux remises sur achats, à un meilleur accès au financement.</div>
+<h2>Testez-vous</h2>
+<details class="q"><summary>CF = 100 et CV = 300 pour Q = 20. Calculez CT, CFM, CVM et CTM.</summary>CT = 400 ; CFM = 5 ; CVM = 15 ; CTM = 20.</details>
+<details class="q"><summary>Pourquoi le Cm coupe-t-il le CTM à son minimum ?</summary>Si l'unité marginale coûte moins que la moyenne, elle fait baisser la moyenne ; si elle coûte plus, elle la fait monter. La moyenne cesse donc de baisser exactement là où Cm = CTM.</details>
+<details class="q"><summary>Salaire = 120 €/jour, PmL = 40 unités. Quel est le Cm ?</summary>Cm = w / PmL = 120 / 40 = 3 € par unité.</details>
+<details class="q"><summary>Dans l'atelier de t-shirts, les salaires passent à 100 €/jour (K toujours à 100 €). Quelle technique est la moins chère ?</summary>A : 100 + 600 = 700 ; B : 200 + 300 = 500 ; C : 300 + 200 = 500 ; D : 600 + 100 = 700. B et C à égalité à 500 € — l'optimum glisse vers plus de capital.</details>
+<details class="q"><summary>Rendements marginaux décroissants vs rendements d'échelle décroissants ?</summary>Rendements marginaux décroissants : court terme, un facteur varie avec K fixe. Rendements d'échelle décroissants : long terme, tous les facteurs augmentent dans la même proportion et la production augmente moins que proportionnellement.</details>'''))
+    write("lessons/s4-couts.html", ("Production costs", "Les coûts de production"), b)
+
+
+# ---------------- page 4.2 perfect competition
+
+def page_s4_cp():
+    b = []
+    b.append(L(
+        '''<p class="kicker">Session 4 · Part B</p><h1>The firm in perfect competition</h1><p class="lead">Profit maximisation (MR = MC = p), the short-run supply curve, and long-run industry equilibrium.</p>
+<h2><span class="badge">1</span>The optimality condition: MR = MC = p</h2>
+<div class="grid">
+<div class="card"><h4>The firm is a price taker</h4><p>Total revenue TR(Q) = p × Q, so marginal revenue MR = dTR/dQ = (dp/dQ)·Q + p = 0·Q + p = <b>p</b>.</p></div>
+<div class="card"><h4>Maximise profit</h4><p>dπ/dQ = MR − MC = 0 ⟹ <b>p = MC</b>. The firm produces up to the quantity q* where the cost of the last unit equals the market price.</p></div>
+</div>
+<div class="grid">
+<div class="card"><span class="tag">Result 1</span><h4>p = MC</h4><p>The optimality condition.</p></div>
+<div class="card"><span class="tag">Result 2</span><h4>Supply curve</h4><p>The rising part of MC above minimum AVC (the shutdown point).</p></div>
+<div class="card"><span class="tag">Result 3</span><h4>Profit &gt; 0 if p &gt; min ATC</h4><p>The long-run viability condition.</p></div>
+</div>''',
+        '''<p class="kicker">Séance 4 · Partie B</p><h1>La firme en concurrence parfaite</h1><p class="lead">Maximisation du profit (Rm = Cm = p), courbe d'offre de court terme et équilibre d'industrie à long terme.</p>
+<h2><span class="badge">1</span>La condition d'optimalité : Rm = Cm = p</h2>
+<div class="grid">
+<div class="card"><h4>La firme est preneuse de prix</h4><p>Recette totale RT(Q) = p × Q, donc recette marginale Rm = dRT/dQ = (dp/dQ)·Q + p = 0·Q + p = <b>p</b>.</p></div>
+<div class="card"><h4>Maximiser le profit</h4><p>dπ/dQ = Rm − Cm = 0 ⟹ <b>p = Cm</b>. La firme produit jusqu'à la quantité q* où le coût de la dernière unité égale le prix de marché.</p></div>
+</div>
+<div class="grid">
+<div class="card"><span class="tag">Résultat 1</span><h4>p = Cm</h4><p>La condition d'optimalité.</p></div>
+<div class="card"><span class="tag">Résultat 2</span><h4>Courbe d'offre</h4><p>La partie croissante du Cm au-dessus du minimum du CVM (le seuil de fermeture).</p></div>
+<div class="card"><span class="tag">Résultat 3</span><h4>Profit &gt; 0 si p &gt; min CTM</h4><p>La condition de viabilité de long terme.</p></div>
+</div>'''))
+    b.append(PF_WIDGET)
+    b.append(L(
+        '''<p style="font-size:.85rem;color:var(--muted)">The slider uses the cost table from <a href="s4-couts.html">4.1</a> (whole units). The shaded rectangle is profit (green) or loss (orange) = (p − ATC) × Q*. At p = 50 the table gives Q* = 9 and a profit of 158; with smooth curves the course finds Q* ≈ 9.4.</p>
+<h2><span class="badge">2</span>The short-run decision with fixed costs</h2>
+<div class="table-wrap"><table><thead><tr><th>Price</th><th>Situation</th><th>Why</th><th>Decision</th></tr></thead><tbody>
+<tr><td><b>p &gt; min ATC</b> (31.75)</td><td>Profit &gt; 0</td><td>TR = p × Q* &gt; TC = ATC × Q*; profit = (p − ATC) × Q*</td><td class="ok">Produce ✓</td></tr>
+<tr><td><b>min AVC &lt; p &lt; min ATC</b> (25 – 31.75)</td><td>Loss, but smaller than shutting down</td><td>Producing: loss = FC − (p − AVC) × Q*. Not producing: loss = FC. The surplus (p − AVC) × Q* &gt; 0 covers part of the fixed cost.</td><td class="ok">Produce anyway ✓</td></tr>
+<tr><td><b>p &lt; min AVC</b> (25)</td><td>Loss &gt; FC</td><td>The price does not even cover variable costs: producing makes the loss worse.</td><td class="no">Shut down ✗ (loss = FC)</td></tr></tbody></table></div>
+<div class="callout"><strong>Intuition</strong>In the short run fixed costs (rent, machines) exist and cannot be recovered: shutting down still costs FC. So the firm keeps producing as long as revenue covers at least its variable costs.</div>
+<div class="grid">
+<div class="card"><h4>Producer surplus</h4><p>PS = Σ (p − MC) over the units produced = TR − VC: unit margins net of <i>variable</i> costs only.</p></div>
+<div class="card"><h4>Profit</h4><p>π = TR − TC = (p − ATC) × Q*: ATC includes the average fixed cost.</p></div>
+</div>
+<p><b>Profit = surplus − FC:</b> the surplus must first pay the fixed costs; what remains is profit. The two coincide in the long run, when no cost is fixed.</p>''',
+        '''<p style="font-size:.85rem;color:var(--muted)">Le curseur utilise le tableau de coûts de <a href="s4-couts.html">4.1</a> (unités entières). Le rectangle grisé est le profit (vert) ou la perte (orange) = (p − CTM) × Q*. À p = 50, le tableau donne Q* = 9 et un profit de 158 ; avec des courbes continues, le cours trouve Q* ≈ 9,4.</p>
+<h2><span class="badge">2</span>La décision de court terme avec des coûts fixes</h2>
+<div class="table-wrap"><table><thead><tr><th>Prix</th><th>Situation</th><th>Pourquoi</th><th>Décision</th></tr></thead><tbody>
+<tr><td><b>p &gt; min CTM</b> (31,75)</td><td>Profit &gt; 0</td><td>RT = p × Q* &gt; CT = CTM × Q* ; profit = (p − CTM) × Q*</td><td class="ok">Produire ✓</td></tr>
+<tr><td><b>min CVM &lt; p &lt; min CTM</b> (25 – 31,75)</td><td>Perte, mais inférieure à la fermeture</td><td>En produisant : perte = CF − (p − CVM) × Q*. Sans produire : perte = CF. Le surplus (p − CVM) × Q* &gt; 0 couvre une partie des CF.</td><td class="ok">Produire quand même ✓</td></tr>
+<tr><td><b>p &lt; min CVM</b> (25)</td><td>Perte &gt; CF</td><td>Le prix ne couvre même pas les coûts variables : produire aggrave la perte.</td><td class="no">Fermer ✗ (perte = CF)</td></tr></tbody></table></div>
+<div class="callout"><strong>Intuition</strong>À court terme, les coûts fixes (loyer, machines) existent et sont irrécupérables : fermer coûte quand même CF. La firme continue donc à produire tant que ses recettes couvrent au moins ses coûts variables.</div>
+<div class="grid">
+<div class="card"><h4>Surplus du producteur</h4><p>SP = Σ (p − Cm) sur les unités produites = RT − CV : marges unitaires nettes des seuls coûts <i>variables</i>.</p></div>
+<div class="card"><h4>Profit</h4><p>π = RT − CT = (p − CTM) × Q* : le CTM inclut le coût fixe moyen.</p></div>
+</div>
+<p><b>Profit = surplus − CF :</b> le surplus doit d'abord payer les coûts fixes ; ce qui reste est le profit. Les deux coïncident à long terme, quand plus aucun coût n'est fixe.</p>'''))
+    b.append(L(
+        f'''<h2><span class="badge">3</span>Industry equilibrium</h2>
+<div class="callout"><strong>Key result</strong>In the long run, under perfect competition, the market price converges to <b>minimum average total cost</b>: p = min ATC → economic profit = 0, maximum allocative efficiency, free entry and exit.</div>
+<p><b>Industry supply:</b> with free access to technology, all firms in a sector share the same production function, so industry supply = the sum of individual supplies = <b>n × individual supply</b> (same curves, horizontal axis × n). Every firm is a price taker; the price is set where aggregate supply meets demand.</p>
+<h3>Example: the fodder-beet market</h3>
+<figure>{svg_industry("en")}<figcaption><b>A:</b> initial equilibrium, p₁ = min ATC = 31.75, zero economic profit. <b>Demand shock</b> D₁ → D₂: in the short run the price jumps to p₂ = 50 (<b>B</b>); existing firms produce more and earn a profit = (p₂ − ATC) × q₂. <b>Long run:</b> profits attract new entrants (other farmers switch crops), supply shifts right (S₁ → S₃) and the price falls back to min ATC (<b>C</b>): p* = p₁ but Q₃ &gt; Q₁, with more firms.</figcaption></figure>
+<div class="flow"><span class="step">1 · Short run: demand shock → p ↑, profits ↑</span><span class="arr">→</span><span class="step">2 · Entry of new firms → supply ↑</span><span class="arr">→</span><span class="step key">3 · Long run: p = min ATC, economic profit = 0</span></div>
+<p><b>Long-run supply is perfectly elastic</b> at p* = min ATC because of free entry and exit: p &gt; min ATC → entry → supply ↑ → p ↓; p &lt; min ATC → exit → supply ↓ → p ↑.</p>
+<div class="grid">
+<div class="card"><h4>Economic ≠ accounting profit</h4><p>Economic profit = accounting profit − opportunity costs (e.g. the return the owner's capital and time could earn elsewhere). Zero economic profit is not poor performance: the firm earns a normal return, as good as the best alternative investment.</p></div>
+<div class="card"><h4>A theoretical target</h4><p>Economic life is a series of shocks (costs, demand, technology). Each one creates temporary profits or losses, which trigger entry and exit. The market heads towards equilibrium without ever settling there.</p></div>
+<div class="card"><h4>Identical firms?</h4><p>Zero profit for all assumes identical costs. If firms differ (cheaper inputs, better location), only the <b>marginal firm</b> earns zero; infra-marginal firms keep a <b>Ricardian rent</b>.</p></div>
+</div>
+<div class="callout"><strong>Welfare</strong>W = consumer surplus + producer surplus (value to buyers − cost of production). With identical firms, PS = 0 in the long run; with heterogeneous costs PS &gt; 0. Both outcomes are efficient (p = MC, no deadweight loss), and at the same p* welfare is higher with heterogeneous firms: the same units are produced with fewer resources. Monopoly, taxes or quotas create a deadweight loss.</div>''',
+        f'''<h2><span class="badge">3</span>L'équilibre d'industrie</h2>
+<div class="callout"><strong>Résultat clé</strong>À long terme, en concurrence parfaite, le prix de marché converge vers le <b>minimum du coût moyen total</b> : p = min CTM → profit économique = 0, efficacité allocative maximale, libre entrée et sortie.</div>
+<p><b>Offre d'industrie :</b> avec libre accès aux technologies, toutes les firmes d'un secteur ont la même fonction de production ; l'offre agrégée = somme des offres individuelles = <b>n × offre individuelle</b> (mêmes courbes, axe horizontal × n). Toutes les firmes sont preneuses de prix ; le prix se fixe à l'intersection de l'offre agrégée et de la demande.</p>
+<h3>Exemple : le marché de la betterave fourragère</h3>
+<figure>{svg_industry("fr")}<figcaption><b>A :</b> équilibre initial, p₁ = min CTM = 31,75, profit économique nul. <b>Choc de demande</b> D₁ → D₂ : à court terme le prix monte à p₂ = 50 (<b>B</b>) ; les firmes existantes produisent plus et réalisent un profit = (p₂ − CTM) × q₂. <b>Long terme :</b> les profits attirent de nouveaux entrants (d'autres agriculteurs reconvertissent leur culture), l'offre se déplace vers la droite (O₁ → O₃) et le prix revient à min CTM (<b>C</b>) : p* = p₁ mais Q₃ &gt; Q₁, avec plus de firmes.</figcaption></figure>
+<div class="flow"><span class="step">1 · CT : choc de demande → p ↑, profits ↑</span><span class="arr">→</span><span class="step">2 · Entrée de nouvelles firmes → offre ↑</span><span class="arr">→</span><span class="step key">3 · LT : p = min CTM, profit éco = 0</span></div>
+<p><b>L'offre de long terme est parfaitement élastique</b> au prix p* = min CTM grâce à la libre entrée et sortie : p &gt; min CTM → entrée → offre ↑ → p ↓ ; p &lt; min CTM → sortie → offre ↓ → p ↑.</p>
+<div class="grid">
+<div class="card"><h4>Profit économique ≠ profit comptable</h4><p>Profit économique = profit comptable − coûts d'opportunité (ex. ce que le capital et le temps du propriétaire rapporteraient ailleurs). Un profit économique nul n'est pas une mauvaise performance : la firme obtient un rendement normal, aussi bon que le meilleur placement alternatif.</p></div>
+<div class="card"><h4>Une cible théorique</h4><p>La vie économique est une succession de chocs (coûts, demande, technologie). Chacun recrée des profits ou des pertes temporaires, qui déclenchent entrées et sorties. Le marché converge vers l'équilibre sans jamais s'y fixer.</p></div>
+<div class="card"><h4>Des firmes identiques ?</h4><p>Un profit nul pour toutes suppose des coûts identiques. Si les firmes diffèrent (facteurs moins chers, meilleur site), seule la <b>firme marginale</b> a un profit nul ; les firmes infra-marginales conservent une <b>rente ricardienne</b>.</p></div>
+</div>
+<div class="callout"><strong>Bien-être</strong>W = surplus du consommateur + surplus du producteur (valeur pour les acheteurs − coût de production). Avec des firmes identiques, SP = 0 à LT ; avec des coûts hétérogènes, SP &gt; 0. Les deux situations sont efficaces (p = Cm, pas de perte sèche), et à p* égal le bien-être est plus élevé avec des firmes hétérogènes : les mêmes unités sont produites avec moins de ressources. Monopole, taxe ou quota créent une perte sèche.</div>'''))
+    b.append(L(
+        f'''<h2><span class="badge">4</span>Real-world application: the electricity spot market</h2>
+<p>On wholesale electricity markets, power plants are called in order of increasing marginal cost — the <b>merit order</b>. The spot price is set by the marginal cost of the last unit called (the marginal producer).</p>
+<figure>{svg_merit("en")}<figcaption>Marginal costs: renewables ~€0/MWh (no fuel) · nuclear (Doel 4, Tihange 3) ~€12 (uranium + O&amp;M) · biomass &amp; waste ~€60 · CCGT gas ~€103 (gas + CO₂) · peakers (OCGT) ~€180 (gas + CO₂, low efficiency). Capacity widths are illustrative.</figcaption></figure>
+<div class="grid">
+<div class="card"><h4>The merit-order effect</h4><p>Renewables have MC ≈ 0. Adding them shifts supply to the right, pushing the most expensive plants out and lowering the spot price.</p></div>
+<div class="card"><h4>Belpex — July 2026</h4><p>Belpex / EPEX SPOT Belgium, coupled with neighbouring markets (day-ahead prices). Monthly average July 2026: <b>€105.64/MWh</b>. CCGT MC ≈ 40/0.55 + 0.37 × 81 ≈ €103/MWh (TTF gas ≈ €40/MWh, CO₂ ≈ €81/t) → <b>gas CCGT is still the marginal producer in Belgium</b>.</p></div>
+</div>
+<h2>Exercise — your turn</h2>
+<p>A firm produces up to 100 units a day. The first 80 units are made in normal working time; units 81–100 need overtime. Raw materials: €8/unit. Wages: €30/unit (normal time), €50/unit (overtime).</p>
+<ol><li>Find AVC and MC at Q = 80 and Q = 100.</li><li>For p = €35, €50 and €80: what is the optimal quantity Q*, and the variable profit?</li></ol>
+<details class="q"><summary>Show the solution</summary>
+<p><b>Costs.</b> Units 1–80: MC = 8 + 30 = €38. Units 81–100: MC = 8 + 50 = €58.<br>At Q = 80: AVC = €38, MC = €38. At Q = 100: VC = 80 × 38 + 20 × 58 = 4,200 → AVC = €42, MC = €58.</p>
+<p><b>Decisions</b> (min AVC = 38):</p>
+<ul><li><b>p = 35</b> &lt; min AVC → Q* = 0 (shut down); variable profit 0, the loss is the fixed cost.</li><li><b>p = 50</b>: 38 &lt; 50 &lt; 58 → Q* = 80; variable profit = (50 − 38) × 80 = <b>€960</b>.</li><li><b>p = 80</b> &gt; 58 → Q* = 100; variable profit = 8,000 − 4,200 = <b>€3,800</b>.</li></ul></details>
+<h2>Check yourself</h2>
+<details class="q"><summary>Why is marginal revenue equal to the price for a competitive firm?</summary>The firm is a price taker: selling one more unit does not change the price, so each extra unit brings in exactly p.</details>
+<details class="q"><summary>With the course cost table, p = 28. Produce or shut down?</summary>Produce (Q* = 7): 28 is above min AVC (25) but below min ATC (31.75). The loss is 29, less than the 50 lost by shutting down.</details>
+<details class="q"><summary>Why does economic profit fall to zero in the long run?</summary>Positive profits attract entrants; supply rises and the price falls until p = min ATC. Losses cause exit and the reverse.</details>
+<details class="q"><summary>What sets the electricity spot price?</summary>The marginal cost of the last (most expensive) plant needed to meet demand — in Belgium, usually a gas CCGT.</details>''',
+        f'''<h2><span class="badge">4</span>Application réelle : le marché spot de l'électricité</h2>
+<p>Sur les marchés de gros de l'électricité, les centrales sont appelées par ordre de coût marginal croissant — le <b>merit order</b>. Le prix spot est fixé par le coût marginal de la dernière unité appelée (le producteur marginal).</p>
+<figure>{svg_merit("fr")}<figcaption>Coûts marginaux : renouvelables ~0 €/MWh (pas de combustible) · nucléaire (Doel 4, Tihange 3) ~12 € (uranium + O&amp;M) · biomasse et déchets ~60 € · CCGT gaz ~103 € (gaz + CO₂) · pointe (OCGT) ~180 € (gaz + CO₂, faible rendement). Les capacités sont illustratives.</figcaption></figure>
+<div class="grid">
+<div class="card"><h4>L'effet merit order</h4><p>Les ENR ont un Cm ≈ 0. Leur arrivée déplace l'offre vers la droite, évince les producteurs les plus chers et fait baisser le prix spot.</p></div>
+<div class="card"><h4>Belpex — juillet 2026</h4><p>Belpex / EPEX SPOT Belgium, couplée aux marchés voisins (prix day-ahead). Moyenne mensuelle juillet 2026 : <b>105,64 €/MWh</b>. Cm du CCGT ≈ 40/0,55 + 0,37 × 81 ≈ 103 €/MWh (gaz TTF ≈ 40 €/MWh, CO₂ ≈ 81 €/t) → <b>le CCGT reste le producteur marginal en Belgique</b>.</p></div>
+</div>
+<h2>Exercice — à vous de jouer</h2>
+<p>Une entreprise produit jusqu'à 100 unités par jour. Les 80 premières sont produites en temps normal ; les unités 81 à 100 exigent des heures supplémentaires. Matières premières : 8 €/unité. Salaires : 30 €/unité (temps normal), 50 €/unité (heures sup.).</p>
+<ol><li>Identifiez le CVM et le Cm à Q = 80 et Q = 100.</li><li>Pour p = 35, 50 et 80 € : quelle est la quantité optimale Q* et le profit variable ?</li></ol>
+<details class="q"><summary>Voir la solution</summary>
+<p><b>Coûts.</b> Unités 1–80 : Cm = 8 + 30 = 38 €. Unités 81–100 : Cm = 8 + 50 = 58 €.<br>À Q = 80 : CVM = 38 €, Cm = 38 €. À Q = 100 : CV = 80 × 38 + 20 × 58 = 4 200 → CVM = 42 €, Cm = 58 €.</p>
+<p><b>Décisions</b> (min CVM = 38) :</p>
+<ul><li><b>p = 35</b> &lt; min CVM → Q* = 0 (fermer) ; profit variable 0, la perte est le coût fixe.</li><li><b>p = 50</b> : 38 &lt; 50 &lt; 58 → Q* = 80 ; profit variable = (50 − 38) × 80 = <b>960 €</b>.</li><li><b>p = 80</b> &gt; 58 → Q* = 100 ; profit variable = 8 000 − 4 200 = <b>3 800 €</b>.</li></ul></details>
+<h2>Testez-vous</h2>
+<details class="q"><summary>Pourquoi la recette marginale est-elle égale au prix pour une firme concurrentielle ?</summary>La firme est preneuse de prix : vendre une unité de plus ne change pas le prix, chaque unité supplémentaire rapporte donc exactement p.</details>
+<details class="q"><summary>Avec le tableau de coûts du cours, p = 28. Produire ou fermer ?</summary>Produire (Q* = 7) : 28 est au-dessus du min CVM (25) mais sous le min CTM (31,75). La perte est de 29, moins que les 50 perdus en fermant.</details>
+<details class="q"><summary>Pourquoi le profit économique tend-il vers zéro à long terme ?</summary>Les profits positifs attirent des entrants ; l'offre augmente et le prix baisse jusqu'à p = min CTM. Les pertes provoquent des sorties et l'inverse.</details>
+<details class="q"><summary>Qu'est-ce qui fixe le prix spot de l'électricité ?</summary>Le coût marginal de la dernière centrale (la plus chère) nécessaire pour satisfaire la demande — en Belgique, généralement un CCGT au gaz.</details>'''))
+    write("lessons/s4-concurrence-parfaite.html", ("The firm in perfect competition", "La firme en concurrence parfaite"), b, extra=PF_JS)
+
+
+
 os.makedirs(os.path.join(SITE, "lessons"), exist_ok=True)
 page_home()
 page_syllabus()
@@ -1679,9 +2411,9 @@ page_principes()
 page_echange()
 page_s2_od()
 page_s2_elasticite()
-page_upcoming("concurrence-parfaite.html", "Perfect competition", "Concurrence parfaite",
-              ["Assumptions of perfect competition", "Profit maximisation: P = MC", "Short run and long run", "Efficiency and surplus"],
-              ["Hypothèses de la concurrence pure et parfaite (CPP)", "Maximisation du profit : P = Cm", "Court terme et long terme", "Efficacité et surplus"])
+page_s3()
+page_s4_couts()
+page_s4_cp()
 page_upcoming("monopole.html", "Monopoly", "Monopole",
               ["Sources of monopoly power", "MR = MC and the monopoly price", "Deadweight loss", "Price discrimination and regulation"],
               ["Sources du pouvoir de monopole", "Rm = Cm et le prix de monopole", "Perte sèche", "Discrimination par les prix et régulation"])
