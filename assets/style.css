@@ -26,3 +26,8 @@ h2{font-size:1.2rem;margin:32px 0 10px;padding-bottom:6px;border-bottom:1px soli
  .menu-btn{display:inline-block;position:sticky;top:0;margin:12px 16px 0;padding:6px 12px;border:1px solid var(--border);border-radius:6px;background:var(--panel);color:var(--text);font:inherit;z-index:5}
  main{padding:24px 16px}
 }
+/* Language switching: <span class="en"> / <span class="fr"> */
+html:not([lang="fr"]) .fr, html[lang="fr"] .en{display:none}
+.lang-switch{position:fixed;top:12px;right:16px;z-index:20;display:flex;border:1px solid var(--border);border-radius:6px;overflow:hidden;background:var(--panel)}
+.lang-switch button{border:0;background:none;color:var(--muted);font:600 .8rem/1 inherit;font-family:inherit;padding:7px 10px;cursor:pointer}
+.lang-switch button[aria-pressed="true"]{background:var(--accent);color:var(--panel)}
