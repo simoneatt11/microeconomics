@@ -102,3 +102,13 @@ a.card:hover{border-color:var(--accent)}
 .frac>span:last-child{padding:2px 4px 0}
 svg .lineT{stroke:var(--text);stroke-width:2.5;fill:none}
 .grid.g4{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+/* MIT 14.01 companion */
+.gx{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin:14px 0}
+.gx h4{margin:6px 0 8px;font-size:1rem}
+.gx p,.gx ul,.gx ol{font-size:.95rem}
+.gx-src{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.gx-lec{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+.gx-play{font-size:.8rem;font-weight:600;text-decoration:none;border:1px solid var(--border);border-radius:999px;padding:3px 10px;background:var(--soft)}
+.gx-play:hover{border-color:var(--accent)}
+.gx-steps li{margin:3px 0}
+.mit-credit{font-size:.82rem;color:var(--muted)}

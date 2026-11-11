@@ -2,7 +2,7 @@
 import os, sys, math
 
 SITE = sys.argv[1]
-V = "5"  # bump to bust browser cache when CSS/JS change
+V = "6"  # bump to bust browser cache when CSS/JS change
 
 
 def head(title_en, title_fr, root):
@@ -35,6 +35,7 @@ def foot(root, extra=""):
 def write(path, title, blocks, root="../", extra=""):
     """blocks: list of str (shared) or (en, fr) tuples."""
     out = [head(title[0], title[1], root)]
+    blocks = apply_mit(path, blocks)
     for b in blocks:
         if isinstance(b, tuple):
             out.append(f'<div class="en">\n{b[0]}\n</div>\n<div class="fr">\n{b[1]}\n</div>\n')
@@ -856,7 +857,11 @@ def page_syllabus():
 <tr><td><b>1</b></td><td><a href="lessons/s1-pensee-economique.html">History of economic thought</a> · <a href="lessons/s1-principes.html">The 7 principles</a> · <a href="lessons/s1-echange.html">Trade &amp; comparative advantage</a></td></tr>
 <tr><td><b>2</b></td><td><a href="lessons/s2-offre-demande.html">Supply, demand &amp; equilibrium</a> · <a href="lessons/s2-elasticite.html">Elasticity</a></td></tr><tr><td><b>3</b></td><td><a href="lessons/s3-consommateur.html">Consumer choice</a></td></tr><tr><td><b>4</b></td><td><a href="lessons/s4-couts.html">Production costs</a> · <a href="lessons/s4-concurrence-parfaite.html">The firm in perfect competition</a></td></tr><tr><td>5 →</td><td style="color:var(--muted)">To be added as the course progresses</td></tr></tbody></table></div>
 <h2>Reference books</h2>
-<ul><li>Mankiw, N. G. — <i>Principes de l'économie</i>, Economica</li><li>Jurion, B. — <i>Économie politique</i>, De Boeck</li><li>Pindyck, R. &amp; Rubinfeld, D. — <i>Microéconomie</i>, Pearson</li><li>Krugman, P. &amp; Wells, R. — <i>Microéconomie</i>, De Boeck</li></ul>''',
+<ul><li>Mankiw, N. G. — <i>Principes de l'économie</i>, Economica</li><li>Jurion, B. — <i>Économie politique</i>, De Boeck</li><li>Pindyck, R. &amp; Rubinfeld, D. — <i>Microéconomie</i>, Pearson</li><li>Krugman, P. &amp; Wells, R. — <i>Microéconomie</i>, De Boeck</li></ul>
+<h2>Video companion: MIT 14.01</h2>
+<p>Each lesson links to the matching lectures of <a href="https://ocw.mit.edu/courses/14-01-principles-of-microeconomics-fall-2023/video_galleries/video-lectures/" target="_blank" rel="noopener">MIT 14.01 Principles of Microeconomics</a> (Prof. Jonathan Gruber, Fall 2023, free on MIT OpenCourseWare, in English), with his worked examples in a dedicated section.</p>
+<div class="table-wrap"><table><thead><tr><th>Session</th><th>MIT lectures</th></tr></thead><tbody>
+<tr><td>1 · Introduction &amp; trade</td><td>Lec 1, 2 (end), 18</td></tr><tr><td>2 · Markets &amp; elasticity</td><td>Lec 1, 4, 9, 10</td></tr><tr><td>3 · The consumer</td><td>Lec 2, 3, 4, 25</td></tr><tr><td>4 · The firm</td><td>Lec 5, 6, 7, 8</td></tr><tr><td>Coming up · Monopoly, oligopoly</td><td>Lec 11–14</td></tr></tbody></table></div>''',
         '''<p class="kicker">MSG · 1ʳᵉ année · Solvay Brussels School (ULB)</p><h1>Programme du cours</h1><p class="lead">Microéconomie — Thierry Lallemand, docteur en économie (ULB, 2006), maître de conférences à la SBS depuis 2008.</p>
 <h2>Organisation pratique</h2>
 <div class="grid">
@@ -880,7 +885,11 @@ def page_syllabus():
 <tr><td><b>1</b></td><td><a href="lessons/s1-pensee-economique.html">Histoire de la pensée économique</a> · <a href="lessons/s1-principes.html">Les 7 principes</a> · <a href="lessons/s1-echange.html">Échange et avantage comparatif</a></td></tr>
 <tr><td><b>2</b></td><td><a href="lessons/s2-offre-demande.html">Offre, demande et équilibre</a> · <a href="lessons/s2-elasticite.html">L'élasticité</a></td></tr><tr><td><b>3</b></td><td><a href="lessons/s3-consommateur.html">Le choix du consommateur</a></td></tr><tr><td><b>4</b></td><td><a href="lessons/s4-couts.html">Les coûts de production</a> · <a href="lessons/s4-concurrence-parfaite.html">La firme en concurrence parfaite</a></td></tr><tr><td>5 →</td><td style="color:var(--muted)">À compléter au fil du cours</td></tr></tbody></table></div>
 <h2>Ouvrages de référence</h2>
-<ul><li>Mankiw, N. G. — <i>Principes de l'économie</i>, Economica</li><li>Jurion, B. — <i>Économie politique</i>, De Boeck</li><li>Pindyck, R. et Rubinfeld, D. — <i>Microéconomie</i>, Pearson</li><li>Krugman, P. et Wells, R. — <i>Microéconomie</i>, De Boeck</li></ul>''')]
+<ul><li>Mankiw, N. G. — <i>Principes de l'économie</i>, Economica</li><li>Jurion, B. — <i>Économie politique</i>, De Boeck</li><li>Pindyck, R. et Rubinfeld, D. — <i>Microéconomie</i>, Pearson</li><li>Krugman, P. et Wells, R. — <i>Microéconomie</i>, De Boeck</li></ul>
+<h2>Compagnon vidéo : MIT 14.01</h2>
+<p>Chaque leçon renvoie aux cours correspondants de <a href="https://ocw.mit.edu/courses/14-01-principles-of-microeconomics-fall-2023/video_galleries/video-lectures/" target="_blank" rel="noopener">MIT 14.01 Principles of Microeconomics</a> (Prof. Jonathan Gruber, automne 2023, gratuit sur MIT OpenCourseWare, en anglais), avec ses exemples résolus dans une section dédiée.</p>
+<div class="table-wrap"><table><thead><tr><th>Séance</th><th>Cours MIT</th></tr></thead><tbody>
+<tr><td>1 · Introduction et échange</td><td>Lec 1, 2 (fin), 18</td></tr><tr><td>2 · Marchés et élasticité</td><td>Lec 1, 4, 9, 10</td></tr><tr><td>3 · Le consommateur</td><td>Lec 2, 3, 4, 25</td></tr><tr><td>4 · La firme</td><td>Lec 5, 6, 7, 8</td></tr><tr><td>À venir · Monopole, oligopole</td><td>Lec 11–14</td></tr></tbody></table></div>''')]
     write("syllabus.html", ("Syllabus", "Programme du cours"), b, root="")
 
 
@@ -907,6 +916,7 @@ def page_home():
 <a class="card" href="lessons/s4-couts.html" style="text-decoration:none;color:inherit"><span class="tag">4.1</span><h4>Production costs</h4><p>Factor combinations, cost curves, isoquants, returns and economies of scale.</p></a>
 <a class="card" href="lessons/s4-concurrence-parfaite.html" style="text-decoration:none;color:inherit"><span class="tag">4.2</span><h4>The firm in perfect competition</h4><p>p = MC, shutdown rule, long-run equilibrium, electricity merit order — with an interactive.</p></a>
 </div>
+<div class="callout"><strong>New: MIT 14.01 companion</strong>Every lesson now includes worked examples from Prof. Jonathan Gruber's MIT course, with links to the right moment in each video lecture.</div>
 <p>See the <a href="syllabus.html">Syllabus</a> for the course organisation and reading list. Use the <b>EN / FR</b> switch at the top right to change language.</p>''',
         '''<p class="kicker">MSG · 1ʳᵉ année · SBS / ULB</p><h1>Microéconomie</h1><p class="lead">Un compagnon d'étude pour le cours : notes, schémas et questions d'auto-évaluation pour chaque séance.</p>
 <h2>Séance 1 — Introduction</h2>
@@ -929,6 +939,7 @@ def page_home():
 <a class="card" href="lessons/s4-couts.html" style="text-decoration:none;color:inherit"><span class="tag">4.1</span><h4>Les coûts de production</h4><p>Combinaison des facteurs, courbes de coûts, isoquantes, rendements et économies d'échelle.</p></a>
 <a class="card" href="lessons/s4-concurrence-parfaite.html" style="text-decoration:none;color:inherit"><span class="tag">4.2</span><h4>La firme en concurrence parfaite</h4><p>p = Cm, seuil de fermeture, équilibre de long terme, merit order de l'électricité — avec un module interactif.</p></a>
 </div>
+<div class="callout"><strong>Nouveau : compagnon MIT 14.01</strong>Chaque leçon comprend désormais des exemples résolus du cours MIT du Prof. Jonathan Gruber, avec des liens vers le bon passage de chaque vidéo.</div>
 <p>Consultez le <a href="syllabus.html">Programme du cours</a> pour l'organisation et la bibliographie. Utilisez le bouton <b>EN / FR</b> en haut à droite pour changer de langue.</p>''')]
     write("index.html", ("Home", "Accueil"), b, root="")
 
@@ -2401,6 +2412,473 @@ def page_s4_cp():
 <details class="q"><summary>Qu'est-ce qui fixe le prix spot de l'électricité ?</summary>Le coût marginal de la dernière centrale (la plus chère) nécessaire pour satisfaire la demande — en Belgique, généralement un CCGT au gaz.</details>'''))
     write("lessons/s4-concurrence-parfaite.html", ("The firm in perfect competition", "La firme en concurrence parfaite"), b, extra=PF_JS)
 
+
+
+# ================================================================== MIT 14.01 (Gruber) companion material
+
+OCW = "https://ocw.mit.edu/courses/14-01-principles-of-microeconomics-fall-2023/"
+# n: (slug, transcript id, youtube id, length s, title en, title fr, handout)
+LEC = {
+    1: ("lec-1-introduction-to-principles-of-microeconomics-and-supply-demand", "1eUcoskiOny7uj-hC8hI-l230fqqWeRCH", "8ssjKR7nNck", 2309,
+        "Introduction and supply &amp; demand", "Introduction, offre et demande", True),
+    2: ("lec-2-preferences-and-utility-function", "1nU4Ro98UoLiIgMeHhveAhCn8YIdan-FS", "uuY13aUtFUo", 2448,
+        "Preferences and utility function", "Préférences et fonction d'utilité", True),
+    3: ("lec-3-budget-constraints-and-constrained-choice", "1njhKLz3mGyrDyuwDOModusR3qN08Oz_A", "c8K_FSLtceQ", 2884,
+        "Budget constraints and constrained choice", "Contrainte budgétaire et choix sous contrainte", True),
+    4: ("lec-4-demand-curves-and-incomesubstitution-effects", "1u7QgZleF_LElj3-IW_az5kyYaq1fvYfj", "Qj1HvrSKLqY", 2818,
+        "Demand curves, income &amp; substitution effects", "Courbes de demande, effets revenu et substitution", True),
+    5: ("lec-5-production-theory", "1uHrL94_6Al349Wax149tfsBjQxUlFPl7", "Q7-mCKOzNUI", 2860,
+        "Production theory", "Théorie de la production", True),
+    6: ("lec-6-costs", "1KjOoZ_6JHqDZnACIBCZQ_ie9bX0voSh7", "y1bnBxfNVkU", 2785,
+        "Costs", "Les coûts", True),
+    7: ("lec-7-competition-i", "1y6QvWT1dZb2asBpO5OFPKGI5y3hsnjjD", "IYwk6EwPmCg", 2850,
+        "Competition I", "Concurrence I", True),
+    8: ("lec-8-competition-ii", "1veDeVvihAKTwJKAIHvygdJhlqp3EP90L", "sHlazW9s_g8", 2853,
+        "Competition II", "Concurrence II", True),
+    9: ("lec-9-supply-and-demand-consumerproducer-surplus", "1FpshsWObLbHaOCGWL32kg0JTpH-B8q7x", "-Z35m38qLd4", 2841,
+        "Supply &amp; demand, consumer/producer surplus", "Offre et demande, surplus du consommateur et du producteur", True),
+    10: ("lec-10-welfare-economics", "1ZH_qQNddnGOetdIaF0MVlQLwMXUbI6y_", "1zAuKwZ5PPE", 2695,
+         "Welfare economics", "Économie du bien-être", True),
+    11: ("lec-11-monopoly-i", "1L7QXz_ItqIraMVGmF7oeSgA3EhcJ7Pp1", "CD_HqiEdNOw", 2808, "Monopoly I", "Monopole I", False),
+    12: ("lec-12-monopoly-ii", "1xUj6f3FdvTawTf4BfUZhWhnnDiQB5yvl", "iBmoqczj7xs", 2826, "Monopoly II", "Monopole II", False),
+    13: ("lec-13-oligopoly-i", "13jVQw-8s1W9AqlGDsTTcAkYLEOk-ZfpW", "_crDeSDpB20", 2869, "Oligopoly I", "Oligopole I", False),
+    14: ("lec-14-oligopoly-ii", "1iNAZ_8vr72UE_NPRQQYix4RNzdyVqvKg", "omeBIMSJ89k", 2718, "Oligopoly II", "Oligopole II", False),
+    18: ("lec-18-introduction-to-trade", "1ICSUYUeBPYe8MZ7ocD6c6XoDb6V8tFxB", "KVV8pUOap2I", 2877,
+         "Introduction to trade", "Introduction au commerce international", True),
+    25: ("lec-25-behavioral-economics", "1TibVtUY0LALfn3SgCCFeLLy_OOLk8vEG", "TT7ZUJGPqos", 2861,
+         "Behavioral economics", "Économie comportementale", False),
+}
+
+
+def yt(n, pct):
+    t = max(0, int(pct / 100 * LEC[n][3]) - 20)
+    return f"https://www.youtube.com/watch?v={LEC[n][2]}&amp;t={t}s", f"{t // 60}:{t % 60:02d}"
+
+
+def gx(n, pct, title, body):
+    """One Gruber example card -> (en, fr) html."""
+    out = []
+    for i, lang in enumerate(("en", "fr")):
+        url, ts = yt(n, pct)
+        watch = "Watch from" if lang == "en" else "Voir à partir de"
+        out.append(f'<div class="gx"><div class="gx-src"><span class="gx-lec">MIT 14.01 · Lec {n}</span>'
+                   f'<a class="gx-play" href="{url}" target="_blank" rel="noopener">▶ {watch} {ts}</a></div>'
+                   f'<h4>{title[i]}</h4>{body[i]}</div>')
+    return tuple(out)
+
+
+def mit_top(lecs):
+    def links(lang):
+        return ", ".join(f'<a href="{OCW}resources/{LEC[n][0]}/" target="_blank" rel="noopener">Lec {n} · {LEC[n][4 if lang == "en" else 5]}</a>' for n in lecs)
+    return L(f'<div class="callout mit-top"><strong>MIT 14.01 companion</strong>Prof. Jonathan Gruber (MIT) teaches this topic in {links("en")}. '
+             f'His worked examples are <a href="#mit">further down this page ↓</a>, each with a link to the moment in the video.</div>',
+             f'<div class="callout mit-top"><strong>Compagnon MIT 14.01</strong>Le Prof. Jonathan Gruber (MIT) traite ce sujet dans {links("fr")}. '
+             f'Ses exemples résolus sont <a href="#mit">plus bas sur cette page ↓</a>, chacun avec un lien vers le passage de la vidéo.</div>')
+
+
+def mit_head():
+    return L('<h2 id="mit"><span class="badge">M</span>Prof. Gruber\'s examples (MIT 14.01)</h2>'
+             '<p>The same ideas as taught at MIT in <i>14.01 Principles of Microeconomics</i> (Fall 2023). Examples are paraphrased; where a number slipped in the live lecture, the corrected value is used and flagged. Times are approximate.</p>',
+             '<h2 id="mit"><span class="badge">M</span>Les exemples du Prof. Gruber (MIT 14.01)</h2>'
+             '<p>Les mêmes notions telles qu\'enseignées au MIT dans <i>14.01 Principles of Microeconomics</i> (automne 2023, cours en anglais). Exemples reformulés ; lorsqu\'un chiffre a dérapé pendant le cours, la valeur corrigée est utilisée et signalée. Horaires approximatifs.</p>')
+
+
+def mit_more(rows):
+    def table(lang):
+        h = ("Lecture", "What to look for", "Resources") if lang == "en" else ("Cours", "À regarder", "Ressources")
+        trs = []
+        for n, note in rows:
+            slug, tid, yid, _, ten, tfr, ho = LEC[n]
+            res = [f'<a href="{OCW}resources/{slug}/" target="_blank" rel="noopener">{"Video" if lang == "en" else "Vidéo"}</a>']
+            if tid:
+                res.append(f'<a href="{OCW}{tid}_transcript.pdf" target="_blank" rel="noopener">{"Transcript" if lang == "en" else "Transcription"}</a>')
+            if ho:
+                res.append(f'<a href="{OCW}mit14_01_f23_handout{n}.pdf" target="_blank" rel="noopener">{"Handout" if lang == "en" else "Polycopié"}</a>')
+            trs.append(f'<tr><td><b>Lec {n}</b><br>{ten if lang == "en" else tfr}</td><td>{note[0 if lang == "en" else 1]}</td><td>{" · ".join(res)}</td></tr>')
+        return (f'<h2>{"Go further: watch &amp; read" if lang == "en" else "Pour aller plus loin : regarder et lire"}</h2>'
+                f'<div class="table-wrap"><table><thead><tr><th>{h[0]}</th><th>{h[1]}</th><th>{h[2]}</th></tr></thead><tbody>{"".join(trs)}</tbody></table></div>'
+                f'<p class="mit-credit">{"Source:" if lang == "en" else "Source :"} Jonathan Gruber, <i>14.01 Principles of Microeconomics</i>, Fall 2023, '
+                f'<a href="{OCW}" target="_blank" rel="noopener">MIT OpenCourseWare</a>, '
+                f'<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>. '
+                f'{"Lectures are in English (YouTube offers auto-translated subtitles)." if lang == "en" else "Cours en anglais (YouTube propose des sous-titres traduits automatiquement)."}</p>')
+    return L(table("en"), table("fr"))
+
+
+def steps(items):
+    return "<ol class=\"gx-steps\">" + "".join(f"<li>{s}</li>" for s in items) + "</ol>"
+
+
+def sol(q, a):
+    return f'<details class="q"><summary>{q}</summary>{a}</details>'
+
+
+# ---------------- charts
+
+def svg_g_roses(lang):
+    ser = [dict(pts=[(0, 4.5), (1800, 0)], cls="line1", label="D: Q = 1800 − 400P", lpos=(1350, 1.125), dx=6, dy=-6),
+           dict(pts=[(0, 0), (1000, 5)], cls="line2", label="S: Q = 200P", lpos=(1000, 5), dx=-6, dy=14, anchor="end")]
+    mk = [dict(q=600, p=3, guides=True, label="E (600 ; 3 $)" if lang == "fr" else "E (600, $3)", dx=10, dy=-4)]
+    return chart(lang, 1800, 5, [0, 300, 600, 900, 1200, 1500, 1800], [0, 1, 2, 3, 4, 5], ser, mk,
+                 xl=("Roses" if lang == "en" else "Roses"), yl=("Price ($)" if lang == "en" else "Prix ($)"), W=480, H=270, aria="roses market")
+
+
+def svg_g_ppf(lang):
+    col, us = ("Colombia", "US") if lang == "en" else ("Colombie", "É.-U.")
+    ser = [dict(pts=[(0, 24), (3, 0)], cls="line1", label=col, lpos=(1.6, 11.2), dx=6, dy=0),
+           dict(pts=[(0, 12), (8, 0)], cls="line2", label=us, lpos=(6.2, 2.7), dx=6, dy=-4),
+           dict(pts=[(0, 36), (8, 24), (11, 0)], cls="lineT", dash=True, label=("World (joint)" if lang == "en" else "Monde (joint)"), lpos=(9.6, 11), dx=6, dy=0)]
+    mk = [dict(q=8, p=24, label=("Full specialisation (8 ; 24)" if lang == "fr" else "Full specialisation (8, 24)"), dx=8, dy=-6, cls="c1")]
+    return chart(lang, 12, 42, range(0, 13, 2), [0, 6, 12, 18, 24, 30, 36, 42], ser, mk,
+                 xl=("Computers" if lang == "en" else "Ordinateurs"), yl=("Roses (cartons)" if lang == "en" else "Roses (cartons)"), W=480, H=290, aria="production possibilities")
+
+
+def svg_g_cookies(lang):
+    ser = [dict(pts=[(0, 6), (12, 0)], cls="line2"),
+           dict(pts=curve(lambda c: 18 / c, 3, 12), cls="line1", label="SC = 18", lpos=(12, 1.5), dx=-2, dy=-8, anchor="end"),
+           dict(pts=curve(lambda c: 10 / c, 1.7, 12), cls="line1", dash=True)]
+    mk = [dict(q=6, p=3, label=("D (6 ; 3) optimum" if lang == "fr" else "D (6, 3) optimum"), dx=8, dy=-8),
+          dict(q=2, p=5, label="A", dx=8, dy=-4, kind="open"),
+          dict(q=10, p=1, label="B", dx=-6, dy=-8, kind="open", anchor="end"),
+          dict(q=2, p=1, label="C", dx=8, dy=4, kind="open")]
+    return chart(lang, 12, 6, range(0, 13, 2), range(0, 7), ser, mk,
+                 xl=("Cookies (C)" if lang == "en" else "Biscuits (C)"), yl=("Pizza slices (S)" if lang == "en" else "Parts de pizza (S)"), W=480, H=280, aria="pizza and cookies optimum")
+
+
+def svg_g_snap(lang):
+    k = 1000
+    ser = [dict(pts=[(0, 5), (5, 0)], cls="line1", dash=True, label=("Before: $5,000" if lang == "en" else "Avant : 5 000 $"), lpos=(2.6, 2.4), dx=-6, dy=14, anchor="end"),
+           dict(pts=[(0, 5.5), (5.5, 0)], cls="lineT", label=("Cash +$500" if lang == "en" else "Cash +500 $"), lpos=(4.6, 0.9), dx=6, dy=-6),
+           dict(pts=[(0, 5), (0.5, 5), (5.5, 0)], cls="line2", label=("SNAP card $500" if lang == "en" else "Carte SNAP 500 $"), lpos=(2.2, 3.3), dx=8, dy=-4)]
+    mk = [dict(q=0.3, p=5.2, label="X: cash", dx=8, dy=-6, cls="c1"),
+          dict(q=0.5, p=5, label="X: SNAP", dx=-4, dy=20, anchor="end", cls="c2"),
+          dict(q=5.1, p=0.4, label="Y", dx=12, dy=22, cls="c1")]
+    return chart(lang, 6, 6, range(0, 7), range(0, 7), ser, mk,
+                 xl=("Food ($ thousand)" if lang == "en" else "Alimentation (milliers $)"), yl=("Shelter ($ thousand)" if lang == "en" else "Logement (milliers $)"),
+                 W=480, H=280, aria="SNAP vs cash")
+
+
+def svg_g_cost(lang):
+    names = ("AC", "AVC", "MC") if lang == "en" else ("CM", "CVM", "Cm")
+    ser = [dict(pts=curve(lambda q: 10 / q + 5 * q, 0.25, 5.4, ymax=50), cls="lineT", label=names[0], lpos=(5.4, 10 / 5.4 + 27), dx=4, dy=4),
+           dict(pts=[(0, 0), (5.4, 27)], cls="line1", label=names[1], lpos=(5.4, 27), dx=4, dy=12),
+           dict(pts=[(0, 0), (5, 50)], cls="line2", label=names[2], lpos=(5, 50), dx=6, dy=8),
+           dict(pts=[(0, 30), (5.6, 30)], cls="line1", dash=True, label="p = 30", lpos=(5.6, 30), dx=-2, dy=-6, anchor="end")]
+
+    def rect(X, Y):
+        return (f'<rect x="{X(0):.1f}" y="{Y(30):.1f}" width="{X(3) - X(0):.1f}" height="{Y(55 / 3) - Y(30):.1f}" class="fill1" opacity=".18"/>'
+                f'<text x="{(X(0) + X(3)) / 2:.1f}" y="{(Y(30) + Y(55 / 3)) / 2 + 4:.1f}" text-anchor="middle" class="small bold">π = 35</text>')
+    mk = [dict(q=3, p=30, guides=True, label="q* = 3", dx=-8, dy=-8, anchor="end"),
+          dict(q=3, p=55 / 3, label=("AC = 18.33" if lang == "en" else "CM = 18,33"), dx=8, dy=12, cls="c1"),
+          dict(q=2 ** .5, p=10 * 2 ** .5, label=("min AC 14.14" if lang == "en" else "min CM 14,14"), dx=-8, dy=18, anchor="end", cls="c2")]
+    return chart(lang, 6, 50, range(0, 7), [0, 10, 20, 30, 40, 50], ser, mk, xl=("Output q" if lang == "en" else "Production q"), yl="$",
+                 W=520, H=300, extra=rect, aria="Gruber cost curves")
+
+
+def fig(svg_fn, cap):
+    return L(f'<figure>{svg_fn("en")}<figcaption>{cap[0]}</figcaption></figure>', f'<figure>{svg_fn("fr")}<figcaption>{cap[1]}</figcaption></figure>')
+
+# ---------------- per-lesson content
+
+MIT = {}
+
+# ---- 1.1 history of economic thought
+MIT["lessons/s1-pensee-economique.html"] = dict(top=[1], ex=[
+    gx(1, 23, ("Adam Smith's water–diamond paradox (1776)", "Le paradoxe de l'eau et du diamant d'Adam Smith (1776)"),
+       ("<p>Water is essential for life yet almost free; diamonds are useless for survival yet very expensive. Smith's puzzle is solved only by looking at <b>both</b> sides of the market: demand for water is huge, but its supply is even larger. Diamonds are scarce. Price reflects scarcity at the margin, not total usefulness.</p>",
+        "<p>L'eau est indispensable à la vie et presque gratuite ; le diamant ne sert à rien pour survivre et coûte très cher. L'énigme de Smith ne se résout qu'en regardant <b>les deux</b> côtés du marché : la demande d'eau est énorme, mais son offre l'est encore plus. Le diamant est rare. Le prix reflète la rareté à la marge, pas l'utilité totale.</p>")),
+    gx(1, 75, ("Capitalism vs command economies", "Capitalisme contre économie planifiée"),
+       ("<p>Gruber's bowling analogy: in (constrained) capitalism the government is the <b>bumpers</b> on the lane (GM chooses how many cars to build, but must meet safety and emissions rules); in a command economy the government tells you to knock down pin 7. Planning fails for two reasons: decisions are too numerous and complex, and corruption. Example: East Germany had almost no cars but so much bread it was fed to pigs. Note his point that Europe is “constrained capitalism”, not socialism (socialism = the state produces).</p>",
+        "<p>L'analogie du bowling de Gruber : dans le capitalisme (encadré), l'État est la <b>bordure</b> de la piste (GM choisit combien de voitures produire, mais respecte les normes de sécurité et d'émissions) ; dans une économie planifiée, l'État vous dit de faire tomber la quille n° 7. La planification échoue pour deux raisons : trop de décisions trop complexes, et la corruption. Exemple : l'Allemagne de l'Est n'avait presque pas de voitures mais tant de pain qu'on en nourrissait les cochons. Il précise que l'Europe est un « capitalisme encadré », pas du socialisme (socialisme = l'État produit).</p>")),
+], more=[(1, ("Opening lecture: what microeconomics is, Adam Smith, Samuelson and MIT, capitalism vs planning (second half).",
+              "Cours d'ouverture : ce qu'est la microéconomie, Adam Smith, Samuelson et le MIT, capitalisme contre planification (seconde moitié)."))])
+
+# ---- 1.2 principles
+MIT["lessons/s1-principes.html"] = dict(top=[1], ex=[
+    gx(1, 10, ("Opportunity cost everywhere", "Le coût d'opportunité partout"),
+       ("<p>Buying a shirt means not buying a pair of trousers; a night of studying means missing the concert. Gruber's point: economics is the science of <b>constrained optimisation</b>: doing the best you can given scarcity (like MIT's design contest where everyone gets the same box of parts). That is why it is called “the dismal science”.</p>",
+        "<p>Acheter une chemise, c'est renoncer à un pantalon ; une soirée à étudier, c'est rater le concert. Pour Gruber, l'économie est la science de l'<b>optimisation sous contrainte</b> : faire au mieux face à la rareté (comme le concours de conception du MIT où chacun reçoit la même boîte de pièces). D'où le surnom de « science lugubre ».</p>")),
+    gx(1, 56, ("Positive vs normative: a kidney on eBay", "Positif ou normatif : un rein sur eBay"),
+       ("<p>Someone put a kidney up for auction on eBay: bidding started at $25,000 and reached about $5 million before eBay stopped it.</p>"
+        "<ul><li><b>Positive question</b> (what is): why so high? Huge demand, tiny supply.</li><li><b>Normative question</b> (what should be): should organ sales be allowed? Arguments against: coercion, misinformation about risk, and <b>equity</b> (the rich live, the poor don't).</li></ul>"
+        "<p>He notes that about 90% of the course is about efficiency; equity comes back at the end.</p>",
+        "<p>Quelqu'un a mis un rein aux enchères sur eBay : départ à 25 000 $, environ 5 millions $ avant qu'eBay n'arrête l'enchère.</p>"
+        "<ul><li><b>Question positive</b> (ce qui est) : pourquoi si cher ? Demande énorme, offre minuscule.</li><li><b>Question normative</b> (ce qui devrait être) : faut-il autoriser la vente d'organes ? Arguments contre : coercition, mauvaise information sur le risque et <b>équité</b> (les riches vivent, les pauvres non).</li></ul>"
+        "<p>Il précise qu'environ 90 % du cours porte sur l'efficacité ; l'équité revient en fin de cours.</p>")),
+    gx(2, 89, ("Thinking at the margin: drink sizes", "Raisonner à la marge : la taille des boissons"),
+       ("<p>A small Coke at McDonald's costs $2.29, a large (more than twice the size) $2.99: only $0.70 more. Why? The second 16 oz is worth less to you than the first (diminishing marginal utility), and a soda costs the firm only 3–4 cents to make. The firm prices the <b>increment</b>: just below what the marginal sip is worth to you.</p>",
+        "<p>Un petit Coca chez McDonald's coûte 2,29 $, un grand (plus du double) 2,99 $ : seulement 0,70 $ de plus. Pourquoi ? Les 16 oz suivants valent moins pour vous que les premiers (utilité marginale décroissante), et un soda ne coûte que 3 à 4 cents à produire. L'entreprise fixe le prix de l'<b>incrément</b> : juste sous ce que vaut pour vous la gorgée marginale.</p>")),
+], more=[(1, ("Opportunity cost, constrained optimisation, positive vs normative economics (kidney auction).",
+              "Coût d'opportunité, optimisation sous contrainte, économie positive et normative (enchère de rein).")),
+         (2, ("End of the lecture: pricing of drink sizes and marginal thinking.", "Fin du cours : prix des tailles de boissons et raisonnement marginal."))])
+
+# ---- 1.3 trade
+MIT["lessons/s1-echange.html"] = dict(top=[18], ex=[
+    gx(18, 36, ("Colombia vs the US: roses and computers", "Colombie contre États-Unis : roses et ordinateurs"),
+       ("<p>Labour is the only input and each country has 24 hours.</p>"
+        '<div class="table-wrap"><table><thead><tr><th>Hours per unit</th><th class="num">Roses (carton)</th><th class="num">Computer</th><th class="num">Opp. cost of 1 carton</th><th class="num">Opp. cost of 1 computer</th></tr></thead><tbody>'
+        '<tr><td>Colombia</td><td class="num">1</td><td class="num">8</td><td class="num"><b>1/8 computer</b></td><td class="num">8 cartons</td></tr>'
+        '<tr><td>US</td><td class="num">2</td><td class="num">3</td><td class="num">2/3 computer</td><td class="num"><b>1.5 cartons</b></td></tr></tbody></table></div>'
+        "<p>Colombia can make 24 cartons <i>or</i> 3 computers; the US 12 cartons <i>or</i> 8 computers. Colombia has the comparative advantage in roses, the US in computers. With full specialisation the world gets 24 cartons <b>and</b> 8 computers, the kink of the joint frontier.</p>",
+        "<p>Le travail est le seul facteur et chaque pays dispose de 24 heures.</p>"
+        '<div class="table-wrap"><table><thead><tr><th>Heures par unité</th><th class="num">Roses (carton)</th><th class="num">Ordinateur</th><th class="num">Coût d\'opp. d\'1 carton</th><th class="num">Coût d\'opp. d\'1 ordinateur</th></tr></thead><tbody>'
+        '<tr><td>Colombie</td><td class="num">1</td><td class="num">8</td><td class="num"><b>1/8 ordinateur</b></td><td class="num">8 cartons</td></tr>'
+        '<tr><td>É.-U.</td><td class="num">2</td><td class="num">3</td><td class="num">2/3 ordinateur</td><td class="num"><b>1,5 carton</b></td></tr></tbody></table></div>'
+        "<p>La Colombie peut produire 24 cartons <i>ou</i> 3 ordinateurs ; les États-Unis 12 cartons <i>ou</i> 8 ordinateurs. La Colombie a l'avantage comparatif dans les roses, les États-Unis dans les ordinateurs. Avec spécialisation complète, le monde obtient 24 cartons <b>et</b> 8 ordinateurs : le coude de la frontière jointe.</p>")),
+    fig(svg_g_ppf, ("Gruber's 2×2 model: each country's frontier, and the joint world frontier (dashed). The kink (8 computers, 24 cartons) is full specialisation.",
+                    "Le modèle 2×2 de Gruber : la frontière de chaque pays et la frontière mondiale jointe (pointillés). Le coude (8 ordinateurs, 24 cartons) correspond à la spécialisation complète.")),
+    gx(18, 70, ("Gains from trade at a world price of 4 cartons per computer", "Gains à l'échange à un prix mondial de 4 cartons par ordinateur"),
+       ("<p>Colombia makes 24 cartons and can now swap them at 4 per computer: up to <b>6 computers</b> (vs 3 alone). The US makes 8 computers and can get up to <b>32 cartons</b> (vs 12 alone). Both consumption lines lie outside their own frontiers.</p>"
+        + sol("For which world prices do both countries still specialise fully?", "Any price between the two opportunity costs: from 1.5 to 8 cartons per computer. Above 8, Colombia would also want to make computers; below 1.5, the US would make roses."),
+        "<p>La Colombie produit 24 cartons et peut les échanger à 4 par ordinateur : jusqu'à <b>6 ordinateurs</b> (contre 3 seule). Les États-Unis produisent 8 ordinateurs et peuvent obtenir jusqu'à <b>32 cartons</b> (contre 12 seuls). Les deux droites de consommation sont au-delà de leur propre frontière.</p>"
+        + sol("Pour quels prix mondiaux les deux pays se spécialisent-ils encore complètement ?", "Tout prix compris entre les deux coûts d'opportunité : de 1,5 à 8 cartons par ordinateur. Au-delà de 8, la Colombie voudrait aussi produire des ordinateurs ; sous 1,5, les États-Unis produiraient des roses."))),
+    gx(18, 52, ("LeBron James should not mow his lawn", "LeBron James ne devrait pas tondre sa pelouse"),
+       ("<p>LeBron is better than Gruber at basketball (by a factor of a billion) <i>and</i> at mowing (maybe 5 to 1): an <b>absolute advantage</b> in both. But his opportunity cost of an hour mowing is enormous, so his <b>comparative advantage</b> is basketball. He should hire someone to mow, just as Gruber should hire a gardener and teach economics.</p>",
+        "<p>LeBron est meilleur que Gruber au basket (d'un facteur d'un milliard) <i>et</i> pour tondre (peut-être 5 contre 1) : <b>avantage absolu</b> dans les deux. Mais son coût d'opportunité d'une heure de tonte est énorme, donc son <b>avantage comparatif</b> est le basket. Il devrait payer quelqu'un pour tondre, comme Gruber devrait engager un jardinier et enseigner l'économie.</p>")),
+    gx(18, 13, ("The Pokémon trade deficit", "Le déficit commercial en Pokémon"),
+       ("<p>You have 2 Pikachus, your friend 2 Jigglypuffs, and you swap one for one. You now run a “Jigglypuff trade deficit”, yet both of you are better off. Replace you with the US, the friend with Colombia, Pikachus with dollars and Jigglypuffs with roses: a trade deficit (US: about $3.2 trillion imports vs $2 trillion exports) is an accounting number, not a measure of welfare.</p>",
+        "<p>Vous avez 2 Pikachu, votre ami 2 Rondoudou, et vous en échangez un contre un. Vous avez maintenant un « déficit commercial en Rondoudou », et pourtant vous êtes tous deux mieux lotis. Remplacez vous par les États-Unis, l'ami par la Colombie, les Pikachu par des dollars et les Rondoudou par des roses : un déficit commercial (É.-U. : environ 3 200 milliards $ d'importations pour 2 000 milliards $ d'exportations) est une donnée comptable, pas une mesure du bien-être.</p>")),
+], more=[(18, ("The whole lecture: Valentine's roses from Colombia, PPF, the 2×2 model, LeBron, sources of comparative advantage (factor endowments, technology, and “destructive” sources like weak environmental rules).",
+               "Tout le cours : les roses de la Saint-Valentin venues de Colombie, la FPP, le modèle 2×2, LeBron, les sources de l'avantage comparatif (dotations, technologie, et sources « destructrices » comme les normes environnementales laxistes)."))])
+
+# ---- 2.1 supply & demand
+MIT["lessons/s2-offre-demande.html"] = dict(top=[1, 9, 10], ex=[
+    gx(1, 27, ("The market for roses", "Le marché des roses"),
+       ("<p>Demand: Q<sup>D</sup> = 1800 − 400P. Supply: Q<sup>S</sup> = 200P.</p>"
+        + steps(["Set Q<sup>D</sup> = Q<sup>S</sup>: 1800 − 400P = 200P.", "600P = 1800 ⟹ <b>P* = $3</b>.", "Q* = 200 × 3 = <b>600 roses</b> (check: 1800 − 1200 = 600 ✓)."])
+        + "<p>Why does supply slope up? A farm switches land to roses only if roses pay more than its next-best use: the opportunity cost again.</p>",
+        "<p>Demande : Q<sup>D</sup> = 1800 − 400P. Offre : Q<sup>S</sup> = 200P.</p>"
+        + steps(["On pose Q<sup>D</sup> = Q<sup>S</sup> : 1800 − 400P = 200P.", "600P = 1800 ⟹ <b>P* = 3 $</b>.", "Q* = 200 × 3 = <b>600 roses</b> (vérif. : 1800 − 1200 = 600 ✓)."])
+        + "<p>Pourquoi l'offre est-elle croissante ? Une ferme ne consacre ses terres aux roses que si elles rapportent plus que leur meilleur autre usage : encore le coût d'opportunité.</p>")),
+    fig(svg_g_roses, ("Gruber's roses market: equilibrium at $3 and 600 roses.", "Le marché des roses de Gruber : équilibre à 3 $ et 600 roses.")),
+    gx(9, 8, ("Same price rise, two different stories", "Même hausse de prix, deux histoires différentes"),
+       ("<ul><li><b>People switch to big cars</b> (a complement of petrol): demand shifts out, price ↑ and quantity ↑.</li><li><b>War in the Middle East</b> raises costs: supply shifts in, price ↑ but quantity ↓.</li></ul>"
+        "<p>Gruber's lesson: observing a higher price alone tells you nothing. You need price <i>and</i> quantity to know which curve moved, the core problem of empirical economics.</p>",
+        "<ul><li><b>Les gens passent aux grosses voitures</b> (complément de l'essence) : la demande se déplace vers la droite, prix ↑ et quantité ↑.</li><li><b>Une guerre au Moyen-Orient</b> augmente les coûts : l'offre se déplace vers la gauche, prix ↑ mais quantité ↓.</li></ul>"
+        "<p>La leçon de Gruber : observer une hausse de prix seule ne dit rien. Il faut le prix <i>et</i> la quantité pour savoir quelle courbe a bougé, le problème central de l'économie empirique.</p>")),
+    gx(9, 25, ("Kim Kardashian and the corset boom", "Kim Kardashian et le boom des corsets"),
+       ("<p>A post claiming (falsely) that exercising in a corset helps you lose weight shifted demand out. The near-only producer raised price and quantity and made large profits. Because fixed costs were low, new firms <b>entered</b>, pushing prices and profits back down. A preference shock, then entry: the story of Session 4 in miniature.</p>",
+        "<p>Un post affirmant (à tort) que faire du sport en corset fait maigrir a déplacé la demande vers la droite. Le producteur quasi unique a augmenté prix et quantité et fait de gros profits. Les coûts fixes étant faibles, de nouvelles entreprises sont <b>entrées</b>, faisant redescendre prix et profits. Un choc de préférences puis l'entrée : la séance 4 en miniature.</p>")),
+    gx(9, 43, ("Consumer surplus: concert tickets", "Surplus du consommateur : billets de concert"),
+       ("<p>A ticket costs $100. If you value it at $90 you don't buy (surplus 0); at exactly $100 you are indifferent; if your first show is worth $300 to you, your <b>consumer surplus</b> is $300 − $100 = $200. Market version: when petrol rises from $3.00 to $3.50 and the marginal buyer moves from person 1,000 to person 900, consumers lose a rectangle (900 people pay $0.50 more) plus a small triangle (100 people stop buying).</p>"
+        + sol("Compute the lost surplus, assuming linear demand.", "Rectangle 900 × 0.50 = $450; triangle ½ × 100 × 0.50 = $25; total <b>$475</b>. (Our numbers: in the lecture the areas are only drawn.)"),
+        "<p>Un billet coûte 100 $. Si vous l'évaluez à 90 $, vous n'achetez pas (surplus 0) ; à 100 $ pile, vous êtes indifférent ; si votre premier concert vaut 300 $ pour vous, votre <b>surplus du consommateur</b> est de 300 − 100 = 200 $. Version marché : quand l'essence passe de 3,00 $ à 3,50 $ et que l'acheteur marginal passe de la personne 1 000 à la personne 900, les consommateurs perdent un rectangle (900 personnes paient 0,50 $ de plus) et un petit triangle (100 personnes n'achètent plus).</p>"
+        + sol("Calculez la perte de surplus, en supposant une demande linéaire.", "Rectangle 900 × 0,50 = 450 $ ; triangle ½ × 100 × 0,50 = 25 $ ; total <b>475 $</b>. (Nos chiffres : au cours, les aires sont seulement dessinées.)"))),
+    gx(9, 80, ("Why a price ceiling destroys value", "Pourquoi un prix plafond détruit de la valeur"),
+       ("<p>Social welfare W = consumer surplus + producer surplus. A ceiling below equilibrium:</p>"
+        + steps(["Firms supply less (they stay on their supply curve), so quantity falls from Q<sub>1</sub> to Q<sub>2</sub>.", "Part of producer surplus is <b>transferred</b> to consumers through the lower price: W unchanged by that part.", "The trades between Q<sub>2</sub> and Q<sub>1</sub>, which both sides wanted, disappear: that is the <b>deadweight loss</b>."])
+        + "<p>This is the First Welfare Theorem: under perfect competition, the market equilibrium maximises W.</p>",
+        "<p>Bien-être social W = surplus du consommateur + surplus du producteur. Un prix plafond sous l'équilibre :</p>"
+        + steps(["Les entreprises offrent moins (elles restent sur leur courbe d'offre) : la quantité passe de Q<sub>1</sub> à Q<sub>2</sub>.", "Une partie du surplus du producteur est <b>transférée</b> aux consommateurs par le prix plus bas : cette partie ne change pas W.", "Les échanges entre Q<sub>2</sub> et Q<sub>1</sub>, voulus des deux côtés, disparaissent : c'est la <b>perte sèche</b>."])
+        + "<p>C'est le premier théorème du bien-être : en concurrence parfaite, l'équilibre de marché maximise W.</p>")),
+    gx(10, 23, ("1970s petrol queues and ticket scalping", "Files d'attente des années 1970 et revente de billets"),
+       ("<p>When price can't ration, something else does. In the 1970s OPEC cut supply and the US capped petrol prices: drivers queued 15–20 minutes or more (burning petrol while idling). Today, concert tickets are deliberately underpriced (Adele: $40–$150), bots buy them and resell them for about $1,500 on StubHub. Taylor Swift tickets at $50–$500 resold for $800–$11,000. Queues waste time; resale is efficient but the surplus goes to scalpers instead of artists. An auction would allocate the same way and pay the artist.</p>",
+        "<p>Quand le prix ne peut pas rationner, autre chose s'en charge. Dans les années 1970, l'OPEP réduit l'offre et les États-Unis plafonnent le prix de l'essence : 15 à 20 minutes de file ou plus (en brûlant de l'essence au ralenti). Aujourd'hui, les billets de concert sont volontairement sous-évalués (Adele : 40–150 $), des robots les achètent et les revendent environ 1 500 $ sur StubHub. Les billets de Taylor Swift à 50–500 $ se revendaient 800 à 11 000 $. Les files gaspillent du temps ; la revente est efficace mais le surplus va aux revendeurs plutôt qu'aux artistes. Une enchère donnerait la même allocation et paierait l'artiste.</p>")),
+    gx(10, 51, ("Taxi medallions and Uber", "Les licences de taxi et Uber"),
+       ("<p>A city caps the number of taxis below the free-entry level. Fewer cabs means a higher fare, so each licensed cab earns a profit: a transfer from riders plus a deadweight loss. But the licence (medallion) can be sold, so its price rises to the value of that profit stream (about $400,000 in Boston). Only the original owners gain. When Uber restored free entry, medallion values fell by about 90% and consumer surplus rose.</p>",
+        "<p>Une ville limite le nombre de taxis sous le niveau de libre entrée. Moins de taxis, donc un tarif plus élevé : chaque taxi licencié fait un profit, transfert des usagers plus une perte sèche. Mais la licence peut être revendue, son prix monte donc jusqu'à la valeur de ce flux de profits (environ 400 000 $ à Boston). Seuls les premiers détenteurs gagnent. Quand Uber a rétabli la libre entrée, la valeur des licences a chuté d'environ 90 % et le surplus des consommateurs a augmenté.</p>")),
+], more=[(1, ("Second half: the roses market, why demand slopes down and supply up, and reading the graph.", "Seconde moitié : le marché des roses, pourquoi la demande décroît et l'offre croît, lire le graphique.")),
+         (9, ("Supply and demand shocks, consumer and producer surplus, price ceilings and the First Welfare Theorem.", "Chocs d'offre et de demande, surplus du consommateur et du producteur, prix plafond et premier théorème du bien-être.")),
+         (10, ("Government interventions: price ceilings, queues, ticket scalping, taxi medallions.", "Interventions publiques : prix plafond, files d'attente, revente de billets, licences de taxi."))])
+
+# ---- 2.2 elasticity
+MIT["lessons/s2-elasticite.html"] = dict(top=[4, 9], ex=[
+    gx(4, 20, ("The two extremes: insulin and burgers", "Les deux extrêmes : l'insuline et les burgers"),
+       ("<ul><li><b>Perfectly inelastic</b> (ε = 0, vertical demand): insulin for a diabetic who can afford it. A supply shock shows up entirely in the price.</li><li><b>Perfectly elastic</b> (ε → −∞, horizontal demand): McDonald's vs Burger King. Charge a penny more and everyone goes next door; a supply shock changes only the quantity.</li></ul>"
+        "<p>Gruber's rule: elasticity is all about <b>substitutes</b>. Petrol looks inelastic, but there are buses, bikes and smaller cars; water has juice and Coke.</p>",
+        "<ul><li><b>Parfaitement inélastique</b> (ε = 0, demande verticale) : l'insuline pour un diabétique qui peut se la payer. Un choc d'offre se reporte entièrement sur le prix.</li><li><b>Parfaitement élastique</b> (ε → −∞, demande horizontale) : McDonald's contre Burger King. Un centime de plus et tout le monde va à côté ; un choc d'offre ne change que la quantité.</li></ul>"
+        "<p>La règle de Gruber : l'élasticité dépend des <b>substituts</b>. L'essence semble inélastique, mais il y a le bus, le vélo, les petites voitures ; l'eau a le jus et le Coca.</p>")),
+    gx(1, 27, ("Elasticity on the roses market", "L'élasticité sur le marché des roses"),
+       ("<p>Using the roses market from 2.1 (Q<sup>D</sup> = 1800 − 400P, Q<sup>S</sup> = 200P, equilibrium P = 3, Q = 600), compute both point elasticities at the equilibrium.</p>"
+        + sol("Solution", "Demand: ε<sub>D</sub> = (dQ/dP)·(P/Q) = −400 × 3/600 = <b>−2</b> (elastic). Supply: ε<sub>S</sub> = 200 × 3/600 = <b>1</b>. (Our exercise built on the lecture's numbers.)"),
+        "<p>Avec le marché des roses de 2.1 (Q<sup>D</sup> = 1800 − 400P, Q<sup>S</sup> = 200P, équilibre P = 3, Q = 600), calculez les deux élasticités ponctuelles à l'équilibre.</p>"
+        + sol("Solution", "Demande : ε<sub>D</sub> = (dQ/dP)·(P/Q) = −400 × 3/600 = <b>−2</b> (élastique). Offre : ε<sub>S</sub> = 200 × 3/600 = <b>1</b>. (Exercice construit sur les chiffres du cours.)"))),
+    gx(4, 35, ("Income elasticity: ramen, rent and watches", "Élasticité-revenu : ramen, loyer et montres"),
+       ("<p>Income elasticity γ = (ΔQ/Q)/(ΔY/Y). Gruber's classification:</p>"
+        '<div class="table-wrap"><table><thead><tr><th>Type</th><th>γ</th><th>Example</th></tr></thead><tbody>'
+        "<tr><td>Inferior</td><td>&lt; 0</td><td>Cheap instant ramen</td></tr><tr><td>Necessity</td><td>0 to 1</td><td>Rent, food at home (rent is about 60% of income when poor, less as you get rich)</td></tr><tr><td>Luxury</td><td>&gt; 1</td><td>Restaurant meals, nice watches</td></tr></tbody></table></div>"
+        "<p>With his pizza-and-cookies consumer (prices $4 and $2), income 16 → 24 → 32 gives cookies 4 → 6 → 8: quantity rises in proportion to income, so γ = 1 exactly, the border between necessity and luxury.</p>",
+        "<p>Élasticité-revenu γ = (ΔQ/Q)/(ΔR/R). La classification de Gruber :</p>"
+        '<div class="table-wrap"><table><thead><tr><th>Type</th><th>γ</th><th>Exemple</th></tr></thead><tbody>'
+        "<tr><td>Inférieur</td><td>&lt; 0</td><td>Ramen instantanés bon marché</td></tr><tr><td>Nécessité</td><td>0 à 1</td><td>Loyer, repas à la maison (le loyer pèse environ 60 % du revenu des ménages pauvres, moins quand on s'enrichit)</td></tr><tr><td>Luxe</td><td>&gt; 1</td><td>Restaurants, belles montres</td></tr></tbody></table></div>"
+        "<p>Avec son consommateur pizza-biscuits (prix 4 $ et 2 $), un revenu 16 → 24 → 32 donne 4 → 6 → 8 biscuits : la quantité croît proportionnellement au revenu, donc γ = 1 exactement, la frontière entre nécessité et luxe.</p>")),
+    gx(9, 66, ("Inelastic demand means more consumer surplus", "Demande inélastique = plus de surplus du consommateur"),
+       ("<p>Consumer surplus is inversely related to elasticity. With perfectly elastic demand (burgers) you would switch for a penny, so you get no surplus. With very inelastic demand (insulin) you would pay almost anything, so the surplus above the price is enormous. At a given point, the <b>flatter</b> demand curve is the more elastic one.</p>",
+        "<p>Le surplus du consommateur varie en sens inverse de l'élasticité. Avec une demande parfaitement élastique (burgers), vous changeriez pour un centime : aucun surplus. Avec une demande très inélastique (insuline), vous paieriez presque n'importe quoi : le surplus au-dessus du prix est énorme. En un point donné, la courbe <b>la plus plate</b> est la plus élastique.</p>")),
+], more=[(4, ("From about minute 9: price elasticity, the two extremes, then income elasticity and the Engel curve.", "À partir de la 9e minute environ : élasticité-prix, les deux extrêmes, puis élasticité-revenu et courbe d'Engel.")),
+         (9, ("How elasticity splits a supply shock between price and quantity, and its link with consumer surplus.", "Comment l'élasticité répartit un choc d'offre entre prix et quantité, et son lien avec le surplus du consommateur."))])
+
+# ---- 3.1 consumer choice
+MIT["lessons/s3-consommateur.html"] = dict(top=[2, 3, 4, 25], ex=[
+    gx(2, 13, ("Pizza and cookies: U = √(S·C)", "Pizza et biscuits : U = √(S·C)"),
+       ("<p>Bundles A = 2 slices + 1 cookie and B = 1 slice + 2 cookies both give U = √2: same indifference curve. C = 2 + 2 gives U = 2: preferred. The square root builds in <b>diminishing marginal utility</b>. Holding pizza at 2 slices:</p>"
+        '<div class="table-wrap"><table><thead><tr><th class="num">Cookies</th><th class="num">1</th><th class="num">2</th><th class="num">3</th><th class="num">4</th></tr></thead><tbody>'
+        '<tr><td>U = √(2C)</td><td class="num">1.41</td><td class="num">2.00</td><td class="num">2.45</td><td class="num">2.83</td></tr>'
+        '<tr><td>Marginal utility</td><td class="num">1.41</td><td class="num">0.59</td><td class="num">0.45</td><td class="num">0.38</td></tr></tbody></table></div>'
+        "<p>Utility is <b>ordinal</b>: S·C or S²·C² would rank bundles identically.</p>",
+        "<p>Les paniers A = 2 parts + 1 biscuit et B = 1 part + 2 biscuits donnent tous deux U = √2 : même courbe d'indifférence. C = 2 + 2 donne U = 2 : préféré. La racine carrée intègre l'<b>utilité marginale décroissante</b>. Avec 2 parts de pizza fixes :</p>"
+        '<div class="table-wrap"><table><thead><tr><th class="num">Biscuits</th><th class="num">1</th><th class="num">2</th><th class="num">3</th><th class="num">4</th></tr></thead><tbody>'
+        '<tr><td>U = √(2C)</td><td class="num">1,41</td><td class="num">2,00</td><td class="num">2,45</td><td class="num">2,83</td></tr>'
+        '<tr><td>Utilité marginale</td><td class="num">1,41</td><td class="num">0,59</td><td class="num">0,45</td><td class="num">0,38</td></tr></tbody></table></div>'
+        "<p>L'utilité est <b>ordinale</b> : S·C ou S²·C² classeraient les paniers de la même façon.</p>")),
+    gx(2, 57, ("The MRS along one indifference curve", "Le TMS le long d'une courbe d'indifférence"),
+       ("<p>MRS = −MU<sub>C</sub>/MU<sub>S</sub> = −S/C for U = √(SC). On the curve U = 2:</p>"
+        "<ul><li>(4 slices, 1 cookie): MRS = −4. You're full of pizza and would give up 4 slices for one cookie.</li><li>(2, 2): MRS = −1.</li><li>(1 slice, 4 cookies): MRS = −1/4.</li></ul>"
+        "<p>The MRS falls as you slide down the curve: that is why indifference curves are convex. Same logic as the H/N ratio in this lesson's food–clothing example.</p>",
+        "<p>TMS = −Um<sub>C</sub>/Um<sub>S</sub> = −S/C pour U = √(SC). Sur la courbe U = 2 :</p>"
+        "<ul><li>(4 parts, 1 biscuit) : TMS = −4. Rassasié de pizza, vous céderiez 4 parts pour un biscuit.</li><li>(2, 2) : TMS = −1.</li><li>(1 part, 4 biscuits) : TMS = −1/4.</li></ul>"
+        "<p>Le TMS diminue quand on descend le long de la courbe : c'est pourquoi les courbes d'indifférence sont convexes. Même logique que le rapport H/N de l'exemple alimentation–vêtements de cette leçon.</p>")),
+    gx(3, 11, ("Weight Watchers is a budget constraint", "Weight Watchers est une contrainte budgétaire"),
+       ("<p>Diets fail; a <b>points budget</b> works. With 30 points a day: Big Mac (14) + fries (10) + Coke (6) = 30, the whole day gone at lunch. Nuggets (12) + apple slices (1) + Diet Coke (0) = 13, less than half. Prices need not be money: any scarce resource defines a budget line.</p>",
+        "<p>Les régimes échouent ; un <b>budget de points</b> fonctionne. Avec 30 points par jour : Big Mac (14) + frites (10) + Coca (6) = 30, toute la journée dépensée au déjeuner. Nuggets (12) + pommes (1) + Coca light (0) = 13, moins de la moitié. Les prix ne sont pas forcément monétaires : toute ressource rare définit une droite de budget.</p>")),
+    gx(3, 29, ("Finding the optimum: 4S + 2C = 24", "Trouver l'optimum : 4S + 2C = 24"),
+       ("<p>Income $24, a slice costs $4, a cookie $2, U = √(SC). The tangency condition MRS = price ratio gives S/C = 2/4, so C = 2S.</p>"
+        + steps(["Substitute into the budget: 4S + 2(2S) = 24 ⟹ 8S = 24 ⟹ <b>S = 3</b>, <b>C = 6</b> (point D, U = √18).", "A = (2 cookies, 5 slices) is on the budget line but has U = √10. There the MRS is 5/2 = 2.5: you'd give 2.5 slices for a cookie that the market sells for ½ slice, so buy more cookies.", "B = (10 cookies, 1 slice): MRS = 1/10, so the reverse; C = (2, 1) leaves money unspent."])
+        + "<p>Equivalent “bang for the buck” form: MU<sub>C</sub>/p<sub>C</sub> = MU<sub>S</sub>/p<sub>S</sub>.</p>",
+        "<p>Revenu 24 $, une part coûte 4 $, un biscuit 2 $, U = √(SC). La condition de tangence TMS = rapport des prix donne S/C = 2/4, donc C = 2S.</p>"
+        + steps(["Dans le budget : 4S + 2(2S) = 24 ⟹ 8S = 24 ⟹ <b>S = 3</b>, <b>C = 6</b> (point D, U = √18).", "A = (2 biscuits, 5 parts) est sur la droite de budget mais U = √10. Le TMS y vaut 5/2 = 2,5 : vous céderiez 2,5 parts pour un biscuit que le marché vend ½ part, donc achetez plus de biscuits.", "B = (10 biscuits, 1 part) : TMS = 1/10, donc l'inverse ; C = (2, 1) laisse de l'argent inutilisé."])
+        + "<p>Forme équivalente « rendement par euro » : Um<sub>C</sub>/p<sub>C</sub> = Um<sub>S</sub>/p<sub>S</sub>.</p>")),
+    fig(svg_g_cookies, ("Orange: budget line 4S + 2C = 24. The optimum D is where the highest reachable indifference curve (SC = 18) is tangent to it. A and B are affordable but on a lower curve (dashed, SC = 10); C wastes money.",
+                        "En orange : la droite de budget 4S + 2C = 24. L'optimum D est le point où la plus haute courbe d'indifférence accessible (SC = 18) lui est tangente. A et B sont accessibles mais sur une courbe plus basse (pointillés, SC = 10) ; C gaspille de l'argent.")),
+    gx(3, 67, ("Food stamps (SNAP) vs cash", "Bons alimentaires (SNAP) contre cash"),
+       ("<p>Income $5,000; food and shelter both priced at 1. Give $500 in cash: the budget line shifts out in parallel. Person X (loves shelter) moves from $4,800 shelter + $200 food to $5,200 + $300. Now give a $500 card usable only for food: the budget line gets a flat segment and a <b>kink</b>.</p>"
+        "<ul><li>Person Y already spends far more than $500 on food: money is fungible, so the card is just like cash for Y.</li><li>Person X is forced to the kink ($5,000 shelter + $500 food) and ends on a lower indifference curve than with cash.</li></ul>"
+        "<p>Evidence: each $1 of SNAP raises food spending by only about $0.15. Cash grants in Uganda ($150) doubled recipients' earnings 18 months later.</p>",
+        "<p>Revenu 5 000 $ ; alimentation et logement coûtent 1. Donnez 500 $ en cash : la droite de budget se déplace parallèlement. La personne X (qui préfère le logement) passe de 4 800 $ de logement + 200 $ d'alimentation à 5 200 + 300 $. Donnez maintenant une carte de 500 $ utilisable uniquement en alimentation : la droite de budget a un segment plat et un <b>coude</b>.</p>"
+        "<ul><li>La personne Y dépense déjà bien plus de 500 $ en alimentation : l'argent est fongible, la carte équivaut au cash pour Y.</li><li>La personne X est contrainte au coude (5 000 $ de logement + 500 $ d'alimentation) et finit sur une courbe d'indifférence plus basse qu'avec du cash.</li></ul>"
+        "<p>Résultats empiriques : chaque dollar de SNAP n'augmente les dépenses alimentaires que d'environ 0,15 $. Des transferts de 150 $ en Ouganda ont doublé les revenus des bénéficiaires 18 mois plus tard.</p>")),
+    fig(svg_g_snap, ("In-kind aid can never beat cash: X prefers the cash bundle to the SNAP kink (the flat segment ends at $500 of food). Beyond the kink the SNAP line coincides with the cash line. (Not to scale, as in the lecture.)",
+                     "Une aide en nature ne fait jamais mieux que du cash : X préfère le panier cash au coude SNAP (le segment plat s\'arrête à 500 $ d\'alimentation). Après le coude, la droite SNAP se confond avec la droite cash. (Pas à l'échelle, comme au cours.)")),
+    gx(4, 3, ("From choices to a demand curve", "Des choix à la courbe de demande"),
+       ("<p>Keep income $24 and pizza at $4, and change the price of cookies:</p>"
+        '<div class="table-wrap"><table><thead><tr><th class="num">p<sub>C</sub></th><th class="num">4/3</th><th class="num">2</th><th class="num">3</th></tr></thead><tbody><tr><td>Cookies chosen</td><td class="num">9</td><td class="num">6</td><td class="num">4</td></tr><tr><td>Slices chosen</td><td class="num">3</td><td class="num">3</td><td class="num">3</td></tr></tbody></table></div>'
+        "<p>Plotting (price, cookies) gives the demand curve C = 12/p<sub>C</sub>: each optimum is one point on it.</p>",
+        "<p>Gardez un revenu de 24 $ et la pizza à 4 $, et changez le prix des biscuits :</p>"
+        '<div class="table-wrap"><table><thead><tr><th class="num">p<sub>C</sub></th><th class="num">4/3</th><th class="num">2</th><th class="num">3</th></tr></thead><tbody><tr><td>Biscuits choisis</td><td class="num">9</td><td class="num">6</td><td class="num">4</td></tr><tr><td>Parts choisies</td><td class="num">3</td><td class="num">3</td><td class="num">3</td></tr></tbody></table></div>'
+        "<p>En traçant (prix, biscuits), on obtient la courbe de demande C = 12/p<sub>C</sub> : chaque optimum en est un point.</p>")),
+    gx(4, 57, ("Substitution and income effects", "Effets de substitution et de revenu"),
+       ("<p>The cookie price rises from $2 to $3; cookies fall from 6 to 4. Split the −2:</p>"
+        + steps(["<b>Substitution effect</b>: pivot an imaginary budget line with the new price ratio until it touches the <i>old</i> indifference curve (SC = 18): cookies fall from 6 to √24 ≈ 4.90 (−1.10).", "<b>Income effect</b>: you are poorer in real terms, so you move to the actual new budget: 4.90 → 4 (−0.90).", "Total −2. For a normal good both effects point the same way."])
+        + "<p>For an <b>inferior</b> good (his steak-and-potatoes example), the income effect goes the other way; a Giffen good, where it wins, is almost never seen in reality.</p>",
+        "<p>Le prix du biscuit passe de 2 $ à 3 $ ; les biscuits passent de 6 à 4. Décomposons le −2 :</p>"
+        + steps(["<b>Effet de substitution</b> : on fait pivoter une droite de budget fictive au nouveau rapport de prix jusqu'à toucher l'<i>ancienne</i> courbe d'indifférence (SC = 18) : les biscuits passent de 6 à √24 ≈ 4,90 (−1,10).", "<b>Effet revenu</b> : vous êtes plus pauvre en termes réels, vous passez au vrai nouveau budget : 4,90 → 4 (−0,90).", "Total −2. Pour un bien normal, les deux effets vont dans le même sens."])
+        + "<p>Pour un bien <b>inférieur</b> (son exemple steak et pommes de terre), l'effet revenu va dans l'autre sens ; un bien Giffen, où il l'emporte, ne s'observe presque jamais.</p>")),
+    gx(25, 21, ("Behavioural economics: $100 now or $125 later?", "Économie comportementale : 100 $ maintenant ou 125 $ plus tard ?"),
+       ("<p>Most people take $100 today over $125 in a year, but prefer $125 in three years over $100 in two. Standard (exponential) discounting can't explain this; the β–δ model can. With δ = 0.9 and β = 0.6:</p>"
+        "<ul><li>Two future dates: β cancels, 125 × 0.9 = 112.5 &gt; 100, so wait.</li><li>Today vs next year: 125 × 0.9 × 0.6 = 67.5 &lt; 100, so take the money now.</li></ul>"
+        "<p>Other examples from the same lecture: the endowment effect (people given a mug want about $7 to sell it, while buyers offer about $3) and defaults (automatic enrolment raised pension-plan participation among young workers from about 20% to 80%).</p>",
+        "<p>La plupart des gens préfèrent 100 $ aujourd'hui à 125 $ dans un an, mais 125 $ dans trois ans à 100 $ dans deux ans. L'actualisation standard (exponentielle) ne l'explique pas ; le modèle β–δ, si. Avec δ = 0,9 et β = 0,6 :</p>"
+        "<ul><li>Deux dates futures : β se simplifie, 125 × 0,9 = 112,5 &gt; 100, donc attendre.</li><li>Aujourd'hui contre l'an prochain : 125 × 0,9 × 0,6 = 67,5 &lt; 100, donc prendre l'argent tout de suite.</li></ul>"
+        "<p>Autres exemples du même cours : l'effet de dotation (ceux qui reçoivent une tasse en demandent environ 7 $ pour la vendre, les acheteurs en offrent environ 3 $) et les options par défaut (l'adhésion automatique a fait passer la participation des jeunes salariés au plan de pension d'environ 20 % à 80 %).</p>")),
+], more=[(2, ("Preferences, the three axioms, indifference curves, U = √(SC), diminishing MU and the MRS.", "Préférences, les trois axiomes, courbes d'indifférence, U = √(SC), Um décroissante et TMS.")),
+         (3, ("Budget lines, price and income changes, the optimum, and SNAP vs cash.", "Droites de budget, changements de prix et de revenu, l'optimum, SNAP contre cash.")),
+         (4, ("Deriving demand, income and substitution effects, inferior and Giffen goods.", "Dériver la demande, effets revenu et substitution, biens inférieurs et Giffen.")),
+         (25, ("Behavioural economics: self-control, β–δ discounting, loss aversion, defaults and nudges (links to this lesson's critiques).", "Économie comportementale : maîtrise de soi, actualisation β–δ, aversion aux pertes, défauts et nudges (lien avec les critiques de cette leçon)."))])
+
+# ---- 4.1 costs
+MIT["lessons/s4-couts.html"] = dict(top=[5, 6], ex=[
+    gx(5, 32, ("Digging a hole with one shovel", "Creuser un trou avec une seule pelle"),
+       ("<p>Capital is fixed at one shovel (short run). A second worker almost doubles output (shifts can alternate). A third adds less; by the 100th worker people mostly stand around. 100 workers still dig faster than 90, but the 100th adds far less than the 2nd: the <b>marginal product of labour is positive but diminishing</b>. The long-run fix: buy more shovels.</p>",
+        "<p>Le capital est fixé à une pelle (court terme). Un deuxième ouvrier double presque la production (on peut se relayer). Un troisième ajoute moins ; au 100e, la plupart regardent. 100 ouvriers creusent encore plus vite que 90, mais le 100e ajoute bien moins que le 2e : la <b>productivité marginale du travail est positive mais décroissante</b>. La solution de long terme : acheter plus de pelles.</p>")),
+    gx(5, 49, ("Isoquants for q = √(L·K)", "Isoquantes pour q = √(L·K)"),
+       ("<p>MP<sub>L</sub> = ½√(K/L), MP<sub>K</sub> = ½√(L/K), so the <b>MRTS</b> = −MP<sub>L</sub>/MP<sub>K</sub> = −K/L. With 4 shovels and 1 worker, MRTS = −4: you would give up 4 shovels for one more worker. With 1 shovel and 4 workers, −1/4. Special cases mirror consumer theory: perfect substitutes (q = x + y, straight isoquants) and perfect complements like cereal and cereal boxes (q = min(x, y), L-shaped).</p>"
+        + sol("Does q = √(LK) have increasing, constant or decreasing returns to scale?", "Constant: √(2L·2K) = 2√(LK). Doubling both inputs exactly doubles output."),
+        "<p>Pm<sub>L</sub> = ½√(K/L), Pm<sub>K</sub> = ½√(L/K), donc le <b>TMST</b> = −Pm<sub>L</sub>/Pm<sub>K</sub> = −K/L. Avec 4 pelles et 1 ouvrier, TMST = −4 : vous céderiez 4 pelles pour un ouvrier de plus. Avec 1 pelle et 4 ouvriers, −1/4. Les cas particuliers reprennent la théorie du consommateur : substituts parfaits (q = x + y, isoquantes droites) et compléments parfaits comme les céréales et leurs boîtes (q = min(x, y), en L).</p>"
+        + sol("q = √(LK) a-t-elle des rendements d'échelle croissants, constants ou décroissants ?", "Constants : √(2L·2K) = 2√(LK). Doubler les deux facteurs double exactement la production."))),
+    gx(5, 68, ("Malthus was wrong: productivity", "Malthus s'est trompé : la productivité"),
+       ("<p>In 1798 Malthus argued that with fixed land, the falling marginal product of labour would bring recurring famines. Instead, world population rose about eightfold and food per person has risen since 1950. What he missed was technology: write q = A·f(L, K), where A is productivity (fertiliser, machines, better seeds). US productivity grew about 2.5% a year from WWII to 1973, under 1% until the mid-1990s, about 2.3% during the IT boom, and a little over 1% since 2005.</p>",
+        "<p>En 1798, Malthus soutenait qu'avec une terre fixe, la baisse de la productivité marginale du travail entraînerait des famines récurrentes. En réalité, la population mondiale a été multipliée par huit environ et la nourriture par habitant augmente depuis 1950. Il a négligé la technologie : on écrit q = A·f(L, K), où A est la productivité (engrais, machines, meilleures semences). La productivité américaine a crû d'environ 2,5 % par an de la Seconde Guerre mondiale à 1973, de moins de 1 % jusqu'au milieu des années 1990, d'environ 2,3 % pendant le boom informatique et d'un peu plus de 1 % depuis 2005.</p>")),
+    gx(6, 6, ("From production function to cost curves", "De la fonction de production aux courbes de coût"),
+       ("<p>q = √(LK), wage w = $5, rental rate r = $10, capital fixed at K = 1 in the short run.</p>"
+        + steps(["Invert: L = q²/K = q².", "C(q) = rK + wL = <b>10 + 5q²</b>: fixed cost 10, variable cost 5q².", "MC = dC/dq = <b>10q</b>; AVC = 5q; AFC = 10/q; AC = 10/q + 5q.", "AC is minimised where MC = AC: 10q = 10/q + 5q ⟹ q = √2 ≈ 1.41, AC ≈ 14.14 (the lecture reads ≈ 1.5 off the graph)."])
+        + "<p>Also: MC = w/MP<sub>L</sub>: marginal cost rises with the wage and falls with worker productivity.</p>",
+        "<p>q = √(LK), salaire w = 5 $, loyer du capital r = 10 $, capital fixé à K = 1 à court terme.</p>"
+        + steps(["On inverse : L = q²/K = q².", "C(q) = rK + wL = <b>10 + 5q²</b> : coût fixe 10, coût variable 5q².", "Cm = dC/dq = <b>10q</b> ; CVM = 5q ; CFM = 10/q ; CM = 10/q + 5q.", "Le CM est minimal là où Cm = CM : 10q = 10/q + 5q ⟹ q = √2 ≈ 1,41, CM ≈ 14,14 (le cours lit ≈ 1,5 sur le graphique)."])
+        + "<p>Aussi : Cm = w/Pm<sub>L</sub> : le coût marginal augmente avec le salaire et diminue avec la productivité des ouvriers.</p>")),
+    gx(6, 24, ("Sunk costs: the Journey concert tickets", "Coûts irrécupérables : les billets du concert de Journey"),
+       ("<p>Gruber paid $250 for two tickets, then realised he only likes three of the band's songs. What price should he ask on StubHub? The $250 is <b>sunk</b>, so it is irrelevant. His reservation price is the value of going: if he'd only go for $50 a ticket, he should sell at anything above $50, and if buyers offer $500 he sells at $500. A fixed cost (a building) can be resold; a sunk cost (medical school) cannot.</p>",
+        "<p>Gruber a payé 250 $ deux billets, puis s'est rendu compte qu'il n'aime que trois chansons du groupe. Quel prix demander sur StubHub ? Les 250 $ sont <b>irrécupérables</b>, donc sans importance. Son prix de réserve est la valeur d'y aller : s'il n'irait que pour 50 $ le billet, il doit vendre à tout prix supérieur à 50 $, et si on lui offre 500 $ il vend à 500 $. Un coût fixe (un bâtiment) se revend ; un coût irrécupérable (les études de médecine), non.</p>")),
+    gx(6, 50, ("Short run vs long run: Tesla's battery plant", "Court terme et long terme : l'usine de batteries de Tesla"),
+       ("<p>Tesla sized its battery capacity for about 20,000 cars, then faced a waiting list of 200,000. In the short run it was stuck on a small plant's cost curve; in the long run it built the giant Nevada plant (sized for about 500,000 cars a year). The long-run average cost curve is the <b>envelope</b> of the short-run curves: in the long run you can always choose the best plant size, so long-run cost ≤ short-run cost.</p>",
+        "<p>Tesla avait dimensionné sa capacité de batteries pour environ 20 000 voitures, puis a eu une liste d'attente de 200 000. À court terme, elle était bloquée sur la courbe de coût d'une petite usine ; à long terme, elle a construit l'usine géante du Nevada (prévue pour environ 500 000 voitures par an). La courbe de coût moyen de long terme est l'<b>enveloppe</b> des courbes de court terme : à long terme, on peut toujours choisir la meilleure taille d'usine, donc coût de long terme ≤ coût de court terme.</p>")),
+    gx(6, 60, ("Cost minimisation: isocost meets isoquant", "Minimisation des coûts : isocoût et isoquante"),
+       ("<p>With w = 5 and r = 10, isocost lines have slope −w/r = −½ ($50 buys 10 workers or 5 machines). Tangency: MRTS = w/r ⟹ K/L = ½.</p>"
+        + steps(["$50 budget: 5L + 10(L/2) = 50 ⟹ L = 5, K = 2.5, q = √12.5 ≈ 3.54.", "$100: L = 10, K = 5, q ≈ 7.07.", "$150: L = 15, K = 7.5, q ≈ 10.61."])
+        + "<p>Joining these points gives the <b>expansion path</b> (straight here, K/L = ½). Corrected values from the handout; the spoken version mixes some of them up.</p>",
+        "<p>Avec w = 5 et r = 10, les isocoûts ont une pente −w/r = −½ (50 $ achètent 10 ouvriers ou 5 machines). Tangence : TMST = w/r ⟹ K/L = ½.</p>"
+        + steps(["Budget 50 $ : 5L + 10(L/2) = 50 ⟹ L = 5, K = 2,5, q = √12,5 ≈ 3,54.", "100 $ : L = 10, K = 5, q ≈ 7,07.", "150 $ : L = 15, K = 7,5, q ≈ 10,61."])
+        + "<p>Relier ces points donne le <b>sentier d'expansion</b> (droit ici, K/L = ½). Valeurs corrigées d'après le polycopié ; la version orale en confond certaines.</p>")),
+], more=[(5, ("Production functions, diminishing marginal product, isoquants and the MRTS, returns to scale, productivity.", "Fonctions de production, productivité marginale décroissante, isoquantes et TMST, rendements d'échelle, productivité.")),
+         (6, ("Cost functions from q = √(LK), sunk costs, short vs long run, isocosts and the expansion path, economic vs accounting cost.", "Fonctions de coût à partir de q = √(LK), coûts irrécupérables, court et long terme, isocoûts et sentier d'expansion, coût économique et comptable."))])
+
+# ---- 4.2 perfect competition
+MIT["lessons/s4-concurrence-parfaite.html"] = dict(top=[7, 8, 6], ex=[
+    gx(7, 13, ("Is eBay perfect competition? The Eiffel Tower keychains", "eBay, de la concurrence parfaite ? Les porte-clés de la tour Eiffel"),
+       ("<p>Perfect competition needs identical products, full information and no transaction costs. eBay looks close, but for years it ranked listings by price <i>excluding</i> shipping (a hidden cost), and products are rarely identical. A closer case: hundreds of vendors selling identical Eiffel Tower keychains on blankets. Next to the tower they all charge the same price; farther away prices differ, because location makes the product different.</p>",
+        "<p>La concurrence parfaite exige des produits identiques, une information complète et aucun coût de transaction. eBay semble s'en approcher, mais il a longtemps classé les annonces par prix <i>hors</i> frais de port (un coût caché), et les produits sont rarement identiques. Un cas plus proche : des centaines de vendeurs de porte-clés tour Eiffel identiques sur des couvertures. Au pied de la tour, tous pratiquent le même prix ; plus loin, les prix diffèrent, car l'emplacement différencie le produit.</p>")),
+    gx(7, 24, ("Profit maximisation with C = 10 + 5q² and p = 30", "Maximisation du profit avec C = 10 + 5q² et p = 30"),
+       ("<p>The firm from Lecture 6 sells at the market price p = 30.</p>"
+        + steps(["p = MC: 30 = 10q ⟹ <b>q* = 3</b>.", "AC(3) = 10/3 + 15 = 18.33; margin per unit = 30 − 18.33 = 11.67.", "Profit = TR − TC = 90 − 55 = <b>35</b>. (The lecture says 40; the correct figure is 35.)"])
+        + "<p>Gruber's metaphor: climbing a mountain in the clouds, you can see only one step ahead, so you keep climbing while the next step goes up (MR &gt; MC) and stop at the top.</p>",
+        "<p>La firme du cours 6 vend au prix de marché p = 30.</p>"
+        + steps(["p = Cm : 30 = 10q ⟹ <b>q* = 3</b>.", "CM(3) = 10/3 + 15 = 18,33 ; marge unitaire = 30 − 18,33 = 11,67.", "Profit = RT − CT = 90 − 55 = <b>35</b>. (Le cours dit 40 ; le bon chiffre est 35.)"])
+        + "<p>La métaphore de Gruber : en gravissant une montagne dans les nuages, on ne voit qu'un pas devant soi ; on continue tant que le pas suivant monte (Rm &gt; Cm) et on s'arrête au sommet.</p>")),
+    fig(svg_g_cost, ("Gruber's firm at p = 30: q* = 3 where p = MC; the shaded rectangle (30 − 18.33) × 3 = 35 is profit. Minimum AC (14.14 at q ≈ 1.41) is the long-run price.",
+                     "La firme de Gruber à p = 30 : q* = 3 là où p = Cm ; le rectangle (30 − 18,33) × 3 = 35 est le profit. Le CM minimal (14,14 en q ≈ 1,41) est le prix de long terme.")),
+    gx(7, 36, ("Two stress tests: a $10 tax per unit, then p = 10", "Deux tests : une taxe de 10 $ par unité, puis p = 10"),
+       ("<p>Try them before opening the solutions.</p>"
+        + sol("A $10 per-unit tax: new q* and profit?", "Cost becomes 10 + 5q² + 10q (not 20 + 5q², which would be a lump-sum tax). MC = 10q + 10 = 30 ⟹ q* = 2. TR = 60, TC = 10 + 20 + 20 = 50, profit = 10 (down from 35).")
+        + sol("No tax, but the price falls to 10. Produce or shut down?", "MC = 10q = 10 ⟹ q = 1. Profit = 10 − 15 = −5. Shutting down gives −10 (the fixed cost). Keep producing: losing 5 beats losing 10. Since AVC = 5q = p/2 &lt; p at the optimum, this firm never shuts down."),
+        "<p>Essayez avant d'ouvrir les solutions.</p>"
+        + sol("Une taxe de 10 $ par unité : nouveaux q* et profit ?", "Le coût devient 10 + 5q² + 10q (et non 20 + 5q², qui serait une taxe forfaitaire). Cm = 10q + 10 = 30 ⟹ q* = 2. RT = 60, CT = 10 + 20 + 20 = 50, profit = 10 (contre 35).")
+        + sol("Sans taxe, le prix tombe à 10. Produire ou fermer ?", "Cm = 10q = 10 ⟹ q = 1. Profit = 10 − 15 = −5. Fermer donne −10 (le coût fixe). Continuer : perdre 5 vaut mieux que perdre 10. Comme CVM = 5q = p/2 &lt; p à l'optimum, cette firme ne ferme jamais."))),
+    gx(7, 73, ("From one firm to the market equilibrium", "D'une firme à l'équilibre de marché"),
+       ("<p>Each firm's supply is its MC curve: q = p/10. With 6 identical firms, market supply is Q = 0.6p. Demand is Q = 48 − p.</p>"
+        + steps(["48 − p = 0.6p ⟹ 1.6p = 48 ⟹ <b>p* = 30</b>, <b>Q* = 18</b>.", "Each firm makes 18/6 = 3, consistent with p = MC (10 × 3 = 30).", "Each earns a profit of 35, which will attract entry in the long run."]),
+        "<p>L'offre de chaque firme est sa courbe de Cm : q = p/10. Avec 6 firmes identiques, l'offre de marché est Q = 0,6p. La demande est Q = 48 − p.</p>"
+        + steps(["48 − p = 0,6p ⟹ 1,6p = 48 ⟹ <b>p* = 30</b>, <b>Q* = 18</b>.", "Chaque firme produit 18/6 = 3, cohérent avec p = Cm (10 × 3 = 30).", "Chacune fait un profit de 35, ce qui attirera des entrants à long terme."]))),
+    gx(8, 9, ("Entry and exit: PCs and mainframes", "Entrée et sortie : PC et ordinateurs centraux"),
+       ("<p>Around 1990 PC makers like Dell earned profits, so new firms entered: market supply flattened, the price fell, and each firm's output <i>fell</i> while total output rose, until profit reached zero. The reverse for mainframes: demand fell, firms such as IBM made losses (but stayed above shutdown), some (DEC) exited, and the price recovered to p = min AC. In the long run, p = MC = AC, so every firm produces at <b>minimum average cost</b> and long-run supply is flat at that price (14.14 for the Lecture 6–7 firm).</p>",
+        "<p>Vers 1990, les fabricants de PC comme Dell faisaient des profits, donc de nouvelles firmes sont entrées : l'offre de marché s'est aplatie, le prix a baissé et la production de chaque firme a <i>diminué</i> alors que la production totale augmentait, jusqu'à un profit nul. L'inverse pour les ordinateurs centraux : la demande a baissé, des firmes comme IBM ont fait des pertes (en restant au-dessus du seuil de fermeture), certaines (DEC) sont sorties, et le prix est remonté à p = min CM. À long terme, p = Cm = CM : chaque firme produit au <b>coût moyen minimal</b> et l'offre de long terme est horizontale à ce prix (14,14 pour la firme des cours 6–7).</p>")),
+    gx(8, 39, ("Why some firms keep profits: cotton producers", "Pourquoi certaines firmes gardent des profits : le coton"),
+       ("<p>Cost per kg differs across countries: Pakistan $0.71, Argentina $1.08, Australia $1.15, US $1.56. If world demand is small, Pakistan supplies everything at $0.71 and profit is zero. If demand is large enough to need US cotton, the price rises to the US cost of $1.56: the US earns zero, but Pakistan earns 1.56 − 0.71 = <b>$0.85 per kg</b>. This is the Ricardian rent from this lesson. The other two reasons for long-run profits or an upward-sloping supply curve are barriers to entry (sunk costs, patents) and input prices that rise with industry output.</p>",
+        "<p>Le coût par kg diffère selon les pays : Pakistan 0,71 $, Argentine 1,08 $, Australie 1,15 $, États-Unis 1,56 $. Si la demande mondiale est faible, le Pakistan fournit tout à 0,71 $ et le profit est nul. Si elle est assez forte pour nécessiter du coton américain, le prix monte au coût américain de 1,56 $ : les États-Unis gagnent zéro, mais le Pakistan gagne 1,56 − 0,71 = <b>0,85 $ par kg</b>. C'est la rente ricardienne de cette leçon. Les deux autres raisons de profits durables ou d'une offre croissante : les barrières à l'entrée (coûts irrécupérables, brevets) et les prix des facteurs qui augmentent avec la production du secteur.</p>")),
+    gx(6, 91, ("Economic vs accounting profit: the web-design start-up", "Profit économique et comptable : la start-up de création web"),
+       ("<p>After graduating you run a web-design firm for a year, hire a programmer for $40,000 and lend them your spare computer. Revenue: $60,000.</p>"
+        + steps(["Accounting profit: 60,000 − 40,000 = <b>$20,000</b>.", "Economic costs also include your forgone salary ($100,000) and the computer's forgone resale value ($1,000): 40,000 + 100,000 + 1,000 = $141,000.", "Economic profit: 60,000 − 141,000 = <b>−$81,000</b>. Economic profit = accounting profit − opportunity costs."]),
+        "<p>Après votre diplôme, vous lancez une entreprise de création web pour un an, engagez un programmeur pour 40 000 $ et lui prêtez votre ordinateur de rechange. Recettes : 60 000 $.</p>"
+        + steps(["Profit comptable : 60 000 − 40 000 = <b>20 000 $</b>.", "Les coûts économiques incluent aussi votre salaire auquel vous renoncez (100 000 $) et la valeur de revente perdue de l'ordinateur (1 000 $) : 40 000 + 100 000 + 1 000 = 141 000 $.", "Profit économique : 60 000 − 141 000 = <b>−81 000 $</b>. Profit économique = profit comptable − coûts d'opportunité."]))),
+], more=[(7, ("Market structures, price-takers, p = MC, the tax and shutdown tests, the firm and market supply curves.", "Structures de marché, preneurs de prix, p = Cm, tests de la taxe et de la fermeture, courbes d'offre de la firme et du marché.")),
+         (8, ("Long-run competition: entry and exit, zero profit, why profits can persist; second half on whether managers really maximise profit (CEO pay, stock options, Enron).", "Concurrence à long terme : entrée et sortie, profit nul, pourquoi des profits peuvent persister ; seconde moitié sur la question de savoir si les dirigeants maximisent vraiment le profit (salaires des PDG, stock-options, Enron).")),
+         (6, ("Final minutes: economic vs accounting cost (the start-up example).", "Dernières minutes : coût économique et comptable (l'exemple de la start-up)."))])
+
+# upcoming topics: links only
+MIT_UPCOMING = {
+    "lessons/monopole.html": [(11, ("What a monopoly is, how it maximises profit, and its welfare cost.", "Ce qu'est un monopole, comment il maximise son profit, et son coût en bien-être.")),
+                              (12, ("Where monopolies come from (incl. natural monopolies), how to address them, contestable markets.", "D'où viennent les monopoles (y compris naturels), comment y remédier, marchés contestables."))],
+    "lessons/oligopole-jeux.html": [(13, ("Oligopoly (e.g. the car industry), game theory, cooperation vs competition, the Cournot model.", "Oligopole (ex. l'automobile), théorie des jeux, coopération ou concurrence, le modèle de Cournot.")),
+                                    (14, ("Cartels and price competition.", "Cartels et concurrence par les prix."))],
+}
+
+
+def apply_mit(path, blocks):
+    if path in MIT_UPCOMING:
+        return blocks + [mit_more(MIT_UPCOMING[path])]
+    if path not in MIT:
+        return blocks
+    m = MIT[path]
+    blocks = list(blocks)
+    blocks.insert(1, mit_top(m["top"]))
+    section = [mit_head()] + m["ex"]
+    for i in range(len(blocks) - 1, -1, -1):
+        b = blocks[i]
+        if isinstance(b, tuple) and "<h2>Check yourself</h2>" in b[0]:
+            ie, jf = b[0].index("<h2>Check yourself</h2>"), b[1].index("<h2>Testez-vous</h2>")
+            pre, post = (b[0][:ie], b[1][:jf]), (b[0][ie:], b[1][jf:])
+            blocks[i:i + 1] = ([pre] if pre[0].strip() else []) + section + [post]
+            break
+    else:
+        blocks += section
+    return blocks + [mit_more(m["more"])]
 
 
 os.makedirs(os.path.join(SITE, "lessons"), exist_ok=True)
