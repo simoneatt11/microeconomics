@@ -1,16 +1,17 @@
-// Single source of truth for the site index. Edit this list to change the sidebar.
-// Each entry: [file, English title, French title]
-const LESSONS = [
-  ["01-introduction.html", "Introduction & Scarcity", "Introduction et rareté"],
-  ["02-supply-demand.html", "Supply and Demand", "Offre et demande"],
-  ["03-elasticity.html", "Elasticity", "Élasticité"],
-  ["04-consumer-choice.html", "Consumer Choice & Utility", "Choix du consommateur et utilité"],
-  ["05-production-costs.html", "Production and Costs", "Production et coûts"],
-  ["06-perfect-competition.html", "Perfect Competition", "Concurrence parfaite"],
-  ["07-monopoly.html", "Monopoly", "Monopole"],
-  ["08-oligopoly-game-theory.html", "Oligopoly & Game Theory", "Oligopole et théorie des jeux"],
-  ["09-factor-markets.html", "Factor Markets", "Marchés des facteurs"],
-  ["10-market-failures.html", "Market Failures & Public Goods", "Défaillances du marché et biens publics"],
+// Single source of truth for the site index. Edit NAV to change the sidebar.
+// Each item: [file in /lessons, English title, French title]
+const NAV = [
+  { en: "Session 1", fr: "Séance 1", num: "1", items: [
+    ["s1-pensee-economique.html", "History of economic thought", "Histoire de la pensée économique"],
+    ["s1-principes.html", "The 7 principles of economics", "Les 7 principes de l'économie"],
+    ["s1-echange.html", "Trade & comparative advantage", "Échange et avantage comparatif"],
+  ]},
+  { en: "Coming up", fr: "À venir", items: [
+    ["offre-demande.html", "Supply, demand & equilibrium", "Offre, demande et équilibre"],
+    ["concurrence-parfaite.html", "Perfect competition", "Concurrence parfaite"],
+    ["monopole.html", "Monopoly", "Monopole"],
+    ["oligopole-jeux.html", "Oligopoly & game theory", "Oligopole et théorie des jeux"],
+  ]},
 ];
 (function () {
   const t = (en, fr) => `<span class="en">${en}</span><span class="fr">${fr}</span>`;
@@ -18,29 +19,30 @@ const LESSONS = [
   const root = inLessons ? "../" : "";
   const here = location.pathname.split("/").pop() || "index.html";
   const link = (href, label, num) =>
-    `<a href="${href}"${href.endsWith(here) ? ' class="active"' : ""}>${num ? `<span class="num">${num}</span>` : ""}<span>${label}</span></a>`;
+    `<a href="${href}"${href.split("/").pop() === here ? ' class="active"' : ""}>${num ? `<span class="num">${num}</span>` : ""}<span>${label}</span></a>`;
 
   const aside = document.createElement("aside");
   aside.className = "sidebar";
   aside.innerHTML =
-    `<a class="brand" href="${root}index.html">${t("Microeconomics", "Microéconomie")}<small>${t("Study notes", "Notes d'étude")}</small></a><nav>` +
+    `<a class="brand" href="${root}index.html">${t("Microeconomics", "Microéconomie")}<small>MSG 1 · SBS / ULB</small></a><nav>` +
     link(root + "index.html", t("Home", "Accueil")) +
     link(root + "syllabus.html", t("Syllabus", "Programme du cours")) +
-    `<div class="nav-section">${t("Lessons", "Leçons")}</div>` +
-    LESSONS.map(([f, en, fr], i) => link(root + "lessons/" + f, t(en, fr), String(i + 1).padStart(2, "0"))).join("") +
+    NAV.map((s) => `<div class="nav-section">${t(s.en, s.fr)}</div>` +
+      s.items.map(([f, en, fr], i) => link(root + "lessons/" + f, t(en, fr), s.num ? `${s.num}.${i + 1}` : "·")).join("")).join("") +
     `</nav>`;
   document.querySelector(".layout").prepend(aside);
 
   const btn = document.createElement("button");
   btn.className = "menu-btn";
-  btn.innerHTML = "☰ " + t("Lessons", "Leçons");
+  btn.innerHTML = "☰ " + t("Index", "Index");
   btn.onclick = () => aside.classList.toggle("open");
   document.body.prepend(btn);
 
-  // Prev/next pager on lesson pages
-  const i = LESSONS.findIndex(([f]) => f === here);
+  // Prev/next pager across all lessons
+  const all = NAV.flatMap((s) => s.items);
+  const i = all.findIndex(([f]) => f === here);
   if (i >= 0) {
-    const p = LESSONS[i - 1], n = LESSONS[i + 1];
+    const p = all[i - 1], n = all[i + 1];
     const pager = document.createElement("div");
     pager.className = "pager";
     pager.innerHTML =
