@@ -6,8 +6,11 @@ const NAV = [
     ["s1-principes.html", "The 7 principles of economics", "Les 7 principes de l'économie"],
     ["s1-echange.html", "Trade & comparative advantage", "Échange et avantage comparatif"],
   ]},
+  { en: "Session 2", fr: "Séance 2", num: "2", items: [
+    ["s2-offre-demande.html", "Supply, demand & equilibrium", "Offre, demande et équilibre"],
+    ["s2-elasticite.html", "Elasticity", "L'élasticité"],
+  ]},
   { en: "Coming up", fr: "À venir", items: [
-    ["offre-demande.html", "Supply, demand & equilibrium", "Offre, demande et équilibre"],
     ["concurrence-parfaite.html", "Perfect competition", "Concurrence parfaite"],
     ["monopole.html", "Monopoly", "Monopole"],
     ["oligopole-jeux.html", "Oligopoly & game theory", "Oligopole et théorie des jeux"],

@@ -96,3 +96,9 @@ details.q[open] summary{margin-bottom:6px}
 .tot button{border:1px solid var(--border);background:var(--soft);color:var(--text);font:inherit;font-size:.85rem;padding:5px 12px;border-radius:6px;cursor:pointer}
 .tot button:hover{border-color:var(--accent)}
 a.card:hover{border-color:var(--accent)}
+.formula{font-family:"Cambria Math","STIX Two Math",Georgia,serif;font-size:1.05rem;margin:8px 0}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 4px}
+.frac>span:first-child{border-bottom:1px solid currentColor;padding:0 4px 2px}
+.frac>span:last-child{padding:2px 4px 0}
+svg .lineT{stroke:var(--text);stroke-width:2.5;fill:none}
+.grid.g4{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
